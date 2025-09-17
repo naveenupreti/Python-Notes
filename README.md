@@ -29,11 +29,11 @@ At the end of this course, students will be able to:
 ---
 
 ## 🗂 Syllabus (short)
-1. **Unit 1:** Python Basics — Syntax, Variables, Operators, Control Flow  
-2. **Unit 2:** Strings, Functions, Modules  
-3. **Unit 3:** Lists, Tuples, Dictionaries, Sets  
-4. **Unit 4:** File Handling, Exception Handling  
-5. **Unit 5:** Intro to NumPy & Pandas, Basic Data Analysis
+1. **Unit 1:** Python Basics — Syntax, Variables, Operators, Coding Standards, Control Structures  
+2. **Unit 2:** Strings, Lists, Tuples  
+3. **Unit 3:** Dictionaries, Sets, Functions  
+4. **Unit 4:** Modules & Packages, File Handling   
+5. **Unit 5:** Exception Handling, Intro to NumPy & Pandas, Basic Data Analysis
 
 (Full unit details are available on the website via `syllabus.html` or the PDF in `syllabus/`.)
 
