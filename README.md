@@ -10,8 +10,8 @@ All resources are also available online via the following **GitHub Page**
 ---
 
 ## 📂 Repository Contents
-- **[Syllabus](./syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf)** → Detailed course syllabus (PDF) and full text on `syllabus.html`.  
-- **[Notes](./notes/)** → PDF notes for each unit.  
+- **[Syllabus](./Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf)** → Detailed course syllabus (PDF) and full text on `syllabus.html`.  
+- **[Notes](./Notes/)** → PDF notes for each unit.  
 - **[Programs](./programs/)** → Python practice scripts.  
 - **[Assignments](./assignments/)** → Practice questions & exercises (assignment1..assignment5).  
 - **[Downloads](./downloads/python_notes.zip)** → All notes in one zip file.  
