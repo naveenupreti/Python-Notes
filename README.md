@@ -6,6 +6,7 @@ This repository contains **syllabus, lecture notes, example programs, and assign
 All resources are also available online via the following **GitHub Page**  
 
 **https://github.com/naveenupreti/Python-Notes**
+
 ---
 
 ## 📂 Repository Contents
