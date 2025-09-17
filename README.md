@@ -3,14 +3,13 @@
 
 Welcome! 👋  
 This repository contains **syllabus, lecture notes, example programs, and assignments** for MCA students.  
-All resources are also available online via **GitHub Pages** (enable Pages in repo settings).  
-👉 Replace `your-username` below with your GitHub username to form the site link:
-https://your-username.github.io/python-notes/
+All resources are also available online via the following **GitHub Page**  
 
+https://github.com/naveenupreti/Python-Notes
 ---
 
 ## 📂 Repository Contents
-- **[Syllabus](./syllabus/BMC301_Python_Programming_Syllabus.pdf)** → Detailed course syllabus (PDF) and full text on `syllabus.html`.  
+- **[Syllabus](./syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf)** → Detailed course syllabus (PDF) and full text on `syllabus.html`.  
 - **[Notes](./notes/)** → PDF notes for each unit.  
 - **[Programs](./programs/)** → Python practice scripts.  
 - **[Assignments](./assignments/)** → Practice questions & exercises (assignment1..assignment5).  
