@@ -5,7 +5,7 @@ Welcome! 👋
 This repository contains **syllabus, lecture notes, example programs, and assignments** for MCA students.  
 All resources are also available online via the following **GitHub Page**  
 
-https://github.com/naveenupreti/Python-Notes
+**https://github.com/naveenupreti/Python-Notes**
 ---
 
 ## 📂 Repository Contents
