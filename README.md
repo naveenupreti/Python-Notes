@@ -42,7 +42,7 @@ At the end of this course, students will be able to:
 ## 🖥️ How to Use
 1. Open the `syllabus/` folder and read the syllabus PDF or `syllabus.html`.  
 2. Browse `notes/`, `programs/`, and `assignments/` folders to access content.  
-3. Download `.py` files and run them in Python (IDLE / VSCode / Jupyter).  
+3. Download `.py` files and run them in Python (IDLE / Thonny / VSCode / Jupyter).  
 4. Use the Downloads ZIP for offline access.
 
 ---
