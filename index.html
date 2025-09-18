@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Python Notes Repository</title>
 <style>
+  /* General styles */
   html {
-  scroll-padding-top: 100px; /* Height of sticky header + some spacing */
+    scroll-padding-top: 100px; /* Height of sticky header + some spacing */
+  }
+
   body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,6 +17,8 @@
     background: #f5f7fa;
     color: #333;
   }
+
+  /* Header */
   header {
     background: #2d6cdf;
     color: white;
@@ -22,54 +28,78 @@
     top: 0;
     z-index: 1000;
   }
+
   header h1 {
     margin: 0;
     font-size: 2em;
   }
+
+  header p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+  }
+
   nav {
     margin-top: 10px;
   }
+
   nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 10px;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
     transition: background 0.3s;
+    display: inline-block;
+    margin-bottom: 5px;
   }
+
   nav a:hover {
     text-decoration: underline;
     color: #ffdd57;
   }
+
   nav a.active {
     background: #ffdd57;
     color: #2d6cdf;
   }
+
+  /* Headings */
   h2 {
     background: #e8eefc;
     padding: 10px;
     border-left: 6px solid #2d6cdf;
     margin-top: 30px;
   }
+
+  /* Lists */
   ul {
     list-style-type: none;
     padding-left: 0;
   }
+
   li {
     margin: 5px 0;
-    position: relative;
-    padding-right: 140px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    word-break: break-word;
   }
+
   a {
     text-decoration: none;
     color: #1a4bb7;
     font-weight: 500;
   }
+
   a:hover {
     text-decoration: underline;
     color: #d35400;
   }
+
   .download {
     background: #2d6cdf;
     color: white;
@@ -78,34 +108,41 @@
     border-radius: 5px;
     font-size: 0.85em;
     margin-left: 5px;
+    white-space: nowrap;
   }
+
   .download:hover {
     background: #ff5733;
   }
+
+  /* Expandable content */
   .unit-content {
     display: none;
     margin-left: 20px;
+    margin-top: 5px;
   }
-  b.unit-title {
+
+  b.unit-title,
+  b.ebook-title {
     cursor: pointer;
     display: inline-block;
-    margin: 10px 0;
     color: #2d6cdf;
+    margin: 10px 0;
+    padding: 5px 10px;
   }
-  b.ebook-title {
-  cursor: pointer;
-  display: inline-block;
-  color: #2d6cdf;
-  margin: 10px 0;
-  }
+
+  /* Container */
   .container {
     max-width: 900px;
+    width: 95%;
     margin: auto;
     padding: 20px;
     background: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
   }
+
+  /* Footer */
   footer {
     text-align: center;
     padding: 15px;
@@ -113,17 +150,36 @@
     background: #2d6cdf;
     color: white;
   }
-  .actions {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  
-}
 
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    nav a {
+      margin: 3px 2px;
+      padding: 5px 8px;
+      font-size: 0.85em;
+    }
+
+    .container {
+      padding: 15px;
+    }
+
+    b.unit-title, b.ebook-title {
+      font-size: 1em;
+    }
+
+    li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .actions {
+      margin-top: 5px;
+    }
+  }
 </style>
 </head>
 <body>
+
 <header>
   <h1>📘 Python Notes Repository</h1>
   <p>:BMC301:  :Python Programming:  :MCA 3rd Semester:</p>
@@ -140,7 +196,8 @@
   <!-- Syllabus -->
   <h2 id="syllabus">Syllabus</h2>
   <ul>
-    <li>Python_Programming_Syllabus_MCA_3rd_Sem.pdf
+    <li>
+      Python_Programming_Syllabus_MCA_3rd_Sem.pdf
       <span class="actions">
         <a href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" target="_blank">View</a>
         <a class="download" href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" download>Download</a>
@@ -150,69 +207,78 @@
 
   <!-- Ebooks -->
   <h2 id="ebooks">Ebooks</h2>
-<ul>
-  <li>
-    <b class="ebook-title">Ebooks</b>
-    <ul class="unit-content">
-      <li>HowToThinkLikeComputerScientistUsingPython3.pdf
-        <span class="actions">
-          <a href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" download>Download</a>
-        </span>
-      </li>
-      <li>LUP_Chapter12_Comprehensions.pdf
-        <span class="actions">
-          <a href="ebooks/LUP_Chapter12_Comprehensions.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/LUP_Chapter12_Comprehensions.pdf" download>Download</a>
-        </span>
-      </li>
-      <li>LUP_Chapter15_FunctionalProgramming.pdf
-        <span class="actions">
-          <a href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf" download>Download</a>
-        </span>
-      </li>
-      <li>LUP_ChasingTheBugs.pdf
-        <span class="actions">
-          <a href="ebooks/LUP_ChasingTheBugs.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/LUP_ChasingTheBugs.pdf" download>Download</a>
-        </span>
-      </li>
-      <li>LUP_DebuggingInPython.pdf
-        <span class="actions">
-          <a href="ebooks/LUP_DebuggingInPython.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/LUP_DebuggingInPython.pdf" download>Download</a>
-        </span>
-      </li>
-      <li>LUP_PrecedenceTable.pdf
-        <span class="actions">
-          <a href="ebooks/LUP_PrecedenceTable.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/LUP_PrecedenceTable.pdf" download>Download</a>
-        </span>
-      </li>
-      <li>Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf
-        <span class="actions">
-          <a href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" download>Download</a>
-        </span>
-      </li>
-      <li>PythonTutorial_by_Guido van Rossum.pdf
-        <span class="actions">
-          <a href="ebooks/PythonTutorial_by_Guido van Rossum.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/PythonTutorial_by_Guido van Rossum.pdf" download>Download</a>
-        </span>
-      </li>
-      <li>PythonTutorial_tutorialspoint.com.pdf
-        <span class="actions">
-          <a href="ebooks/PythonTutorial_tutorialspoint.com.pdf" target="_blank">View</a>
-          <a class="download" href="ebooks/PythonTutorial_tutorialspoint.com.pdf" download>Download</a>
-        </span>
-      </li>
-    </ul>
-  </li>
-</ul>
+  <ul>
+    <li>
+      <b class="ebook-title">Ebooks</b>
+      <ul class="unit-content">
+        <li>
+          HowToThinkLikeComputerScientistUsingPython3.pdf
+          <span class="actions">
+            <a href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" download>Download</a>
+          </span>
+        </li>
+        <li>
+          LUP_Chapter12_Comprehensions.pdf
+          <span class="actions">
+            <a href="ebooks/LUP_Chapter12_Comprehensions.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/LUP_Chapter12_Comprehensions.pdf" download>Download</a>
+          </span>
+        </li>
+        <li>
+          LUP_Chapter15_FunctionalProgramming.pdf
+          <span class="actions">
+            <a href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf" download>Download</a>
+          </span>
+        </li>
+        <li>
+          LUP_ChasingTheBugs.pdf
+          <span class="actions">
+            <a href="ebooks/LUP_ChasingTheBugs.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/LUP_ChasingTheBugs.pdf" download>Download</a>
+          </span>
+        </li>
+        <li>
+          LUP_DebuggingInPython.pdf
+          <span class="actions">
+            <a href="ebooks/LUP_DebuggingInPython.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/LUP_DebuggingInPython.pdf" download>Download</a>
+          </span>
+        </li>
+        <li>
+          LUP_PrecedenceTable.pdf
+          <span class="actions">
+            <a href="ebooks/LUP_PrecedenceTable.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/LUP_PrecedenceTable.pdf" download>Download</a>
+          </span>
+        </li>
+        <li>
+          Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf
+          <span class="actions">
+            <a href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" download>Download</a>
+          </span>
+        </li>
+        <li>
+          PythonTutorial_by_Guido van Rossum.pdf
+          <span class="actions">
+            <a href="ebooks/PythonTutorial_by_Guido van Rossum.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/PythonTutorial_by_Guido van Rossum.pdf" download>Download</a>
+          </span>
+        </li>
+        <li>
+          PythonTutorial_tutorialspoint.com.pdf
+          <span class="actions">
+            <a href="ebooks/PythonTutorial_tutorialspoint.com.pdf" target="_blank">View</a>
+            <a class="download" href="ebooks/PythonTutorial_tutorialspoint.com.pdf" download>Download</a>
+          </span>
+        </li>
+      </ul>
+    </li>
+  </ul>
 
-<!-- Notes -->
+  <!-- Notes -->
   <h2 id="notes">Notes</h2>
   <ul>
     <!-- UNIT-1 -->
@@ -470,14 +536,17 @@
 </div>
 
 <footer>
-  Developed & Maintened by Naveen Upreti | 2025
+  Developed & Maintained by Naveen Upreti | 2025
 </footer>
 
 <script>
-  document.querySelectorAll('.unit-title').forEach(title => {
+  // Toggle expand/collapse for units
+  document.querySelectorAll('.unit-title, .ebook-title').forEach(title => {
     title.addEventListener('click', () => {
       const content = title.nextElementSibling;
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      if (content) {
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      }
     });
   });
 </script>
