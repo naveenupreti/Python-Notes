@@ -73,26 +73,36 @@ const data = {
   ebooks: [
     {name:"HowToThinkLikeComputerScientistUsingPython3.pdf", path:"ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf"},
     {name:"LUP_Chapter12_Comprehensions.pdf", path:"ebooks/LUP_Chapter12_Comprehensions.pdf"},
-    {name:"LUP_Chapter15_FunctionalProgramming.pdf", path:"ebooks/LUP_Chapter15_FunctionalProgramming.pdf"}
-    // Add more ebooks here
+    {name:"LUP_Chapter15_FunctionalProgramming.pdf", path:"ebooks/LUP_Chapter15_FunctionalProgramming.pdf"},
+    {name:"LUP_ChasingTheBugs.pdf", path:"ebooks/LUP_ChasingTheBugs.pdf"},
+    {name:"LUP_DebuggingInPython.pdf", path:"ebooks/LUP_DebuggingInPython.pdf"},
+    {name:"LUP_PrecedenceTable.pdf", path:"ebooks/LUP_PrecedenceTable.pdf"},
+    {name:"Let-Us-Python-by-yashavant-kanetkar.pdf", path:"ebooks/Let-Us-Python-by-yashavant-kanetkar.pdf"},
+    {name:"PythonTutorial_by_Guido_van_Rossum.pdf", path:"ebooks/PythonTutorial_by_Guido_van_Rossum.pdf"},
+    {name:"PythonTutorial_tutorialspoint.com.pdf", path:"ebooks/PythonTutorial_tutorialspoint.com.pdf"}
   ],
   notes: {
-    "UNIT-1": ["LUP_Chapter1_Introduction.pdf","LUP_Chapter2_Installation.pdf","LUP_Chapter3_DataTypesOperatos.pdf"],
-    "UNIT-2": ["LUP_Chapter10_Sets.pdf","LUP_Chapter4_Strings.pdf","LUP_Chapter8_Lists.pdf"],
+    "UNIT-1": ["LUP_Chapter1_Introduction.pdf","LUP_Chapter2_Installation.pdf","LUP_Chapter3_DataTypesOperatos.pdf",
+               "LUP_Chapter5_ControlStatements.pdf","LUP_Chapter6_Loops.pdf","LUP_Chapter7_ConsoleIO.pdf",
+               "LUP_PrecedenceTable.pdf","Python_History_Features_Distros_CodingStandards-PEP8.pdf"],
+    "UNIT-2": ["LUP_Chapter10_Sets.pdf","LUP_Chapter4_Strings.pdf","LUP_Chapter8_Lists.pdf","LUP_Chapter9_Tuples.pdf"],
     "UNIT-3": ["LUP_Chapter11_Dictionaries.pdf","LUP_Chapter13_Functions.pdf","LUP_Chapter14_Recursion.pdf"],
     "UNIT-4": ["LUP_Chapter16_ModulesAndPackages.pdf","LUP_Chapter23_FileHandling.pdf"],
     "UNIT-5": ["LUP_Chapter22_ExceptionHandling.pdf"]
   },
   programs: {
-    "UNIT-1":["BasicStructure.py","control_statements.py","datatypes_python.py"],
-    "UNIT-2":["String_python.py","string_alignment.py","string_palindrome.py"]
+    "UNIT-1":["BasicStructure.py","control_statements.py","datatypes_python.py","file1.py","file2.py",
+              "operators_demo_with_output.py","precedence_associativity.py","print_formatting.py",
+              "short_circuit_operators.py","use_of_main.py","variables.py"],
+    "UNIT-2":["String_python.py","string_alignment.py","string_palindrome.py","strings_immutable.py"]
   }
 };
 
-// ====== Helper to Render Files ======
+// ====== Render Functions ======
 function renderFileList(containerId, files, basePath="") {
   const container = document.getElementById(containerId);
   const ul = document.createElement('ul');
+  ul.className = "unit-content"; // for collapsible
   files.forEach(f => {
     const li = document.createElement('li');
     li.innerHTML = `${f.name || f} <span class="actions">
@@ -105,9 +115,19 @@ function renderFileList(containerId, files, basePath="") {
 }
 
 // ====== Render Syllabus ======
+const syllabusContainer = document.getElementById("syllabus-list");
+const syllabusHeader = document.createElement('b');
+syllabusHeader.className = "unit-title";
+syllabusHeader.textContent = "Syllabus";
+syllabusContainer.appendChild(syllabusHeader);
 renderFileList("syllabus-list", data.syllabus);
 
 // ====== Render Ebooks ======
+const ebooksContainer = document.getElementById("ebooks-list");
+const ebookHeader = document.createElement('b');
+ebookHeader.className = "ebook-title";
+ebookHeader.textContent = "Ebooks";
+ebooksContainer.appendChild(ebookHeader);
 renderFileList("ebooks-list", data.ebooks);
 
 // ====== Render Notes ======
@@ -148,7 +168,7 @@ for(const [unit, files] of Object.entries(data.programs)){
   progContainer.appendChild(li);
 }
 
-// ====== Expand/Collapse ======
+// ====== Expand/Collapse for all sections ======
 document.querySelectorAll('.unit-title, .ebook-title').forEach(title=>{
   title.addEventListener('click',()=>{
     const content = title.nextElementSibling;
