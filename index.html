@@ -73,21 +73,20 @@
       text-decoration: underline;
       color: #d35400;
     }
-    .download-btn {
+    .download {
       background: #2d6cdf;
       color: white;
       text-decoration: none;
-      padding: 4px 10px;
+      padding: 2px 8px;
       border-radius: 5px;
-      font-size: 0.9em;
-      transition: background 0.3s;
-      margin-left: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
     }
-    .download-btn:hover {
+    .download:hover {
       background: #ff5733;
     }
     .container {
-      max-width: 900px;
+      max-width: 950px;
       margin: auto;
       padding: 20px;
       background: white;
@@ -108,75 +107,247 @@
     <h1>📘 Python Notes Repository</h1>
     <p>Notes • Programs • Syllabus • Ebooks</p>
     <nav>
-      <a href="#notes" id="link-notes">Notes</a>
-      <a href="#programs" id="link-programs">Programs</a>
       <a href="#syllabus" id="link-syllabus">Syllabus</a>
       <a href="#ebooks" id="link-ebooks">Ebooks</a>
+      <a href="#notes" id="link-notes">Notes</a>
+      <a href="#programs" id="link-programs">Programs</a>
     </nav>
   </header>
 
   <div class="container">
-    <!-- Example for Notes Section -->
-    <h2 id="notes">Notes</h2>
-
-    <h3>UNIT-1</h3>
+    <!-- Syllabus Section -->
+    <h2 id="syllabus">Syllabus</h2>
     <ul>
-      <li>
-        <a href="Notes/UNIT-1/LUP_Chapter1_Introduction.pdf">LUP Chapter 1 – Introduction</a>
-        <a href="Notes/UNIT-1/LUP_Chapter1_Introduction.pdf" download class="download-btn">Download</a>
+      <li>Python_Programming_Syllabus_MCA_3rd_Sem.pdf 
+        <a href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" target="_blank">View</a> 
+        <a class="download" href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" download>Download</a>
       </li>
-      <li>
-        <a href="Notes/UNIT-1/LUP_Chapter2_Installation.pdf">LUP Chapter 2 – Installation</a>
-        <a href="Notes/UNIT-1/LUP_Chapter2_Installation.pdf" download class="download-btn">Download</a>
+    </ul>
+
+    <!-- Ebooks Section -->
+    <h2 id="ebooks">Ebooks</h2>
+    <ul>
+      <li>HowToThinkLikeComputerScientistUsingPython3.pdf 
+        <a href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" download>Download</a>
       </li>
-      <li>
-        <a href="Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf">LUP Chapter 3 – Data Types & Operators</a>
-        <a href="Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf" download class="download-btn">Download</a>
+      <li>LUP_Chapter12_Comprehensions.pdf 
+        <a href="ebooks/LUP_Chapter12_Comprehensions.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/LUP_Chapter12_Comprehensions.pdf" download>Download</a>
       </li>
-      <!-- Repeat same structure for all other files... -->
+      <li>LUP_Chapter15_FunctionalProgramming.pdf 
+        <a href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf" download>Download</a>
+      </li>
+      <li>LUP_ChasingTheBugs.pdf 
+        <a href="ebooks/LUP_ChasingTheBugs.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/LUP_ChasingTheBugs.pdf" download>Download</a>
+      </li>
+      <li>LUP_DebuggingInPython.pdf 
+        <a href="ebooks/LUP_DebuggingInPython.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/LUP_DebuggingInPython.pdf" download>Download</a>
+      </li>
+      <li>LUP_PrecedenceTable.pdf 
+        <a href="ebooks/LUP_PrecedenceTable.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/LUP_PrecedenceTable.pdf" download>Download</a>
+      </li>
+      <li>Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf 
+        <a href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" download>Download</a>
+      </li>
+      <li>PythonTutorial_by_Guido van Rossum.pdf 
+        <a href="ebooks/PythonTutorial_by_Guido van Rossum.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/PythonTutorial_by_Guido van Rossum.pdf" download>Download</a>
+      </li>
+      <li>PythonTutorial_tutorialspoint.com.pdf 
+        <a href="ebooks/PythonTutorial_tutorialspoint.com.pdf" target="_blank">View</a> 
+        <a class="download" href="ebooks/PythonTutorial_tutorialspoint.com.pdf" download>Download</a>
+      </li>
+    </ul>
+
+    <!-- Notes Section -->
+    <h2 id="notes">Notes</h2>
+    <ul>
+      <li><b>UNIT-1</b>
+        <ul>
+          <li>LUP_Chapter1_Introduction.pdf 
+            <a href="Notes/UNIT-1/LUP_Chapter1_Introduction.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-1/LUP_Chapter1_Introduction.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter2_Installation.pdf 
+            <a href="Notes/UNIT-1/LUP_Chapter2_Installation.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-1/LUP_Chapter2_Installation.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter3_DataTypesOperatos.pdf 
+            <a href="Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter5_ControlStatements.pdf 
+            <a href="Notes/UNIT-1/LUP_Chapter5_ControlStatements.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-1/LUP_Chapter5_ControlStatements.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter6_Loops.pdf 
+            <a href="Notes/UNIT-1/LUP_Chapter6_Loops.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-1/LUP_Chapter6_Loops.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter7_ConsoleIO.pdf 
+            <a href="Notes/UNIT-1/LUP_Chapter7_ConsoleIO.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-1/LUP_Chapter7_ConsoleIO.pdf" download>Download</a>
+          </li>
+          <li>LUP_PrecedenceTable.pdf 
+            <a href="Notes/UNIT-1/LUP_PrecedenceTable.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-1/LUP_PrecedenceTable.pdf" download>Download</a>
+          </li>
+          <li>Python_History_Features_Distros_CodingStandards-PEP8.pdf 
+            <a href="Notes/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf" download>Download</a>
+          </li>
+        </ul>
+      </li>
+
+      <li><b>UNIT-2</b>
+        <ul>
+          <li>LUP_Chapter10_Sets.pdf 
+            <a href="Notes/UNIT-2/LUP_Chapter10_Sets.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-2/LUP_Chapter10_Sets.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter4_Strings.pdf 
+            <a href="Notes/UNIT-2/LUP_Chapter4_Strings.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-2/LUP_Chapter4_Strings.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter8_Lists.pdf 
+            <a href="Notes/UNIT-2/LUP_Chapter8_Lists.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-2/LUP_Chapter8_Lists.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter9_Tuples.pdf 
+            <a href="Notes/UNIT-2/LUP_Chapter9_Tuples.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-2/LUP_Chapter9_Tuples.pdf" download>Download</a>
+          </li>
+        </ul>
+      </li>
+
+      <li><b>UNIT-3</b>
+        <ul>
+          <li>LUP_Chapter11_Dictionaries.pdf 
+            <a href="Notes/UNIT-3/LUP_Chapter11_Dictionaries.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-3/LUP_Chapter11_Dictionaries.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter13_Functions.pdf 
+            <a href="Notes/UNIT-3/LUP_Chapter13_Functions.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-3/LUP_Chapter13_Functions.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter14_Recursion.pdf 
+            <a href="Notes/UNIT-3/LUP_Chapter14_Recursion.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-3/LUP_Chapter14_Recursion.pdf" download>Download</a>
+          </li>
+        </ul>
+      </li>
+
+      <li><b>UNIT-4</b>
+        <ul>
+          <li>LUP_Chapter16_ModulesAndPackages.pdf 
+            <a href="Notes/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" download>Download</a>
+          </li>
+          <li>LUP_Chapter23_FileHandling.pdf 
+            <a href="Notes/UNIT-4/LUP_Chapter23_FileHandling.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-4/LUP_Chapter23_FileHandling.pdf" download>Download</a>
+          </li>
+        </ul>
+      </li>
+
+      <li><b>UNIT-5</b>
+        <ul>
+          <li>LUP_Chapter22_ExceptionHandling.pdf 
+            <a href="Notes/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf" target="_blank">View</a> 
+            <a class="download" href="Notes/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf" download>Download</a>
+          </li>
+        </ul>
+      </li>
     </ul>
 
     <!-- Programs Section -->
     <h2 id="programs">Programs</h2>
-    <h3>UNIT-1</h3>
     <ul>
-      <li>
-        <a href="Programs/UNIT-1/BasicStructure.py">BasicStructure.py</a>
-        <a href="Programs/UNIT-1/BasicStructure.py" download class="download-btn">Download</a>
+      <li><b>UNIT-1</b>
+        <ul>
+          <li>BasicStructure.py 
+            <a href="Programs/UNIT-1/BasicStructure.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/BasicStructure.py" download>Download</a>
+          </li>
+          <li>control_statements.py 
+            <a href="Programs/UNIT-1/control_statements.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/control_statements.py" download>Download</a>
+          </li>
+          <li>datatypes_python.py 
+            <a href="Programs/UNIT-1/datatypes_python.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/datatypes_python.py" download>Download</a>
+          </li>
+          <li>file1.py 
+            <a href="Programs/UNIT-1/file1.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/file1.py" download>Download</a>
+          </li>
+          <li>file2.py 
+            <a href="Programs/UNIT-1/file2.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/file2.py" download>Download</a>
+          </li>
+          <li>operators_demo_with_output.py 
+            <a href="Programs/UNIT-1/operators_demo_with_output.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/operators_demo_with_output.py" download>Download</a>
+          </li>
+          <li>precedence_associativity.py 
+            <a href="Programs/UNIT-1/precedence_associativity.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/precedence_associativity.py" download>Download</a>
+          </li>
+          <li>print_formatting.py 
+            <a href="Programs/UNIT-1/print_formatting.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/print_formatting.py" download>Download</a>
+          </li>
+          <li>short_circuit_operators.py 
+            <a href="Programs/UNIT-1/short_circuit_operators.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/short_circuit_operators.py" download>Download</a>
+          </li>
+          <li>use_of_main.py 
+            <a href="Programs/UNIT-1/use_of_main.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/use_of_main.py" download>Download</a>
+          </li>
+          <li>variables.py 
+            <a href="Programs/UNIT-1/variables.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-1/variables.py" download>Download</a>
+          </li>
+        </ul>
       </li>
-      <li>
-        <a href="Programs/UNIT-1/control_statements.py">control_statements.py</a>
-        <a href="Programs/UNIT-1/control_statements.py" download class="download-btn">Download</a>
+
+      <li><b>UNIT-2</b>
+        <ul>
+          <li>String_python.py 
+            <a href="Programs/UNIT-2/String_python.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-2/String_python.py" download>Download</a>
+          </li>
+          <li>string_alignment.py 
+            <a href="Programs/UNIT-2/string_alignment.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-2/string_alignment.py" download>Download</a>
+          </li>
+          <li>string_palindrome.py 
+            <a href="Programs/UNIT-2/string_palindrome.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-2/string_palindrome.py" download>Download</a>
+          </li>
+          <li>strings_immutable.py 
+            <a href="Programs/UNIT-2/strings_immutable.py" target="_blank">View</a> 
+            <a class="download" href="Programs/UNIT-2/strings_immutable.py" download>Download</a>
+          </li>
+        </ul>
       </li>
-      <!-- Repeat for all programs -->
     </ul>
 
-    <!-- Same pattern continues for UNIT-2, Syllabus, and Ebooks -->
-
-    <h2 id="syllabus">Syllabus</h2>
-    <ul>
-      <li>
-        <a href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf">Python Programming Syllabus – MCA 3rd Sem</a>
-        <a href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" download class="download-btn">Download</a>
-      </li>
-    </ul>
-
-    <h2 id="ebooks">Ebooks</h2>
-    <ul>
-      <li>
-        <a href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf">How to Think Like a Computer Scientist (Python 3)</a>
-        <a href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" download class="download-btn">Download</a>
-      </li>
-      <!-- Repeat for all ebooks -->
-    </ul>
   </div>
 
   <footer>
     <p>© 2025 Python Notes | Hosted on GitHub Pages</p>
+    <p>Site Maintained by Naveen Upreti</p>
   </footer>
 
   <script>
-    // Highlight active section in nav while scrolling
     const sections = document.querySelectorAll("h2");
     const navLinks = document.querySelectorAll("nav a");
 
