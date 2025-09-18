@@ -73,30 +73,22 @@
     margin-top: 30px;
   }
 
-  /* Lists */
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-
   /* Base list items */
   li {
     margin: 5px 0;
     padding: 5px 10px;
     word-break: break-word;
+    display: block; /* default block layout */
   }
 
-  /* Top-level items: flex to align actions right */
-  .container > ul > li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  /* Top-level items: actions on right */
+  .container > ul > li > .actions {
+    float: right; /* right-align top-level actions */
   }
 
-  /* Nested unit-content lists: block layout */
+  /* Nested unit-content items: block layout */
   .unit-content li {
-    display: block; /* left-align expanded content */
+    display: block; /* left-aligned expanded content */
     padding-right: 0;
     margin-bottom: 5px;
   }
@@ -105,6 +97,17 @@
   .unit-content li .actions {
     display: inline-block;
     margin-top: 3px;
+  }
+
+  /* Clickable headers */
+  b.unit-title,
+  b.ebook-title {
+    cursor: pointer;
+    display: inline-block;
+    color: #2d6cdf;
+    margin: 10px 0;
+    padding: 5px 10px;
+    text-align: left; /* left-align headers */
   }
 
   a {
@@ -133,20 +136,11 @@
     background: #ff5733;
   }
 
-  /* Expandable content */
+  /* Expandable content container */
   .unit-content {
     display: none;
     margin-left: 20px;
     margin-top: 5px;
-  }
-
-  b.unit-title,
-  b.ebook-title {
-    cursor: pointer;
-    display: inline-block;
-    color: #2d6cdf;
-    margin: 10px 0;
-    padding: 5px 10px;
   }
 
   /* Container */
@@ -181,16 +175,15 @@
       padding: 15px;
     }
 
-    b.unit-title, b.ebook-title {
+    b.unit-title,
+    b.ebook-title {
       font-size: 1em;
+      display: block; /* full width headers on mobile */
     }
 
-    li {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .actions {
+    /* Top-level actions on mobile: below text */
+    .container > ul > li > .actions {
+      float: none;
       margin-top: 5px;
     }
   }
