@@ -4,46 +4,38 @@
   <meta charset="UTF-8">
   <title>Python Notes Repository</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f8f9fa; }
-    h1 { color: #2c3e50; text-align: center; }
-    h2 { margin-top: 30px; color: #16a085; cursor: pointer; }
-    h3 { margin: 10px 0; color: #2980b9; cursor: pointer; }
-    ul { list-style-type: none; margin-left: 20px; display: none; }
-    li { margin: 6px 0; }
-    a { text-decoration: none; color: #e74c3c; margin-right: 10px; }
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; }
+    h2 { margin-top: 30px; color: #16a085; }
+    h3 { margin-top: 20px; color: #2980b9; }
+    ul { list-style-type: square; }
+    li { margin: 4px 0; }
+    a { text-decoration: none; color: #e74c3c; }
     a:hover { text-decoration: underline; }
-    button.download-btn {
-      background: #3498db;
-      color: white;
-      border: none;
-      padding: 3px 8px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.85em;
-    }
-    button.download-btn:hover { background: #2980b9; }
   </style>
 </head>
 <body>
   <h1>Python Notes Repository</h1>
 
-  <h2 onclick="toggleSection('notes')">Notes ⯆</h2>
+  <h2>Notes</h2>
   <div id="notes"></div>
 
-  <h2 onclick="toggleSection('programs')">Programs ⯆</h2>
+  <h2>Programs</h2>
   <div id="programs"></div>
 
-  <h2 onclick="toggleSection('syllabus')">Syllabus ⯆</h2>
-  <div id="syllabus"></div>
+  <h2>Syllabus</h2>
+  <ul id="syllabus"></ul>
 
-  <h2 onclick="toggleSection('ebooks')">Ebooks ⯆</h2>
-  <div id="ebooks"></div>
+  <h2>Ebooks</h2>
+  <ul id="ebooks"></ul>
 
   <script>
+    // GitHub repo details
     const user = "naveenupreti";
     const repo = "Python-Notes";
     const branch = "main";
 
+    // Sections to load
     const sections = {
       notes: ["Notes/UNIT-1", "Notes/UNIT-2", "Notes/UNIT-3", "Notes/UNIT-4", "Notes/UNIT-5"],
       programs: ["Programs/UNIT-1", "Programs/UNIT-2"],
@@ -51,16 +43,7 @@
       ebooks: ["ebooks"]
     };
 
-    // Toggle expand/collapse
-    function toggleSection(id) {
-      const container = document.getElementById(id);
-      const lists = container.querySelectorAll("ul");
-      lists.forEach(ul => {
-        ul.style.display = (ul.style.display === "block") ? "none" : "block";
-      });
-    }
-
-    // Load files dynamically
+    // Function to load files from GitHub API
     async function loadFiles(path, containerId) {
       const url = `https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${branch}`;
       try {
@@ -70,60 +53,28 @@
 
         let container = document.getElementById(containerId);
 
-        // UNIT heading
+        // Create subheading for UNIT folders
         if (path.includes("UNIT")) {
           let h3 = document.createElement("h3");
-          h3.textContent = path.split("/").pop();
-          let ul = document.createElement("ul");
-
-          // Toggle this UNIT
-          h3.onclick = () => {
-            ul.style.display = (ul.style.display === "block") ? "none" : "block";
-          };
-
+          h3.textContent = path.split("/").pop(); // last folder name
           container.appendChild(h3);
-          container.appendChild(ul);
-
-          files.forEach(file => {
-            if (file.type === "file") {
-              let li = document.createElement("li");
-              let link = `https://${user}.github.io/${repo}/${path}/${file.name}`;
-              let openLink = `<a href="${link}" target="_blank">${file.name}</a>`;
-              let downloadBtn = `<button class="download-btn" onclick="downloadFile('${link}')">Download</button>`;
-              li.innerHTML = openLink + downloadBtn;
-              ul.appendChild(li);
-            }
-          });
-
-        } else {
-          // Non-UNIT folders (syllabus, ebooks)
-          let ul = document.createElement("ul");
-          files.forEach(file => {
-            if (file.type === "file") {
-              let li = document.createElement("li");
-              let link = `https://${user}.github.io/${repo}/${path}/${file.name}`;
-              let openLink = `<a href="${link}" target="_blank">${file.name}</a>`;
-              let downloadBtn = `<button class="download-btn" onclick="downloadFile('${link}')">Download</button>`;
-              li.innerHTML = openLink + downloadBtn;
-              ul.appendChild(li);
-            }
-          });
-          container.appendChild(ul);
         }
+
+        let ul = document.createElement("ul");
+        files.forEach(file => {
+          if (file.type === "file") {
+            let li = document.createElement("li");
+            // Direct link to file in Pages (not GitHub UI)
+            let link = `https://${user}.github.io/${repo}/${path}/${file.name}`;
+            li.innerHTML = `<a href="${link}" target="_blank">${file.name}</a>`;
+            ul.appendChild(li);
+          }
+        });
+        container.appendChild(ul);
 
       } catch (err) {
         console.error("Error loading files:", err);
       }
-    }
-
-    // Force file download
-    function downloadFile(url) {
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = url.split("/").pop();
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
     }
 
     // Load all sections
