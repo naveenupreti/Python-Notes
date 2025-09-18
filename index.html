@@ -79,29 +79,32 @@
     padding-left: 0;
   }
 
-  /* Desktop list items */
+  /* Base list items */
   li {
     margin: 5px 0;
     padding: 5px 10px;
-    display: flex;
-    flex-wrap: wrap;
     word-break: break-word;
-    align-items: center;
   }
 
-  /* Only top-level items get actions aligned right */
+  /* Top-level items: flex to align actions right */
   .container > ul > li {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
-  /* Nested unit-content lists align normally */
+  /* Nested unit-content lists: block layout */
   .unit-content li {
-    display: block;
+    display: block; /* left-align expanded content */
     padding-right: 0;
+    margin-bottom: 5px;
   }
 
+  /* Actions inside nested lists: below text */
   .unit-content li .actions {
-    margin-top: 5px;
+    display: inline-block;
+    margin-top: 3px;
   }
 
   a {
@@ -192,6 +195,7 @@
     }
   }
 </style>
+
 
 </head>
 <body>
