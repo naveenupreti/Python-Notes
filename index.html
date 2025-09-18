@@ -79,14 +79,29 @@
     padding-left: 0;
   }
 
+  /* Desktop list items */
   li {
     margin: 5px 0;
     padding: 5px 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
     word-break: break-word;
+    align-items: center;
+  }
+
+  /* Only top-level items get actions aligned right */
+  .container > ul > li {
+    justify-content: space-between;
+  }
+
+  /* Nested unit-content lists align normally */
+  .unit-content li {
+    display: block;
+    padding-right: 0;
+  }
+
+  .unit-content li .actions {
+    margin-top: 5px;
   }
 
   a {
@@ -177,6 +192,7 @@
     }
   }
 </style>
+
 </head>
 <body>
 
