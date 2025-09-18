@@ -5,191 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Python Notes Repository</title>
 <style>
-  /* General styles */
-  html {
-    scroll-padding-top: 100px; /* Height of sticky header + some spacing */
-  }
-
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f7fa;
-    color: #333;
-  }
-
-  /* Header */
-  header {
-    background: #2d6cdf;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  header h1 {
-    margin: 0;
-    font-size: 2em;
-  }
-
-  header p {
-    margin: 5px 0 0 0;
-    font-size: 0.9em;
-  }
-
-  nav {
-    margin-top: 10px;
-  }
-
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background 0.3s;
-    display: inline-block;
-    margin-bottom: 5px;
-  }
-
-  nav a:hover {
-    text-decoration: underline;
-    color: #ffdd57;
-  }
-
-  nav a.active {
-    background: #ffdd57;
-    color: #2d6cdf;
-  }
-
-  /* Headings */
-  h2 {
-    background: #e8eefc;
-    padding: 10px;
-    border-left: 6px solid #2d6cdf;
-    margin-top: 30px;
-  }
-
-  /* Base list items */
-  li {
-    margin: 5px 0;
-    padding: 5px 10px;
-    word-break: break-word;
-    display: block; /* default block layout */
-  }
-
-  /* Top-level items: actions on right */
-  .container > ul > li > .actions {
-    float: right; /* right-align top-level actions */
-  }
-
-  /* Nested unit-content items: block layout */
-  .unit-content li {
-    display: block; /* left-aligned expanded content */
-    padding-right: 0;
-    margin-bottom: 5px;
-  }
-
-  /* Actions inside nested lists: below text */
-  .unit-content li .actions {
-    display: inline-block;
-    margin-top: 3px;
-  }
-
-  /* Clickable headers */
-  b.unit-title,
-  b.ebook-title {
-    cursor: pointer;
-    display: inline-block;
-    color: #2d6cdf;
-    margin: 10px 0;
-    padding: 5px 10px;
-    text-align: left; /* left-align headers */
-  }
-
-  a {
-    text-decoration: none;
-    color: #1a4bb7;
-    font-weight: 500;
-  }
-
-  a:hover {
-    text-decoration: underline;
-    color: #d35400;
-  }
-
-  .download {
-    background: #2d6cdf;
-    color: white;
-    text-decoration: none;
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-size: 0.85em;
-    margin-left: 5px;
-    white-space: nowrap;
-  }
-
-  .download:hover {
-    background: #ff5733;
-  }
-
-  /* Expandable content container */
-  .unit-content {
-    display: none;
-    margin-left: 20px;
-    margin-top: 5px;
-  }
-
-  /* Container */
-  .container {
-    max-width: 900px;
-    width: 95%;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
-  }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-    background: #2d6cdf;
-    color: white;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    nav a {
-      margin: 3px 2px;
-      padding: 5px 8px;
-      font-size: 0.85em;
-    }
-
-    .container {
-      padding: 15px;
-    }
-
-    b.unit-title,
-    b.ebook-title {
-      font-size: 1em;
-      display: block; /* full width headers on mobile */
-    }
-
-    /* Top-level actions on mobile: below text */
-    .container > ul > li > .actions {
-      float: none;
-      margin-top: 5px;
-    }
+  html { scroll-padding-top: 100px; }
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; }
+  header { background:#2d6cdf; color:white; padding:20px; text-align:center; position:sticky; top:0; z-index:1000; }
+  header h1 { margin:0; font-size:2em; }
+  header p { margin:5px 0 0 0; font-size:0.9em; }
+  nav { margin-top:10px; }
+  nav a { color:white; text-decoration:none; margin:0 10px; font-weight:bold; padding:5px 10px; border-radius:4px; transition:0.3s; display:inline-block; margin-bottom:5px; }
+  nav a:hover { text-decoration:underline; color:#ffdd57; }
+  nav a.active { background:#ffdd57; color:#2d6cdf; }
+  h2 { background:#e8eefc; padding:10px; border-left:6px solid #2d6cdf; margin-top:30px; }
+  li { margin:5px 0; padding:5px 10px; word-break:break-word; display:block; }
+  .actions { float:right; }
+  .unit-content li .actions { display:inline-block; margin-top:3px; float:none; }
+  b.unit-title, b.ebook-title { cursor:pointer; display:inline-block; color:#2d6cdf; margin:10px 0; padding:5px 10px; text-align:left; }
+  a { text-decoration:none; color:#1a4bb7; font-weight:500; }
+  a:hover { text-decoration:underline; color:#d35400; }
+  .download { background:#2d6cdf; color:white; padding:2px 8px; border-radius:5px; font-size:0.85em; margin-left:5px; white-space:nowrap; }
+  .download:hover { background:#ff5733; }
+  .unit-content { display:none; margin-left:20px; margin-top:5px; }
+  .container { max-width:900px; width:95%; margin:auto; padding:20px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:8px; }
+  footer { text-align:center; padding:15px; margin-top:30px; background:#2d6cdf; color:white; }
+  @media(max-width:600px){
+    nav a { margin:3px 2px; padding:5px 8px; font-size:0.85em; }
+    .container { padding:15px; }
+    b.unit-title,b.ebook-title { font-size:1em; display:block; }
   }
 </style>
-
-
 </head>
 <body>
 
@@ -197,355 +39,25 @@
   <h1>📘 Python Notes Repository</h1>
   <p>:BMC301:  :Python Programming:  :MCA 3rd Semester:</p>
   <nav>
-    <a href="#syllabus" id="link-syllabus">Syllabus</a>
-    <a href="#ebooks" id="link-ebooks">Ebooks</a>
-    <a href="#notes" id="link-notes">Notes</a>
-    <a href="#programs" id="link-programs">Programs</a>
+    <a href="#syllabus">Syllabus</a>
+    <a href="#ebooks">Ebooks</a>
+    <a href="#notes">Notes</a>
+    <a href="#programs">Programs</a>
   </nav>
 </header>
 
 <div class="container">
-
-  <!-- Syllabus -->
   <h2 id="syllabus">Syllabus</h2>
-  <ul>
-    <li>
-      Python_Programming_Syllabus_MCA_3rd_Sem.pdf
-      <span class="actions">
-        <a href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" target="_blank">View</a>
-        <a class="download" href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" download>Download</a>
-      </span>
-    </li>
-  </ul>
+  <div id="syllabus-list"></div>
 
-  <!-- Ebooks -->
   <h2 id="ebooks">Ebooks</h2>
-  <ul>
-    <li>
-      <b class="ebook-title">Ebooks</b>
-      <ul class="unit-content">
-        <li>
-          HowToThinkLikeComputerScientistUsingPython3.pdf
-          <span class="actions">
-            <a href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>
-          LUP_Chapter12_Comprehensions.pdf
-          <span class="actions">
-            <a href="ebooks/LUP_Chapter12_Comprehensions.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/LUP_Chapter12_Comprehensions.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>
-          LUP_Chapter15_FunctionalProgramming.pdf
-          <span class="actions">
-            <a href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>
-          LUP_ChasingTheBugs.pdf
-          <span class="actions">
-            <a href="ebooks/LUP_ChasingTheBugs.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/LUP_ChasingTheBugs.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>
-          LUP_DebuggingInPython.pdf
-          <span class="actions">
-            <a href="ebooks/LUP_DebuggingInPython.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/LUP_DebuggingInPython.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>
-          LUP_PrecedenceTable.pdf
-          <span class="actions">
-            <a href="ebooks/LUP_PrecedenceTable.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/LUP_PrecedenceTable.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>
-          Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf
-          <span class="actions">
-            <a href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>
-          PythonTutorial_by_Guido van Rossum.pdf
-          <span class="actions">
-            <a href="ebooks/PythonTutorial_by_Guido van Rossum.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/PythonTutorial_by_Guido van Rossum.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>
-          PythonTutorial_tutorialspoint.com.pdf
-          <span class="actions">
-            <a href="ebooks/PythonTutorial_tutorialspoint.com.pdf" target="_blank">View</a>
-            <a class="download" href="ebooks/PythonTutorial_tutorialspoint.com.pdf" download>Download</a>
-          </span>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <div id="ebooks-list"></div>
 
-  <!-- Notes -->
   <h2 id="notes">Notes</h2>
-  <ul>
-    <!-- UNIT-1 -->
-    <li>
-      <b class="unit-title">UNIT-1</b>
-      <ul class="unit-content">
-        <li>LUP_Chapter1_Introduction.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-1/LUP_Chapter1_Introduction.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-1/LUP_Chapter1_Introduction.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter2_Installation.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-1/LUP_Chapter2_Installation.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-1/LUP_Chapter2_Installation.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter3_DataTypesOperatos.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter5_ControlStatements.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-1/LUP_Chapter5_ControlStatements.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-1/LUP_Chapter5_ControlStatements.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter6_Loops.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-1/LUP_Chapter6_Loops.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-1/LUP_Chapter6_Loops.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter7_ConsoleIO.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-1/LUP_Chapter7_ConsoleIO.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-1/LUP_Chapter7_ConsoleIO.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_PrecedenceTable.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-1/LUP_PrecedenceTable.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-1/LUP_PrecedenceTable.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>Python_History_Features_Distros_CodingStandards-PEP8.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf" download>Download</a>
-          </span>
-        </li>
-      </ul>
-    </li>
+  <div id="notes-list"></div>
 
-    <!-- UNIT-2 -->
-    <li>
-      <b class="unit-title">UNIT-2</b>
-      <ul class="unit-content">
-        <li>LUP_Chapter10_Sets.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-2/LUP_Chapter10_Sets.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-2/LUP_Chapter10_Sets.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter4_Strings.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-2/LUP_Chapter4_Strings.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-2/LUP_Chapter4_Strings.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter8_Lists.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-2/LUP_Chapter8_Lists.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-2/LUP_Chapter8_Lists.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter9_Tuples.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-2/LUP_Chapter9_Tuples.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-2/LUP_Chapter9_Tuples.pdf" download>Download</a>
-          </span>
-        </li>
-      </ul>
-    </li>
-
-    <!-- UNIT-3 -->
-    <li>
-      <b class="unit-title">UNIT-3</b>
-      <ul class="unit-content">
-        <li>LUP_Chapter11_Dictionaries.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-3/LUP_Chapter11_Dictionaries.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-3/LUP_Chapter11_Dictionaries.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter13_Functions.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-3/LUP_Chapter13_Functions.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-3/LUP_Chapter13_Functions.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter14_Recursion.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-3/LUP_Chapter14_Recursion.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-3/LUP_Chapter14_Recursion.pdf" download>Download</a>
-          </span>
-        </li>
-      </ul>
-    </li>
-
-    <!-- UNIT-4 -->
-    <li>
-      <b class="unit-title">UNIT-4</b>
-      <ul class="unit-content">
-        <li>LUP_Chapter16_ModulesAndPackages.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" download>Download</a>
-          </span>
-        </li>
-        <li>LUP_Chapter23_FileHandling.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-4/LUP_Chapter23_FileHandling.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-4/LUP_Chapter23_FileHandling.pdf" download>Download</a>
-          </span>
-        </li>
-      </ul>
-    </li>
-
-    <!-- UNIT-5 -->
-    <li>
-      <b class="unit-title">UNIT-5</b>
-      <ul class="unit-content">
-        <li>LUP_Chapter22_ExceptionHandling.pdf
-          <span class="actions">
-            <a href="Notes/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf" target="_blank">View</a>
-            <a class="download" href="Notes/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf" download>Download</a>
-          </span>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-  <!-- Programs -->
   <h2 id="programs">Programs</h2>
-  <ul>
-    <!-- UNIT-1 -->
-    <li>
-      <b class="unit-title">UNIT-1</b>
-      <ul class="unit-content">
-        <li>BasicStructure.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/BasicStructure.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/BasicStructure.py" download>Download</a>
-          </span>
-        </li>
-        <li>control_statements.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/control_statements.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/control_statements.py" download>Download</a>
-          </span>
-        </li>
-        <li>datatypes_python.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/datatypes_python.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/datatypes_python.py" download>Download</a>
-          </span>
-        </li>
-        <li>file1.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/file1.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/file1.py" download>Download</a>
-          </span>
-        </li>
-        <li>file2.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/file2.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/file2.py" download>Download</a>
-          </span>
-        </li>
-        <li>operators_demo_with_output.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/operators_demo_with_output.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/operators_demo_with_output.py" download>Download</a>
-          </span>
-        </li>
-        <li>precedence_associativity.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/precedence_associativity.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/precedence_associativity.py" download>Download</a>
-          </span>
-        </li>
-        <li>print_formatting.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/print_formatting.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/print_formatting.py" download>Download</a>
-          </span>
-        </li>
-        <li>short_circuit_operators.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/short_circuit_operators.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/short_circuit_operators.py" download>Download</a>
-          </span>
-        </li>
-        <li>use_of_main.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/use_of_main.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/use_of_main.py" download>Download</a>
-          </span>
-        </li>
-        <li>variables.py
-          <span class="actions">
-            <a href="Programs/UNIT-1/variables.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-1/variables.py" download>Download</a>
-          </span>
-        </li>
-      </ul>
-    </li>
-
-    <!-- UNIT-2 -->
-    <li>
-      <b class="unit-title">UNIT-2</b>
-      <ul class="unit-content">
-        <li>String_python.py
-          <span class="actions">
-            <a href="Programs/UNIT-2/String_python.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-2/String_python.py" download>Download</a>
-          </span>
-        </li>
-        <li>string_alignment.py
-          <span class="actions">
-            <a href="Programs/UNIT-2/string_alignment.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-2/string_alignment.py" download>Download</a>
-          </span>
-        </li>
-        <li>string_palindrome.py
-          <span class="actions">
-            <a href="Programs/UNIT-2/string_palindrome.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-2/string_palindrome.py" download>Download</a>
-          </span>
-        </li>
-        <li>strings_immutable.py
-          <span class="actions">
-            <a href="Programs/UNIT-2/strings_immutable.py" target="_blank">View</a>
-            <a class="download" href="Programs/UNIT-2/strings_immutable.py" download>Download</a>
-          </span>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
+  <div id="programs-list"></div>
 </div>
 
 <footer>
@@ -553,15 +65,96 @@
 </footer>
 
 <script>
-  // Toggle expand/collapse for units
-  document.querySelectorAll('.unit-title, .ebook-title').forEach(title => {
-    title.addEventListener('click', () => {
-      const content = title.nextElementSibling;
-      if (content) {
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-      }
-    });
+// ====== File Data ======
+const data = {
+  syllabus: [
+    {name:"Python_Programming_Syllabus_MCA_3rd_Sem.pdf", path:"Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf"}
+  ],
+  ebooks: [
+    {name:"HowToThinkLikeComputerScientistUsingPython3.pdf", path:"ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf"},
+    {name:"LUP_Chapter12_Comprehensions.pdf", path:"ebooks/LUP_Chapter12_Comprehensions.pdf"},
+    {name:"LUP_Chapter15_FunctionalProgramming.pdf", path:"ebooks/LUP_Chapter15_FunctionalProgramming.pdf"}
+    // Add more ebooks here
+  ],
+  notes: {
+    "UNIT-1": ["LUP_Chapter1_Introduction.pdf","LUP_Chapter2_Installation.pdf","LUP_Chapter3_DataTypesOperatos.pdf"],
+    "UNIT-2": ["LUP_Chapter10_Sets.pdf","LUP_Chapter4_Strings.pdf","LUP_Chapter8_Lists.pdf"],
+    "UNIT-3": ["LUP_Chapter11_Dictionaries.pdf","LUP_Chapter13_Functions.pdf","LUP_Chapter14_Recursion.pdf"],
+    "UNIT-4": ["LUP_Chapter16_ModulesAndPackages.pdf","LUP_Chapter23_FileHandling.pdf"],
+    "UNIT-5": ["LUP_Chapter22_ExceptionHandling.pdf"]
+  },
+  programs: {
+    "UNIT-1":["BasicStructure.py","control_statements.py","datatypes_python.py"],
+    "UNIT-2":["String_python.py","string_alignment.py","string_palindrome.py"]
+  }
+};
+
+// ====== Helper to Render Files ======
+function renderFileList(containerId, files, basePath="") {
+  const container = document.getElementById(containerId);
+  const ul = document.createElement('ul');
+  files.forEach(f => {
+    const li = document.createElement('li');
+    li.innerHTML = `${f.name || f} <span class="actions">
+      <a href="${basePath}${f.path || f}" target="_blank">View</a>
+      <a class="download" href="${basePath}${f.path || f}" download>Download</a>
+    </span>`;
+    ul.appendChild(li);
   });
+  container.appendChild(ul);
+}
+
+// ====== Render Syllabus ======
+renderFileList("syllabus-list", data.syllabus);
+
+// ====== Render Ebooks ======
+renderFileList("ebooks-list", data.ebooks);
+
+// ====== Render Notes ======
+const notesContainer = document.getElementById("notes-list");
+for(const [unit, files] of Object.entries(data.notes)){
+  const li = document.createElement('li');
+  li.innerHTML = `<b class="unit-title">${unit}</b>`;
+  const ul = document.createElement('ul');
+  ul.className = 'unit-content';
+  files.forEach(file=>{
+    const liFile = document.createElement('li');
+    liFile.innerHTML = `${file} <span class="actions">
+      <a href="Notes/${unit}/${file}" target="_blank">View</a>
+      <a class="download" href="Notes/${unit}/${file}" download>Download</a>
+    </span>`;
+    ul.appendChild(liFile);
+  });
+  li.appendChild(ul);
+  notesContainer.appendChild(li);
+}
+
+// ====== Render Programs ======
+const progContainer = document.getElementById("programs-list");
+for(const [unit, files] of Object.entries(data.programs)){
+  const li = document.createElement('li');
+  li.innerHTML = `<b class="unit-title">${unit}</b>`;
+  const ul = document.createElement('ul');
+  ul.className = 'unit-content';
+  files.forEach(file=>{
+    const liFile = document.createElement('li');
+    liFile.innerHTML = `${file} <span class="actions">
+      <a href="Programs/${unit}/${file}" target="_blank">View</a>
+      <a class="download" href="Programs/${unit}/${file}" download>Download</a>
+    </span>`;
+    ul.appendChild(liFile);
+  });
+  li.appendChild(ul);
+  progContainer.appendChild(li);
+}
+
+// ====== Expand/Collapse ======
+document.querySelectorAll('.unit-title, .ebook-title').forEach(title=>{
+  title.addEventListener('click',()=>{
+    const content = title.nextElementSibling;
+    if(content) content.style.display = content.style.display==='block'?'none':'block';
+  });
+});
 </script>
 </body>
 </html>
