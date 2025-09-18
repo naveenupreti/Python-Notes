@@ -55,7 +55,9 @@
     function toggleSection(id) {
       const container = document.getElementById(id);
       const lists = container.querySelectorAll("ul");
-      lists.forEach(ul => ul.style.display = (ul.style.display === "block") ? "none" : "block");
+      lists.forEach(ul => {
+        ul.style.display = (ul.style.display === "block") ? "none" : "block";
+      });
     }
 
     // Load files dynamically
@@ -68,40 +70,60 @@
 
         let container = document.getElementById(containerId);
 
+        // UNIT heading
         if (path.includes("UNIT")) {
           let h3 = document.createElement("h3");
           h3.textContent = path.split("/").pop();
+          let ul = document.createElement("ul");
+
+          // Toggle this UNIT
           h3.onclick = () => {
             ul.style.display = (ul.style.display === "block") ? "none" : "block";
           };
+
           container.appendChild(h3);
+          container.appendChild(ul);
+
+          files.forEach(file => {
+            if (file.type === "file") {
+              let li = document.createElement("li");
+              let link = `https://${user}.github.io/${repo}/${path}/${file.name}`;
+              let openLink = `<a href="${link}" target="_blank">${file.name}</a>`;
+              let downloadBtn = `<button class="download-btn" onclick="downloadFile('${link}')">Download</button>`;
+              li.innerHTML = openLink + downloadBtn;
+              ul.appendChild(li);
+            }
+          });
+
+        } else {
+          // Non-UNIT folders (syllabus, ebooks)
+          let ul = document.createElement("ul");
+          files.forEach(file => {
+            if (file.type === "file") {
+              let li = document.createElement("li");
+              let link = `https://${user}.github.io/${repo}/${path}/${file.name}`;
+              let openLink = `<a href="${link}" target="_blank">${file.name}</a>`;
+              let downloadBtn = `<button class="download-btn" onclick="downloadFile('${link}')">Download</button>`;
+              li.innerHTML = openLink + downloadBtn;
+              ul.appendChild(li);
+            }
+          });
+          container.appendChild(ul);
         }
-
-        let ul = document.createElement("ul");
-
-        files.forEach(file => {
-          if (file.type === "file") {
-            let li = document.createElement("li");
-
-            // Direct GitHub Pages link
-            let link = `https://${user}.github.io/${repo}/${path}/${file.name}`;
-
-            // Open in new tab
-            let openLink = `<a href="${link}" target="_blank">${file.name}</a>`;
-
-            // Download button
-            let downloadBtn = `<button class="download-btn" onclick="window.location.href='${link}'">Download</button>`;
-
-            li.innerHTML = openLink + downloadBtn;
-            ul.appendChild(li);
-          }
-        });
-
-        container.appendChild(ul);
 
       } catch (err) {
         console.error("Error loading files:", err);
       }
+    }
+
+    // Force file download
+    function downloadFile(url) {
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = url.split("/").pop();
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
 
     // Load all sections
