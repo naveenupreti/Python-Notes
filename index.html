@@ -92,6 +92,12 @@
     margin: 10px 0;
     color: #2d6cdf;
   }
+  b.ebook-title {
+  cursor: pointer;
+  display: inline-block;
+  color: #2d6cdf;
+  margin: 10px 0;
+  }
   .container {
     max-width: 900px;
     margin: auto;
@@ -146,7 +152,7 @@
   <h2 id="ebooks">Ebooks</h2>
 <ul>
   <li>
-    <b class="unit-title">Ebooks</b>
+    <b class="ebook-title">Ebooks</b>
     <ul class="unit-content">
       <li>HowToThinkLikeComputerScientistUsingPython3.pdf
         <span class="actions">
@@ -207,14 +213,14 @@
 </ul>
 
 <script>
-  // Toggle Ebooks unit
-  document.querySelectorAll('.unit-title').forEach(title => {
+  document.querySelectorAll('.ebook-title').forEach(title => {
     title.addEventListener('click', () => {
       const content = title.nextElementSibling;
       content.style.display = content.style.display === 'block' ? 'none' : 'block';
     });
   });
 </script>
+
 
 
   <!-- Notes -->
