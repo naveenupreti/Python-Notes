@@ -1,86 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Python Notes Repository</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    h1 { color: #2c3e50; }
-    h2 { margin-top: 30px; color: #16a085; }
-    h3 { margin-top: 20px; color: #2980b9; }
-    ul { list-style-type: square; }
-    li { margin: 4px 0; }
-    a { text-decoration: none; color: #e74c3c; }
-    a:hover { text-decoration: underline; }
-  </style>
-</head>
-<body>
-  <h1>Python Notes Repository</h1>
-
-  <h2>Notes</h2>
-  <div id="notes"></div>
-
-  <h2>Programs</h2>
-  <div id="programs"></div>
-
-  <h2>Syllabus</h2>
-  <ul id="syllabus"></ul>
-
-  <h2>Ebooks</h2>
-  <ul id="ebooks"></ul>
-
-  <script>
-    // GitHub repo details
-    const user = "naveenupreti";
-    const repo = "Python-Notes";
-    const branch = "main";
-
-    // Sections to load
-    const sections = {
-      notes: ["Notes/UNIT-1", "Notes/UNIT-2", "Notes/UNIT-3", "Notes/UNIT-4", "Notes/UNIT-5"],
-      programs: ["Programs/UNIT-1", "Programs/UNIT-2"],
-      syllabus: ["Syllabus"],
-      ebooks: ["ebooks"]
-    };
-
-    // Function to load files from GitHub API
-    async function loadFiles(path, containerId) {
-      const url = `https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${branch}`;
-      try {
-        const res = await fetch(url);
-        if (!res.ok) return;
-        const files = await res.json();
-
-        let container = document.getElementById(containerId);
-
-        // Create subheading for UNIT folders
-        if (path.includes("UNIT")) {
-          let h3 = document.createElement("h3");
-          h3.textContent = path.split("/").pop(); // last folder name
-          container.appendChild(h3);
-        }
-
-        let ul = document.createElement("ul");
-        files.forEach(file => {
-          if (file.type === "file") {
-            let li = document.createElement("li");
-            // Direct link to file in Pages (not GitHub UI)
-            let link = `https://${user}.github.io/${repo}/${path}/${file.name}`;
-            li.innerHTML = `<a href="${link}" target="_blank">${file.name}</a>`;
-            ul.appendChild(li);
-          }
-        });
-        container.appendChild(ul);
-
-      } catch (err) {
-        console.error("Error loading files:", err);
-      }
-    }
-
-    // Load all sections
-    for (let section in sections) {
-      sections[section].forEach(folder => loadFiles(folder, section));
-    }
-  </script>
-</body>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Python Notes Repository</title>
+  </head>
+  <body>
+    <h1>Generating site...</h1>
+    <p>Run <code>generate_index.py</code> to update this file.</p>
+  </body>
 </html>
