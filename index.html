@@ -4,215 +4,83 @@
   <meta charset="UTF-8">
   <title>Python Notes Repository</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f7fa;
-      color: #333;
-    }
-    header {
-      background: #2d6cdf;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      padding: 5px 10px;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
-    nav a:hover {
-      text-decoration: underline;
-      color: #ffdd57;
-    }
-    nav a.active {
-      background: #ffdd57;
-      color: #2d6cdf;
-    }
-    h2 {
-      background: #e8eefc;
-      padding: 10px;
-      border-left: 6px solid #2d6cdf;
-      margin-top: 30px;
-    }
-    h3 {
-      color: #2d6cdf;
-      margin-top: 20px;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 20px;
-    }
-    ul li {
-      margin: 6px 0;
-    }
-    a {
-      text-decoration: none;
-      color: #1a4bb7;
-      font-weight: 500;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: #d35400;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-      background: #2d6cdf;
-      color: white;
-    }
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; }
+    h2 { margin-top: 30px; color: #16a085; }
+    h3 { margin-top: 20px; color: #2980b9; }
+    ul { list-style-type: square; }
+    li { margin: 4px 0; }
+    a { text-decoration: none; color: #e74c3c; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>📘 Python Notes Repository</h1>
-    <p>Notes • Programs • Syllabus • Ebooks</p>
-    <nav>
-      <a href="#notes" id="link-notes">Notes</a>
-      <a href="#programs" id="link-programs">Programs</a>
-      <a href="#syllabus" id="link-syllabus">Syllabus</a>
-      <a href="#ebooks" id="link-ebooks">Ebooks</a>
-    </nav>
-  </header>
+  <h1>Python Notes Repository</h1>
 
-  <div class="container">
-    <!-- Notes Section -->
-    <h2 id="notes">Notes</h2>
+  <h2>Notes</h2>
+  <div id="notes"></div>
 
-    <h3>UNIT-1</h3>
-    <ul>
-      <li><a href="Notes/UNIT-1/LUP_Chapter1_Introduction.pdf">LUP Chapter 1 – Introduction</a></li>
-      <li><a href="Notes/UNIT-1/LUP_Chapter2_Installation.pdf">LUP Chapter 2 – Installation</a></li>
-      <li><a href="Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf">LUP Chapter 3 – Data Types & Operators</a></li>
-      <li><a href="Notes/UNIT-1/LUP_Chapter5_ControlStatements.pdf">LUP Chapter 5 – Control Statements</a></li>
-      <li><a href="Notes/UNIT-1/LUP_Chapter6_Loops.pdf">LUP Chapter 6 – Loops</a></li>
-      <li><a href="Notes/UNIT-1/LUP_Chapter7_ConsoleIO.pdf">LUP Chapter 7 – Console I/O</a></li>
-      <li><a href="Notes/UNIT-1/LUP_PrecedenceTable.pdf">Operator Precedence Table</a></li>
-      <li><a href="Notes/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf">Python History, Features, Distros & PEP8</a></li>
-    </ul>
+  <h2>Programs</h2>
+  <div id="programs"></div>
 
-    <h3>UNIT-2</h3>
-    <ul>
-      <li><a href="Notes/UNIT-2/LUP_Chapter10_Sets.pdf">LUP Chapter 10 – Sets</a></li>
-      <li><a href="Notes/UNIT-2/LUP_Chapter4_Strings.pdf">LUP Chapter 4 – Strings</a></li>
-      <li><a href="Notes/UNIT-2/LUP_Chapter8_Lists.pdf">LUP Chapter 8 – Lists</a></li>
-      <li><a href="Notes/UNIT-2/LUP_Chapter9_Tuples.pdf">LUP Chapter 9 – Tuples</a></li>
-    </ul>
+  <h2>Syllabus</h2>
+  <ul id="syllabus"></ul>
 
-    <h3>UNIT-3</h3>
-    <ul>
-      <li><a href="Notes/UNIT-3/LUP_Chapter11_Dictionaries.pdf">LUP Chapter 11 – Dictionaries</a></li>
-      <li><a href="Notes/UNIT-3/LUP_Chapter13_Functions.pdf">LUP Chapter 13 – Functions</a></li>
-      <li><a href="Notes/UNIT-3/LUP_Chapter14_Recursion.pdf">LUP Chapter 14 – Recursion</a></li>
-    </ul>
-
-    <h3>UNIT-4</h3>
-    <ul>
-      <li><a href="Notes/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf">LUP Chapter 16 – Modules & Packages</a></li>
-      <li><a href="Notes/UNIT-4/LUP_Chapter23_FileHandling.pdf">LUP Chapter 23 – File Handling</a></li>
-    </ul>
-
-    <h3>UNIT-5</h3>
-    <ul>
-      <li><a href="Notes/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf">LUP Chapter 22 – Exception Handling</a></li>
-    </ul>
-
-    <!-- Programs Section -->
-    <h2 id="programs">Programs</h2>
-
-    <h3>UNIT-1</h3>
-    <ul>
-      <li><a href="Programs/UNIT-1/BasicStructure.py">BasicStructure.py</a></li>
-      <li><a href="Programs/UNIT-1/control_statements.py">control_statements.py</a></li>
-      <li><a href="Programs/UNIT-1/datatypes_python.py">datatypes_python.py</a></li>
-      <li><a href="Programs/UNIT-1/file1.py">file1.py</a></li>
-      <li><a href="Programs/UNIT-1/file2.py">file2.py</a></li>
-      <li><a href="Programs/UNIT-1/operators_demo_with_output.py">operators_demo_with_output.py</a></li>
-      <li><a href="Programs/UNIT-1/precedence_associativity.py">precedence_associativity.py</a></li>
-      <li><a href="Programs/UNIT-1/print_formatting.py">print_formatting.py</a></li>
-      <li><a href="Programs/UNIT-1/short_circuit_operators.py">short_circuit_operators.py</a></li>
-      <li><a href="Programs/UNIT-1/use_of_main.py">use_of_main.py</a></li>
-      <li><a href="Programs/UNIT-1/variables.py">variables.py</a></li>
-    </ul>
-
-    <h3>UNIT-2</h3>
-    <ul>
-      <li><a href="Programs/UNIT-2/String_python.py">String_python.py</a></li>
-      <li><a href="Programs/UNIT-2/string_alignment.py">string_alignment.py</a></li>
-      <li><a href="Programs/UNIT-2/string_palindrome.py">string_palindrome.py</a></li>
-      <li><a href="Programs/UNIT-2/strings_immutable.py">strings_immutable.py</a></li>
-    </ul>
-
-    <!-- Syllabus Section -->
-    <h2 id="syllabus">Syllabus</h2>
-    <ul>
-      <li><a href="Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf">Python Programming Syllabus – MCA 3rd Sem</a></li>
-    </ul>
-
-    <!-- Ebooks Section -->
-    <h2 id="ebooks">Ebooks</h2>
-    <ul>
-      <li><a href="ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf">How to Think Like a Computer Scientist (Python 3)</a></li>
-      <li><a href="ebooks/LUP_Chapter12_Comprehensions.pdf">LUP Chapter 12 – Comprehensions</a></li>
-      <li><a href="ebooks/LUP_Chapter15_FunctionalProgramming.pdf">LUP Chapter 15 – Functional Programming</a></li>
-      <li><a href="ebooks/LUP_ChasingTheBugs.pdf">LUP – Chasing the Bugs</a></li>
-      <li><a href="ebooks/LUP_DebuggingInPython.pdf">LUP – Debugging in Python</a></li>
-      <li><a href="ebooks/LUP_PrecedenceTable.pdf">Operator Precedence Table</a></li>
-      <li><a href="ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf">Let Us Python – Yashavant Kanetkar</a></li>
-      <li><a href="ebooks/PythonTutorial_by_Guido van Rossum.pdf">Python Tutorial – Guido van Rossum</a></li>
-      <li><a href="ebooks/PythonTutorial_tutorialspoint.com.pdf">Python Tutorial – TutorialsPoint</a></li>
-    </ul>
-  </div>
-
-  <footer>
-    <p>© 2025 Python Notes | Hosted on GitHub Pages</p>
-  </footer>
+  <h2>Ebooks</h2>
+  <ul id="ebooks"></ul>
 
   <script>
-    // Highlight active section in nav while scrolling
-    const sections = document.querySelectorAll("h2");
-    const navLinks = document.querySelectorAll("nav a");
+    // GitHub repo details
+    const user = "naveenupreti";
+    const repo = "Python-Notes";
+    const branch = "main";
 
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 70;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
+    // Sections to load
+    const sections = {
+      notes: ["Notes/UNIT-1", "Notes/UNIT-2", "Notes/UNIT-3", "Notes/UNIT-4", "Notes/UNIT-5"],
+      programs: ["Programs/UNIT-1", "Programs/UNIT-2"],
+      syllabus: ["Syllabus"],
+      ebooks: ["ebooks"]
+    };
 
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
+    // Function to load files from GitHub API
+    async function loadFiles(path, containerId) {
+      const url = `https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${branch}`;
+      try {
+        const res = await fetch(url);
+        if (!res.ok) return;
+        const files = await res.json();
+
+        let container = document.getElementById(containerId);
+
+        // Create subheading for UNIT folders
+        if (path.includes("UNIT")) {
+          let h3 = document.createElement("h3");
+          h3.textContent = path.split("/").pop(); // last folder name
+          container.appendChild(h3);
         }
-      });
-    });
+
+        let ul = document.createElement("ul");
+        files.forEach(file => {
+          if (file.type === "file") {
+            let li = document.createElement("li");
+            // Direct link to file in Pages (not GitHub UI)
+            let link = `https://${user}.github.io/${repo}/${path}/${file.name}`;
+            li.innerHTML = `<a href="${link}" target="_blank">${file.name}</a>`;
+            ul.appendChild(li);
+          }
+        });
+        container.appendChild(ul);
+
+      } catch (err) {
+        console.error("Error loading files:", err);
+      }
+    }
+
+    // Load all sections
+    for (let section in sections) {
+      sections[section].forEach(folder => loadFiles(folder, section));
+    }
   </script>
 </body>
 </html>
