@@ -9,6 +9,36 @@ a multiline string.'''
 print(s1, s2)
 print(s3)
 
+# Strings with special characters using escape sequence
+msg2 = "He said, \"Let Us Python\""
+file1 = "C:\\temp\\newfile"  # Escaping backslashes
+file2 = r"C:\temp\newfile"   # Raw string to ignore escapes
+print(msg2)
+print(file1)
+print(file2)
+
+# -------------------------------------------------------------
+# Multiline Strings
+# -------------------------------------------------------------
+
+# Using implicit concatenation across lines
+msg3 = "multi...\n" \
+       "line ..." \
+       "string..."
+print("msg3="+msg3)
+
+# Using triple quotes (newline preserved)
+msg4 = """multi...
+line...
+string......"""
+print("msg4="+msg4)
+
+# Using parentheses for concatenation
+msg5 = ("multi..."
+        "line...."
+        "string....")
+print("msg5="+msg5)
+
 # -----------------------------
 # Accessing Strings
 # -----------------------------
@@ -100,3 +130,49 @@ for i in range(65, 65 + rows):
     for j in range(65, i + 1):
         print(chr(j), end=" ")
     print()
+
+
+'''
+Key Rules of String Comparison in Python:
+
+Strings are compared character by character using Unicode/ASCII values.
+
+Uppercase letters ("A"–"Z") have lower values than lowercase letters ("a"–"z").
+
+"A" = 65, "B" = 66 … "Z" = 90
+
+"a" = 97, "b" = 98 … "z" = 122
+
+If all characters are equal, the shorter string is considered smaller.
+
+'''
+# String Comparison
+# -------------------------------------------------------------
+s1 = "Bombay"
+s2 = "bombay"
+s3 = "Nagpur"
+s4 = "Bombaywala"
+s5 = "Bombay"
+
+print(s1 == s2)  # False
+print(s1 == s5)  # True
+print(s1 <= s3)  # True
+print(s1 > s5)   # False
+print(s1 < s2)   # True
+print(s1 <= s4)  # True
+
+
+# Finding and Replacing
+s = "The Terrible Tiger Tore The Towel"
+pos = -1
+while True:
+    pos = s.find("T", pos + 1)
+    if pos == -1:  # Not found
+        break
+    print(pos, s[pos])
+
+count_t = s.count("T")
+print(f"count_t={count_t}")
+s = s.replace("T", "t", count_t)
+print(s)
+
