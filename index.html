@@ -21,7 +21,7 @@
   li { margin:5px 0; padding:5px 10px; word-break:break-word; display:block; }
   .actions { float:right; }
   .unit-content li .actions { display:inline-block; margin-top:3px; float:none; }
-  b.unit-title, b.ebook-title { cursor:pointer; display:inline-block; color:#2d6cdf; margin:10px 0; padding:5px 10px; text-align:left; }
+  b.unit-title, b.ebook-title, b.syllabus-title { cursor:pointer; display:inline-block; color:#2d6cdf; margin:10px 0; padding:5px 10px; text-align:left; }
   a { text-decoration:none; color:#1a4bb7; font-weight:500; }
   a:hover { text-decoration:underline; color:#d35400; }
   .download { background:#2d6cdf; color:white; padding:2px 8px; border-radius:5px; font-size:0.85em; margin-left:5px; white-space:nowrap; }
@@ -32,7 +32,7 @@
   @media(max-width:600px){
     nav a { margin:3px 2px; padding:5px 8px; font-size:0.85em; }
     .container { padding:15px; }
-    b.unit-title,b.ebook-title { font-size:1em; display:block; }
+    b.unit-title, b.ebook-title, b.syllabus-title { font-size:1em; display:block; }
     #controls { flex-direction:column; }
   }
 </style>
@@ -85,15 +85,15 @@ function getCacheBuster() {
   return "?v=" + new Date().getTime();
 }
 
-// Normalize file entry (supports object {path, hidden} or legacy string)
+// Normalize file entry
 function normalizeFileEntry(entry) {
   if (typeof entry === "string") return { path: entry };
   if (typeof entry === "object" && entry !== null) return entry;
   return null;
 }
 
-// Render simple file list
-function renderFileList(containerId, files) {
+// Render collapsible file list (for syllabus, ebooks)
+function renderCollapsibleList(containerId, files, cssClass) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
   if (!files || files.length === 0) {
@@ -101,28 +101,41 @@ function renderFileList(containerId, files) {
     return;
   }
 
+  const li = document.createElement("li");
+  li.innerHTML = `<b class="${cssClass}">${containerId.replace("-list","").toUpperCase()}</b>`;
   const ul = document.createElement("ul");
+  ul.className = "unit-content";
   const cacheBuster = getCacheBuster();
 
   files.forEach(f => {
     const fileObj = normalizeFileEntry(f);
     if (!fileObj) return;
-    if (fileObj.hidden) return; // skip hidden files
+    if (fileObj.hidden) return;
 
     const filePath = rawBase + fileObj.path + cacheBuster;
     const fileName = fileObj.title || fileObj.path.split("/").pop();
-    const li = document.createElement("li");
-    li.innerHTML = `<a href="${filePath}" target="_blank" rel="noopener">${fileName}</a>
+
+    const liFile = document.createElement("li");
+    liFile.innerHTML = `<a href="${filePath}" target="_blank" rel="noopener">${fileName}</a>
       <span class="actions">
         <a class="download" href="${filePath}" download>Download</a>
       </span>`;
-    ul.appendChild(li);
+    ul.appendChild(liFile);
   });
 
-  container.appendChild(ul);
+  li.appendChild(ul);
+  container.appendChild(li);
+
+  // expand/collapse
+  container.querySelectorAll("b." + cssClass).forEach(title => {
+    title.addEventListener("click", () => {
+      const content = title.nextElementSibling;
+      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
 }
 
-// Render units
+// Render units (notes, programs, assignments)
 function renderUnits(containerId, unitsObj) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -142,7 +155,7 @@ function renderUnits(containerId, unitsObj) {
     files.forEach(f => {
       const fileObj = normalizeFileEntry(f);
       if (!fileObj) return;
-      if (fileObj.hidden) return; // skip hidden
+      if (fileObj.hidden) return;
 
       const filePath = rawBase + fileObj.path + cacheBuster;
       const fileName = fileObj.title || fileObj.path.split("/").pop();
@@ -159,7 +172,6 @@ function renderUnits(containerId, unitsObj) {
     container.appendChild(li);
   }
 
-  // expand/collapse
   container.querySelectorAll(".unit-title").forEach(title => {
     title.addEventListener("click", () => {
       const content = title.nextElementSibling;
@@ -179,20 +191,18 @@ async function loadData(force = false) {
       const res = await fetch(rawBase + "data.json" + getCacheBuster(), { cache: "no-store" });
       if (!res.ok) throw new Error("Failed to fetch data.json");
       data = await res.json();
-      try {
-        localStorage.setItem("pythonNotesData", JSON.stringify(data));
-      } catch (e) {}
+      try { localStorage.setItem("pythonNotesData", JSON.stringify(data)); } catch (e) {}
     } catch (err) {
       alert("Error loading data: " + err.message);
       return;
     }
   }
 
-  renderFileList("syllabus-list", data.syllabus);
+  renderCollapsibleList("syllabus-list", data.syllabus, "syllabus-title");
   renderUnits("notes-list", data.notes);
   renderUnits("programs-list", data.programs);
   renderUnits("assignments-list", data.assignments);
-  renderFileList("ebooks-list", data.ebooks);
+  renderCollapsibleList("ebooks-list", data.ebooks, "ebook-title");
 }
 
 // Initialize
