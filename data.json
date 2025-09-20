@@ -55,7 +55,7 @@
     ],
     "UNIT-3": [
       { "path": "Programs/UNIT-3/lists_lup.py" },
-      { "path": "Programs/UNIT-3/tuples_lup.py" }
+      { "path": "Programs/UNIT-3/tuples_lup.py" "hidden": true }
     ],
     "UNIT-4": [
       { "path": "Programs/UNIT-4/test.py" }
