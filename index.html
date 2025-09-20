@@ -72,8 +72,6 @@
 </footer>
 
 <script>
-const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
-
 function renderFileList(containerId, files) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -82,10 +80,9 @@ function renderFileList(containerId, files) {
 
   files.forEach(file => {
     const li = document.createElement("li");
-    const filePath = rawBase + file;
     li.innerHTML = `${file} <span class="actions">
-      <a href="${filePath}" target="_blank">View</a>
-      <a class="download" href="${filePath}" download>Download</a>
+      <a href="${file}" target="_blank">View</a>
+      <a class="download" href="${file}" download>Download</a>
     </span>`;
     ul.appendChild(li);
   });
@@ -104,10 +101,9 @@ function renderUnits(containerId, units) {
 
     files.forEach(file => {
       const liFile = document.createElement("li");
-      const filePath = rawBase + file;
       liFile.innerHTML = `${file} <span class="actions">
-        <a href="${filePath}" target="_blank">View</a>
-        <a class="download" href="${filePath}" download>Download</a>
+        <a href="${file}" target="_blank">View</a>
+        <a class="download" href="${file}" download>Download</a>
       </span>`;
       ul.appendChild(liFile);
     });
@@ -123,7 +119,7 @@ async function loadData(force=false) {
   let data = localStorage.getItem("pythonNotesData");
   if (data) data = JSON.parse(data);
   else {
-    const res = await fetch(rawBase + "data.json");
+    const res = await fetch("data.json");
     data = await res.json();
     localStorage.setItem("pythonNotesData", JSON.stringify(data));
   }
