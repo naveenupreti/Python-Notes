@@ -59,4 +59,18 @@
     ],
     "UNIT-2": [],
     "UNIT-3": [],
-    "UNIT
+    "UNIT-4": [],
+    "UNIT-5": []
+  },
+  "ebooks": [
+    "ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf",
+    "ebooks/LUP_Chapter12_Comprehensions.pdf",
+    "ebooks/LUP_Chapter15_FunctionalProgramming.pdf",
+    "ebooks/LUP_ChasingTheBugs.pdf",
+    "ebooks/LUP_DebuggingInPython.pdf",
+    "ebooks/LUP_PrecedenceTable.pdf",
+    "ebooks/Let-Us-Python-by-yashavant-kanetkar.pdf",
+    "ebooks/PythonTutorial_by_Guido_van_Rossum.pdf",
+    "ebooks/PythonTutorial_tutorialspoint.com.pdf"
+  ]
+}
