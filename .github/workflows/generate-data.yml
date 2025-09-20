@@ -6,69 +6,25 @@ on:
       - main
 
 jobs:
-  generate-data:
+  generate:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Generate data.json
-        run: |
-          echo "{" > data.json
-          echo '  "syllabus": [' >> data.json
-          ls Syllabus | awk '{print "    \"Syllabus/"$0"\","}' >> data.json
-          sed -i '$ s/,$//' data.json  # remove trailing comma
-          echo '  ],' >> data.json
-
-          echo '  "notes": {' >> data.json
-          for unit in Notes/*; do
-            unit_name=$(basename $unit)
-            echo "    \"$unit_name\": [" >> data.json
-            for f in $unit/*; do
-              echo "      \"Notes/$unit_name/$(basename $f)\"," >> data.json
-            done
-            sed -i '$ s/,$//' data.json
-            echo "    ]," >> data.json
-          done
-          sed -i '$ s/,$//' data.json
-          echo '  },' >> data.json
-
-          echo '  "programs": {' >> data.json
-          for unit in Programs/*; do
-            unit_name=$(basename $unit)
-            echo "    \"$unit_name\": [" >> data.json
-            for f in $unit/*; do
-              echo "      \"Programs/$unit_name/$(basename $f)\"," >> data.json
-            done
-            sed -i '$ s/,$//' data.json
-            echo "    ]," >> data.json
-          done
-          sed -i '$ s/,$//' data.json
-          echo '  },' >> data.json
-
-          echo '  "assignments": {' >> data.json
-          for unit in Assignments/*; do
-            unit_name=$(basename $unit)
-            echo "    \"$unit_name\": [" >> data.json
-            for f in $unit/*; do
-              echo "      \"Assignments/$unit_name/$(basename $f)\"," >> data.json
-            done
-            sed -i '$ s/,$//' data.json
-            echo "    ]," >> data.json
-          done
-          sed -i '$ s/,$//' data.json
-          echo '  },' >> data.json
-
-          echo '  "ebooks": [' >> data.json
-          ls ebooks | awk '{print "    \"ebooks/"$0"\","}' >> data.json
-          sed -i '$ s/,$//' data.json
-          echo '  ]' >> data.json
-          echo "}" >> data.json
+        run: python3 generate_data.py
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
-          git commit -m "Auto-update data.json"
+          git commit -m "Auto-update data.json via GitHub Actions" || echo "No changes to commit"
           git push
