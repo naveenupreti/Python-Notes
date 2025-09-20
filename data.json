@@ -60,7 +60,9 @@
     "UNIT-4": [
       "Programs/UNIT-4/test.py"
     ],
-     "UNIT-5": []
+     "UNIT-5": [
+       "Programs/UNIT-5/test.py"
+     ]
   },
   "assignments": {
     "UNIT-1": [
