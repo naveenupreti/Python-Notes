@@ -1,72 +1,72 @@
 {
   "syllabus": [
-    { "path": "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" }
+    "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf"
   ],
   "notes": {
     "UNIT-1": [
-      { "path": "Notes/UNIT-1/LUP_Chapter1_Introduction.pdf" },
-      { "path": "Notes/UNIT-1/LUP_Chapter2_Installation.pdf" },
-      { "path": "Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf" },
-      { "path": "Notes/UNIT-1/LUP_Chapter5_ControlStatements.pdf" },
-      { "path": "Notes/UNIT-1/LUP_Chapter6_Loops.pdf" },
-      { "path": "Notes/UNIT-1/LUP_Chapter7_ConsoleIO.pdf" },
-      { "path": "Notes/UNIT-1/LUP_PrecedenceTable.pdf" },
-      { "path": "Notes/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf" }
+      "Notes/UNIT-1/LUP_Chapter1_Introduction.pdf",
+      "Notes/UNIT-1/LUP_Chapter2_Installation.pdf",
+      "Notes/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf",
+      "Notes/UNIT-1/LUP_Chapter5_ControlStatements.pdf",
+      "Notes/UNIT-1/LUP_Chapter6_Loops.pdf",
+      "Notes/UNIT-1/LUP_Chapter7_ConsoleIO.pdf",
+      "Notes/UNIT-1/LUP_PrecedenceTable.pdf",
+      "Notes/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf"
     ],
     "UNIT-2": [
-      { "path": "Notes/UNIT-2/LUP_Chapter10_Sets.pdf" },
-      { "path": "Notes/UNIT-2/LUP_Chapter4_Strings.pdf" },
-      { "path": "Notes/UNIT-2/LUP_Chapter8_Lists.pdf" },
-      { "path": "Notes/UNIT-2/LUP_Chapter9_Tuples.pdf" }
+      "Notes/UNIT-2/LUP_Chapter10_Sets.pdf",
+      "Notes/UNIT-2/LUP_Chapter4_Strings.pdf",
+      "Notes/UNIT-2/LUP_Chapter8_Lists.pdf",
+      "Notes/UNIT-2/LUP_Chapter9_Tuples.pdf"
     ],
     "UNIT-3": [
-      { "path": "Notes/UNIT-3/LUP_Chapter11_Dictionaries.pdf" },
-      { "path": "Notes/UNIT-3/LUP_Chapter13_Functions.pdf" },
-      { "path": "Notes/UNIT-3/LUP_Chapter14_Recursion.pdf" }
+      "Notes/UNIT-3/LUP_Chapter11_Dictionaries.pdf",
+      "Notes/UNIT-3/LUP_Chapter13_Functions.pdf",
+      "Notes/UNIT-3/LUP_Chapter14_Recursion.pdf"
     ],
     "UNIT-4": [
-      { "path": "Notes/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" },
-      { "path": "Notes/UNIT-4/LUP_Chapter23_FileHandling.pdf" }
+      "Notes/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf",
+      "Notes/UNIT-4/LUP_Chapter23_FileHandling.pdf"
     ],
     "UNIT-5": [
-      { "path": "Notes/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf" }
+      "Notes/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf"
     ]
   },
   "programs": {
     "UNIT-1": [
-      { "path": "Programs/UNIT-1/BasicStructure.py" },
-      { "path": "Programs/UNIT-1/control_statements.py" },
-      { "path": "Programs/UNIT-1/datatypes_python.py" },
-      { "path": "Programs/UNIT-1/file1.py" },
-      { "path": "Programs/UNIT-1/file2.py" },
-      { "path": "Programs/UNIT-1/operators_demo_with_output.py" },
-      { "path": "Programs/UNIT-1/precedence_associativity.py" },
-      { "path": "Programs/UNIT-1/print_formatting.py" },
-      { "path": "Programs/UNIT-1/short_circuit_operators.py" },
-      { "path": "Programs/UNIT-1/use_of_main.py" },
-      { "path": "Programs/UNIT-1/variables.py" },
-      { "path": "Programs/UNIT-1/test.py", "hidden": true }
+      "Programs/UNIT-1/BasicStructure.py",
+      "Programs/UNIT-1/control_statements.py",
+      "Programs/UNIT-1/datatypes_python.py",
+      "Programs/UNIT-1/file1.py",
+      "Programs/UNIT-1/file2.py",
+      "Programs/UNIT-1/operators_demo_with_output.py",
+      "Programs/UNIT-1/precedence_associativity.py",
+      "Programs/UNIT-1/print_formatting.py",
+      "Programs/UNIT-1/short_circuit_operators.py",
+      "Programs/UNIT-1/use_of_main.py",
+      "Programs/UNIT-1/variables.py"
     ],
     "UNIT-2": [
-      { "path": "Programs/UNIT-2/String_python.py" },
-      { "path": "Programs/UNIT-2/string_alignment.py" },
-      { "path": "Programs/UNIT-2/string_palindrome.py" },
-      { "path": "Programs/UNIT-2/strings_lup.py" }
+      "Programs/UNIT-2/String_python.py",
+      "Programs/UNIT-2/string_alignment.py",
+      "Programs/UNIT-2/string_palindrome.py",
+      "Programs/UNIT-2/strings_lup.py"
     ],
     "UNIT-3": [
-      { "path": "Programs/UNIT-3/lists_lup.py" },
-      { "path": "Programs/UNIT-3/tuples_lup.py", "hidden": true }
+      "Programs/UNIT-3/lists_lup.py",
+      "Programs/UNIT-3/tuples_lup.py"
+      
     ],
     "UNIT-4": [
-      { "path": "Programs/UNIT-4/test.py" }
+      "Programs/UNIT-4/test.py"
     ],
-    "UNIT-5": [
-      { "path": "Programs/UNIT-5/test.py" }
-    ]
+     "UNIT-5": [
+       "Programs/UNIT-5/test.py"
+     ]
   },
   "assignments": {
     "UNIT-1": [
-      { "path": "Assignments/UNIT-1/Assignment1.pdf" }
+      "Assignments/UNIT-1/Assignment1.pdf"
     ],
     "UNIT-2": [],
     "UNIT-3": [],
@@ -74,14 +74,14 @@
     "UNIT-5": []
   },
   "ebooks": [
-    { "path": "ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" },
-    { "path": "ebooks/LUP_Chapter12_Comprehensions.pdf" },
-    { "path": "ebooks/LUP_Chapter15_FunctionalProgramming.pdf" },
-    { "path": "ebooks/LUP_ChasingTheBugs.pdf" },
-    { "path": "ebooks/LUP_DebuggingInPython.pdf" },
-    { "path": "ebooks/LUP_PrecedenceTable.pdf" },
-    { "path": "ebooks/Let-Us-Python-by-yashavant-kanetkar.pdf" },
-    { "path": "ebooks/PythonTutorial_by_Guido_van_Rossum.pdf" },
-    { "path": "ebooks/PythonTutorial_tutorialspoint.com.pdf" }
+    "ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf",
+    "ebooks/LUP_Chapter12_Comprehensions.pdf",
+    "ebooks/LUP_Chapter15_FunctionalProgramming.pdf",
+    "ebooks/LUP_ChasingTheBugs.pdf",
+    "ebooks/LUP_DebuggingInPython.pdf",
+    "ebooks/LUP_PrecedenceTable.pdf",
+    "ebooks/Let-Us-Python-by-yashavant-kanetkar.pdf",
+    "ebooks/PythonTutorial_by_Guido_van_Rossum.pdf",
+    "ebooks/PythonTutorial_tutorialspoint.com.pdf"
   ]
 }
