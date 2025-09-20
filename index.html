@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Python Notes Repository</title>
 <style>
   html { scroll-padding-top: 100px; }
@@ -14,10 +14,8 @@
   nav a { color:white; text-decoration:none; margin:0 10px; font-weight:bold; padding:5px 10px; border-radius:4px; transition:0.3s; display:inline-block; margin-bottom:5px; }
   nav a:hover { text-decoration:underline; color:#ffdd57; }
   nav a.active { background:#ffdd57; color:#2d6cdf; }
-  #controls { margin-top:10px; display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; }
   #refreshBtn { background:#ffdd57; color:#2d6cdf; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; font-weight:bold; margin-top:10px; }
   #refreshBtn:hover { background:#ffd633; }
-  #showHiddenLabel { color:white; font-weight:600; display:flex; gap:8px; align-items:center; }
   h2 { background:#e8eefc; padding:10px; border-left:6px solid #2d6cdf; margin-top:30px; }
   li { margin:5px 0; padding:5px 10px; word-break:break-word; display:block; }
   .actions { float:right; }
@@ -28,22 +26,20 @@
   .download { background:#2d6cdf; color:white; padding:2px 8px; border-radius:5px; font-size:0.85em; margin-left:5px; white-space:nowrap; }
   .download:hover { background:#ff5733; }
   .unit-content { display:none; margin-left:20px; margin-top:5px; }
-  .container { max-width:960px; width:95%; margin:auto; padding:20px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:8px; }
+  .container { max-width:900px; width:95%; margin:auto; padding:20px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:8px; }
   footer { text-align:center; padding:15px; margin-top:30px; background:#2d6cdf; color:white; }
   @media(max-width:600px){
     nav a { margin:3px 2px; padding:5px 8px; font-size:0.85em; }
     .container { padding:15px; }
     b.unit-title,b.ebook-title { font-size:1em; display:block; }
-    #controls { flex-direction:column; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>📘 Python Notes Repository</h1>
+  <h1>ðŸ“˜ Python Notes Repository</h1>
   <p>:BMC301:  :Python Programming:  :MCA 3rd Semester:</p>
-
   <nav>
     <a href="#syllabus">Syllabus</a>
     <a href="#notes">Notes</a>
@@ -51,13 +47,7 @@
     <a href="#assignments">Assignments</a>
     <a href="#ebooks">Ebooks</a>
   </nav>
-
-  <div id="controls">
-    <button id="refreshBtn">🔄 Refresh Data</button>
-    <label id="showHiddenLabel">
-      <input type="checkbox" id="showHidden" /> Show hidden files
-    </label>
-  </div>
+  <button id="refreshBtn">ðŸ”„ Refresh Data</button>
 </header>
 
 <div class="container">
@@ -84,86 +74,54 @@
 <script>
 const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
 
-// Cache-buster (timestamp)
-function getCacheBuster() {
-  return "?v=" + new Date().getTime();
-}
-
-// Helper: normalize file entry (supports object {path, hidden} or legacy string)
-function normalizeFileEntry(entry) {
-  if (typeof entry === "string") return { path: entry };
-  if (typeof entry === "object" && entry !== null) return entry;
-  return null;
-}
-
-// Render simple file list (syllabus, ebooks)
-function renderFileList(containerId, files, showHidden = false) {
+// Render simple file list (Syllabus, Ebooks)
+function renderFileList(containerId, files) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
   if (!files || files.length === 0) {
     container.innerHTML = "<p>No files available.</p>";
     return;
   }
-
   const ul = document.createElement("ul");
-  const cacheBuster = getCacheBuster();
-
-  files.forEach(f => {
-    const fileObj = normalizeFileEntry(f);
-    if (!fileObj) return;
-    if (fileObj.hidden && !showHidden) return;
-
-    const filePath = rawBase + fileObj.path + cacheBuster;
-    const fileName = fileObj.title || fileObj.path.split("/").pop();
+  files.forEach(file => {
     const li = document.createElement("li");
-    li.innerHTML = `<a href="${filePath}" target="_blank" rel="noopener">${fileName}</a>
+    const filePath = rawBase + file;
+    li.innerHTML = `<a href="${filePath}" target="_blank">${file.split('/').pop()}</a>
       <span class="actions">
         <a class="download" href="${filePath}" download>Download</a>
       </span>`;
     ul.appendChild(li);
   });
-
   container.appendChild(ul);
 }
 
-// Render units (notes, programs, assignments)
-function renderUnits(containerId, unitsObj, showHidden = false) {
+// Render units (Notes, Programs, Assignments)
+function renderUnits(containerId, units) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
-  if (!unitsObj || Object.keys(unitsObj).length === 0) {
+  if (!units || Object.keys(units).length === 0) {
     container.innerHTML = "<p>No data available.</p>";
     return;
   }
-
-  const cacheBuster = getCacheBuster();
-
-  for (const [unitName, files] of Object.entries(unitsObj)) {
+  for (const [unitName, files] of Object.entries(units)) {
     const li = document.createElement("li");
     li.innerHTML = `<b class="unit-title">${unitName}</b>`;
     const ul = document.createElement("ul");
     ul.className = "unit-content";
-
-    files.forEach(f => {
-      const fileObj = normalizeFileEntry(f);
-      if (!fileObj) return;
-      if (fileObj.hidden && !showHidden) return;
-
-      const filePath = rawBase + fileObj.path + cacheBuster;
-      const fileName = fileObj.title || fileObj.path.split("/").pop();
-
+    files.forEach(file => {
       const liFile = document.createElement("li");
-      liFile.innerHTML = `<a href="${filePath}" target="_blank" rel="noopener">${fileName}</a>
+      const filePath = rawBase + file;
+      liFile.innerHTML = `<a href="${filePath}" target="_blank">${file.split('/').pop()}</a>
         <span class="actions">
           <a class="download" href="${filePath}" download>Download</a>
         </span>`;
       ul.appendChild(liFile);
     });
-
     li.appendChild(ul);
     container.appendChild(li);
   }
 
-  // expand/collapse
+  // Expand/collapse on click
   container.querySelectorAll(".unit-title").forEach(title => {
     title.addEventListener("click", () => {
       const content = title.nextElementSibling;
@@ -172,43 +130,36 @@ function renderUnits(containerId, unitsObj, showHidden = false) {
   });
 }
 
-// Load data.json (with caching in localStorage)
-async function loadData(force = false) {
+// Load data.json and render all sections
+async function loadData(force=false) {
   if (force) localStorage.removeItem("pythonNotesData");
 
   let data = localStorage.getItem("pythonNotesData");
   if (data) data = JSON.parse(data);
   else {
     try {
-      const res = await fetch(rawBase + "data.json" + getCacheBuster(), { cache: "no-store" });
+      const res = await fetch(rawBase + "data.json");
       if (!res.ok) throw new Error("Failed to fetch data.json");
       data = await res.json();
-      try {
-        localStorage.setItem("pythonNotesData", JSON.stringify(data));
-      } catch (e) {
-        // ignore localStorage write errors on quota
-      }
+      localStorage.setItem("pythonNotesData", JSON.stringify(data));
     } catch (err) {
-      alert("Error loading data: " + err.message);
+      alert("Error loading data: " + err);
       return;
     }
   }
 
-  const showHidden = document.getElementById("showHidden").checked;
-
-  renderFileList("syllabus-list", data.syllabus, showHidden);
-  renderUnits("notes-list", data.notes, showHidden);
-  renderUnits("programs-list", data.programs, showHidden);
-  renderUnits("assignments-list", data.assignments, showHidden);
-  renderFileList("ebooks-list", data.ebooks, showHidden);
+  renderFileList("syllabus-list", data.syllabus);
+  renderUnits("notes-list", data.notes);
+  renderUnits("programs-list", data.programs);
+  renderUnits("assignments-list", data.assignments);
+  renderFileList("ebooks-list", data.ebooks);
 }
 
 // Initialize
-document.getElementById("refreshBtn").addEventListener("click", () => loadData(true));
-document.getElementById("showHidden").addEventListener("change", () => loadData(false));
+loadData();
 
-// initial load
-loadData(false);
+// Refresh button
+document.getElementById("refreshBtn").addEventListener("click", () => loadData(true));
 </script>
 
 </body>
