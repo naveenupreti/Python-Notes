@@ -1,0 +1,27 @@
+{
+  "syllabus": [
+    "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf"
+  ],
+  "notes": {
+    "UNIT-1": [
+      "Notes/UNIT-1/LUP_Chapter1_Introduction.pdf",
+      "Notes/UNIT-1/LUP_Chapter2_Installation.pdf"
+    ],
+    "UNIT-2": [
+      "Notes/UNIT-2/LUP_Chapter4_Strings.pdf"
+    ]
+  },
+  "programs": {
+    "UNIT-1": [
+      "Programs/UNIT-1/BasicStructure.py"
+    ]
+  },
+  "assignments": {
+    "UNIT-1": [
+      "Assignments/UNIT-1/Assignment1.pdf"
+    ]
+  },
+  "ebooks": [
+    "ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf"
+  ]
+}
