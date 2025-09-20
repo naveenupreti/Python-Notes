@@ -83,16 +83,13 @@ async function loadData(force=false){
     localStorage.setItem("pythonNotesData", JSON.stringify(data));
   }
 
-  // Helper to render collapsible file lists
   function renderFileList(containerId, files, title){
     const container = document.getElementById(containerId);
     container.innerHTML = "";
-
     const li = document.createElement("li");
     li.innerHTML = `<b class="unit-title">${title}</b>`;
     const ul = document.createElement("ul");
     ul.className = "unit-content";
-
     files.forEach(f=>{
       const liFile = document.createElement("li");
       liFile.innerHTML = `${f} <span class="actions">
@@ -101,12 +98,10 @@ async function loadData(force=false){
       </span>`;
       ul.appendChild(liFile);
     });
-
     li.appendChild(ul);
     container.appendChild(li);
   }
 
-  // Helper to render notes/programs/assignments units
   function renderUnits(containerId, units){
     const container = document.getElementById(containerId);
     container.innerHTML = "";
@@ -128,14 +123,12 @@ async function loadData(force=false){
     }
   }
 
-  // Render all sections
   renderFileList("syllabus-list", data.syllabus, "Syllabus");
   renderUnits("notes-list", data.notes);
   renderUnits("programs-list", data.programs);
   renderUnits("assignments-list", data.assignments);
   renderFileList("ebooks-list", data.ebooks, "Ebooks");
 
-  // Collapsible behavior
   document.querySelectorAll(".unit-title, .ebook-title").forEach(title=>{
     title.addEventListener("click",()=>{
       const next = title.nextElementSibling;
@@ -144,7 +137,6 @@ async function loadData(force=false){
   });
 }
 
-// Initial load
 loadData();
 document.getElementById("refreshBtn").addEventListener("click", ()=>loadData(true));
 </script>
