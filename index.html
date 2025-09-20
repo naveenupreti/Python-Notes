@@ -1,93 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Python Notes Repository</title>
-  <style>
-    /* Add your CSS styling here */
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Notes Repository</title>
+<style>
+html { scroll-padding-top: 100px; }
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; }
+header { background:#2d6cdf; color:white; padding:20px; text-align:center; position:sticky; top:0; z-index:1000; }
+header h1 { margin:0; font-size:2em; }
+header p { margin:5px 0 0 0; font-size:0.9em; }
+nav { margin-top:10px; }
+nav a { color:white; text-decoration:none; margin:0 10px; font-weight:bold; padding:5px 10px; border-radius:4px; transition:0.3s; display:inline-block; margin-bottom:5px; }
+nav a:hover { text-decoration:underline; color:#ffdd57; }
+nav a.active { background:#ffdd57; color:#2d6cdf; }
+#refreshBtn { background:#ffdd57; color:#2d6cdf; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; font-weight:bold; margin-top:10px; }
+#refreshBtn:hover { background:#ffd633; }
+h2 { background:#e8eefc; padding:10px; border-left:6px solid #2d6cdf; margin-top:30px; }
+li { margin:5px 0; padding:5px 10px; word-break:break-word; display:block; }
+.actions { float:right; }
+.unit-content li .actions { display:inline-block; margin-top:3px; float:none; }
+b.unit-title, b.ebook-title { cursor:pointer; display:inline-block; color:#2d6cdf; margin:10px 0; padding:5px 10px; text-align:left; }
+a { text-decoration:none; color:#1a4bb7; font-weight:500; }
+a:hover { text-decoration:underline; color:#d35400; }
+.download { background:#2d6cdf; color:white; padding:2px 8px; border-radius:5px; font-size:0.85em; margin-left:5px; white-space:nowrap; }
+.download:hover { background:#ff5733; }
+.unit-content { display:none; margin-left:20px; margin-top:5px; }
+.container { max-width:900px; width:95%; margin:auto; padding:20px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:8px; }
+footer { text-align:center; padding:15px; margin-top:30px; background:#2d6cdf; color:white; }
+@media(max-width:600px){
+  nav a { margin:3px 2px; padding:5px 8px; font-size:0.85em; }
+  .container { padding:15px; }
+  b.unit-title,b.ebook-title { font-size:1em; display:block; }
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>📘 Python Notes Repository</h1>
-    <p>:BMC301: :Python Programming: :MCA 3rd Semester:</p>
-    <nav>
-      <a href="#syllabus">Syllabus</a>
-      <a href="#notes">Notes</a>
-      <a href="#programs">Programs</a>
-      <a href="#assignments">Assignments</a>
-      <a href="#ebooks">Ebooks</a>
-    </nav>
-    <button id="refreshBtn">🔄 Refresh Data</button>
-  </header>
+<header>
+  <h1>📘 Python Notes Repository</h1>
+  <p>:BMC301:  :Python Programming:  :MCA 3rd Semester:</p>
+  <nav>
+    <a href="#syllabus">Syllabus</a>
+    <a href="#notes">Notes</a>
+    <a href="#programs">Programs</a>
+    <a href="#assignments">Assignments</a>
+    <a href="#ebooks">Ebooks</a>
+  </nav>
+  <button id="refreshBtn">🔄 Refresh Data</button>
+</header>
 
-  <div class="container">
-    <h2 id="syllabus">Syllabus</h2>
-    <div id="syllabus-list"></div>
+<div class="container">
+  <h2 id="syllabus">Syllabus</h2>
+  <div id="syllabus-list"></div>
 
-    <h2 id="notes">Notes</h2>
-    <div id="notes-list"></div>
+  <h2 id="notes">Notes</h2>
+  <div id="notes-list"></div>
 
-    <h2 id="programs">Programs</h2>
-    <div id="programs-list"></div>
+  <h2 id="programs">Programs</h2>
+  <div id="programs-list"></div>
 
-    <h2 id="assignments">Assignments</h2>
-    <div id="assignments-list"></div>
+  <h2 id="assignments">Assignments</h2>
+  <div id="assignments-list"></div>
 
-    <h2 id="ebooks">Ebooks</h2>
-    <div id="ebooks-list"></div>
-  </div>
+  <h2 id="ebooks">Ebooks</h2>
+  <div id="ebooks-list"></div>
+</div>
 
-  <footer>
-    Developed & Maintained by Naveen Upreti | 2025
-  </footer>
+<footer>
+  Developed & Maintained by Naveen Upreti | 2025
+</footer>
 
-  <script>
-    async function fetchData() {
-      try {
-        const response = await fetch('data.json');
-        const data = await response.json();
-        renderContent(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+<script>
+async function loadData(force=false){
+  if(force) localStorage.removeItem("pythonNotesData");
+
+  let data = localStorage.getItem("pythonNotesData");
+  if(data) data = JSON.parse(data);
+  else {
+    const res = await fetch("data.json");
+    data = await res.json();
+    localStorage.setItem("pythonNotesData", JSON.stringify(data));
+  }
+
+  // Render syllabus
+  const syllabusList = document.getElementById("syllabus-list");
+  syllabusList.innerHTML = "";
+  const syllabusUl = document.createElement("ul");
+  syllabusUl.className = "unit-content";
+  data.syllabus.forEach(f=>{
+    const li = document.createElement("li");
+    li.innerHTML = `${f} <span class="actions">
+      <a href="${f}" target="_blank">View</a>
+      <a class="download" href="${f}" download>Download</a>
+    </span>`;
+    syllabusUl.appendChild(li);
+  });
+  syllabusList.appendChild(syllabusUl);
+
+  // Render units
+  function renderUnits(containerId, units){
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+    for(const [unit, files] of Object.entries(units)){
+      const li = document.createElement("li");
+      li.innerHTML = `<b class="unit-title">${unit}</b>`;
+      const ul = document.createElement("ul");
+      ul.className = "unit-content";
+      files.forEach(f=>{
+        const liFile = document.createElement("li");
+        liFile.innerHTML = `${f} <span class="actions">
+          <a href="${f}" target="_blank">View</a>
+          <a class="download" href="${f}" download>Download</a>
+        </span>`;
+        ul.appendChild(liFile);
+      });
+      li.appendChild(ul);
+      container.appendChild(li);
     }
+  }
 
-    function renderContent(data) {
-      // Render syllabus
-      const syllabusList = document.getElementById('syllabus-list');
-      syllabusList.innerHTML = data.syllabus.map(item => `<a href="${item}" target="_blank">${item}</a>`).join('<br>');
+  renderUnits("notes-list", data.notes);
+  renderUnits("programs-list", data.programs);
+  renderUnits("assignments-list", data.assignments);
 
-      // Render notes
-      const notesList = document.getElementById('notes-list');
-      notesList.innerHTML = Object.keys(data.notes).map(unit => {
-        return `<b>${unit}</b><br>` + data.notes[unit].map(item => `<a href="${item}" target="_blank">${item}</a>`).join('<br>');
-      }).join('<br><br>');
+  // Render ebooks
+  const ebooksList = document.getElementById("ebooks-list");
+  ebooksList.innerHTML = "";
+  const ebooksUl = document.createElement("ul");
+  ebooksUl.className = "unit-content";
+  data.ebooks.forEach(f=>{
+    const li = document.createElement("li");
+    li.innerHTML = `${f} <span class="actions">
+      <a href="${f}" target="_blank">View</a>
+      <a class="download" href="${f}" download>Download</a>
+    </span>`;
+    ebooksUl.appendChild(li);
+  });
+  ebooksList.appendChild(ebooksUl);
 
-      // Render programs
-      const programsList = document.getElementById('programs-list');
-      programsList.innerHTML = Object.keys(data.programs).map(unit => {
-        return `<b>${unit}</b><br>` + data.programs[unit].map(item => `<a href="${item}" target="_blank">${item}</a>`).join('<br>');
-      }).join('<br><br>');
+  // Collapsible sections
+  document.querySelectorAll(".unit-title, .ebook-title").forEach(title=>{
+    title.addEventListener("click",()=>{
+      const next = title.nextElementSibling;
+      if(next) next.style.display = next.style.display==="block"?"none":"block";
+    });
+  });
+}
 
-      // Render assignments
-      const assignmentsList = document.getElementById('assignments-list');
-      assignmentsList.innerHTML = Object.keys(data.assignments).map(unit => {
-        return `<b>${unit}</b><br>` + data.assignments[unit].map(item => `<a href="${item}" target="_blank">${item}</a>`).join('<br>');
-      }).join('<br><br>');
-
-      // Render ebooks
-      const ebooksList = document.getElementById('ebooks-list');
-      ebooksList.innerHTML = data.ebooks.map(item => `<a href="${item}" target="_blank">${item}</a>`).join('<br>');
-    }
-
-    document.getElementById('refreshBtn').addEventListener('click', fetchData);
-
-    // Initial data fetch
-    fetchData();
-  </script>
+// Initial load
+loadData();
+document.getElementById("refreshBtn").addEventListener("click", ()=>loadData(true));
+</script>
 
 </body>
 </html>
