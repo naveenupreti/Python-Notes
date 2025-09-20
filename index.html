@@ -74,13 +74,15 @@
 <script>
 const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
 
-// ===== Render file list =====
+// Render a simple file list (syllabus, ebooks)
 function renderFileList(containerId, files) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
+  if (!files || files.length === 0) {
+    container.innerHTML = "<p>No files available.</p>";
+    return;
+  }
   const ul = document.createElement("ul");
-  ul.className = "unit-content";
-
   files.forEach(file => {
     const li = document.createElement("li");
     const filePath = rawBase + file;
@@ -90,20 +92,22 @@ function renderFileList(containerId, files) {
     </span>`;
     ul.appendChild(li);
   });
-
   container.appendChild(ul);
 }
 
-// ===== Render folders like UNIT-1, UNIT-2 =====
+// Render units like UNIT-1, UNIT-2
 function renderUnits(containerId, units) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
+  if (!units || Object.keys(units).length === 0) {
+    container.innerHTML = "<p>No data available.</p>";
+    return;
+  }
   for (const [unitName, files] of Object.entries(units)) {
     const li = document.createElement("li");
     li.innerHTML = `<b class="unit-title">${unitName}</b>`;
     const ul = document.createElement("ul");
     ul.className = "unit-content";
-
     files.forEach(file => {
       const liFile = document.createElement("li");
       const filePath = rawBase + file;
@@ -113,22 +117,35 @@ function renderUnits(containerId, units) {
       </span>`;
       ul.appendChild(liFile);
     });
-
     li.appendChild(ul);
     container.appendChild(li);
   }
+
+  // Expand/collapse
+  container.querySelectorAll(".unit-title").forEach(title => {
+    title.addEventListener("click", () => {
+      const content = title.nextElementSibling;
+      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
 }
 
-// ===== Fetch data.json and render all =====
+// Load data.json dynamically
 async function loadData(force=false) {
   if (force) localStorage.removeItem("pythonNotesData");
 
   let data = localStorage.getItem("pythonNotesData");
   if (data) data = JSON.parse(data);
   else {
-    const res = await fetch(rawBase + "data.json");
-    data = await res.json();
-    localStorage.setItem("pythonNotesData", JSON.stringify(data));
+    try {
+      const res = await fetch(rawBase + "data.json");
+      if (!res.ok) throw new Error("Failed to fetch data.json");
+      data = await res.json();
+      localStorage.setItem("pythonNotesData", JSON.stringify(data));
+    } catch (err) {
+      alert("Error loading data: " + err);
+      return;
+    }
   }
 
   // Render all sections
@@ -137,21 +154,14 @@ async function loadData(force=false) {
   renderUnits("programs-list", data.programs);
   renderUnits("assignments-list", data.assignments);
   renderFileList("ebooks-list", data.ebooks);
-
-  // Expand/collapse
-  document.querySelectorAll(".unit-title, .ebook-title").forEach(title => {
-    title.addEventListener("click", () => {
-      const content = title.nextElementSibling;
-      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
-    });
-  });
 }
 
-// ===== Initialize =====
+// Initialize
 loadData();
 
-// ===== Refresh Button =====
+// Refresh button
 document.getElementById("refreshBtn").addEventListener("click", () => loadData(true));
 </script>
+
 </body>
 </html>
