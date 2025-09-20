@@ -14,6 +14,8 @@
   nav a { color:white; text-decoration:none; margin:0 10px; font-weight:bold; padding:5px 10px; border-radius:4px; transition:0.3s; display:inline-block; margin-bottom:5px; }
   nav a:hover { text-decoration:underline; color:#ffdd57; }
   nav a.active { background:#ffdd57; color:#2d6cdf; }
+  #refreshBtn { background:#ffdd57; color:#2d6cdf; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; font-weight:bold; margin-top:10px; }
+  #refreshBtn:hover { background:#ffd633; }
   h2 { background:#e8eefc; padding:10px; border-left:6px solid #2d6cdf; margin-top:30px; }
   li { margin:5px 0; padding:5px 10px; word-break:break-word; display:block; }
   .actions { float:right; }
@@ -45,6 +47,7 @@
     <a href="#assignments">Assignments</a>
     <a href="#ebooks">Ebooks</a>
   </nav>
+  <button id="refreshBtn">🔄 Refresh Data</button>
 </header>
 
 <div class="container">
@@ -69,92 +72,86 @@
 </footer>
 
 <script>
-const owner = "naveenupreti";
-const repo = "Python-Notes";
-
-// ===== Helper to fetch GitHub repo folder contents =====
-async function fetchGitHubDir(path) {
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-  const res = await fetch(url);
-  if (!res.ok) return [];
-  return await res.json();
-}
+const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
 
 // ===== Render file list =====
 function renderFileList(containerId, files) {
   const container = document.getElementById(containerId);
+  container.innerHTML = "";
   const ul = document.createElement("ul");
   ul.className = "unit-content";
+
   files.forEach(file => {
-    if (file.type === "file") {
-      const li = document.createElement("li");
-      li.innerHTML = `${file.name} <span class="actions">
-        <a href="${file.download_url}" target="_blank">View</a>
-        <a class="download" href="${file.download_url}" download>Download</a>
-      </span>`;
-      ul.appendChild(li);
-    }
+    const li = document.createElement("li");
+    const filePath = rawBase + file;
+    li.innerHTML = `${file} <span class="actions">
+      <a href="${filePath}" target="_blank">View</a>
+      <a class="download" href="${filePath}" download>Download</a>
+    </span>`;
+    ul.appendChild(li);
   });
+
   container.appendChild(ul);
 }
 
 // ===== Render folders like UNIT-1, UNIT-2 =====
-async function renderUnitFolders(containerId, basePath) {
+function renderUnits(containerId, units) {
   const container = document.getElementById(containerId);
-  const units = await fetchGitHubDir(basePath);
+  container.innerHTML = "";
+  for (const [unitName, files] of Object.entries(units)) {
+    const li = document.createElement("li");
+    li.innerHTML = `<b class="unit-title">${unitName}</b>`;
+    const ul = document.createElement("ul");
+    ul.className = "unit-content";
 
-  for (const unit of units) {
-    if (unit.type === "dir") {
-      const li = document.createElement("li");
-      li.innerHTML = `<b class="unit-title">${unit.name}</b>`;
-      const ul = document.createElement("ul");
-      ul.className = "unit-content";
+    files.forEach(file => {
+      const liFile = document.createElement("li");
+      const filePath = rawBase + file;
+      liFile.innerHTML = `${file} <span class="actions">
+        <a href="${filePath}" target="_blank">View</a>
+        <a class="download" href="${filePath}" download>Download</a>
+      </span>`;
+      ul.appendChild(liFile);
+    });
 
-      const files = await fetchGitHubDir(`${basePath}/${unit.name}`);
-      files.forEach(file => {
-        if (file.type === "file") {
-          const liFile = document.createElement("li");
-          liFile.innerHTML = `${file.name} <span class="actions">
-            <a href="${file.download_url}" target="_blank">View</a>
-            <a class="download" href="${file.download_url}" download>Download</a>
-          </span>`;
-          ul.appendChild(liFile);
-        }
-      });
-
-      li.appendChild(ul);
-      container.appendChild(li);
-    }
+    li.appendChild(ul);
+    container.appendChild(li);
   }
 }
 
-// ===== Init all sections =====
-(async function init() {
-  // syllabus
-  renderFileList("syllabus-list", await fetchGitHubDir("Syllabus"));
+// ===== Fetch data.json and render all =====
+async function loadData(force=false) {
+  if (force) localStorage.removeItem("pythonNotesData");
 
-  // notes
-  await renderUnitFolders("notes-list", "Notes");
+  let data = localStorage.getItem("pythonNotesData");
+  if (data) data = JSON.parse(data);
+  else {
+    const res = await fetch(rawBase + "data.json");
+    data = await res.json();
+    localStorage.setItem("pythonNotesData", JSON.stringify(data));
+  }
 
-  // programs
-  await renderUnitFolders("programs-list", "Programs");
+  // Render all sections
+  renderFileList("syllabus-list", data.syllabus);
+  renderUnits("notes-list", data.notes);
+  renderUnits("programs-list", data.programs);
+  renderUnits("assignments-list", data.assignments);
+  renderFileList("ebooks-list", data.ebooks);
 
-  // assignments
-  await renderUnitFolders("assignments-list", "Assignments");
-
-  // ebooks
-  renderFileList("ebooks-list", await fetchGitHubDir("ebooks"));
-
-  // expand/collapse
+  // Expand/collapse
   document.querySelectorAll(".unit-title, .ebook-title").forEach(title => {
     title.addEventListener("click", () => {
       const content = title.nextElementSibling;
-      if (content) {
-        content.style.display = content.style.display === "block" ? "none" : "block";
-      }
+      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
     });
   });
-})();
+}
+
+// ===== Initialize =====
+loadData();
+
+// ===== Refresh Button =====
+document.getElementById("refreshBtn").addEventListener("click", () => loadData(true));
 </script>
 </body>
 </html>
