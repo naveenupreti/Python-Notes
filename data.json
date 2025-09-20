@@ -51,6 +51,11 @@
       "Programs/UNIT-2/string_alignment.py",
       "Programs/UNIT-2/string_palindrome.py",
       "Programs/UNIT-2/strings_lup.py"
+    ],
+    "UNIT-3": [
+      "Programs/UNIT-3/lists_lup.py",
+      "Programs/UNIT-3/tuples_lup.py",
+      
     ]
   },
   "assignments": {
