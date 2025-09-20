@@ -1,6 +1,7 @@
 {
   "syllabus": [
-    { "path": "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" }
+    { "path": "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf" },
+    {"path":  "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.docx"}
   ],
   "notes": {
     "UNIT-1": [
