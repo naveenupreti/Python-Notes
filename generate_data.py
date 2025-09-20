@@ -14,11 +14,13 @@ EBOOKS_FOLDER = "ebooks"
 # Helper functions
 # ------------------------------
 def list_files(folder):
+    """Return list of relative paths for files in a folder"""
     if not os.path.exists(folder):
         return []
     return [f"{folder}/{f}" for f in sorted(os.listdir(folder)) if os.path.isfile(os.path.join(folder, f))]
 
 def list_unit_files(base_folder):
+    """Return dict of unit folders and their files with relative paths"""
     units = {}
     if not os.path.exists(base_folder):
         return units
@@ -45,4 +47,4 @@ data = {
 with open("data.json", "w", encoding="utf-8") as f:
     json.dump(data, f, indent=2)
 
-print("✅ data.json has been successfully generated!")
+print("✅ data.json has been successfully generated with full relative paths!")
