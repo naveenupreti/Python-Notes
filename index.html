@@ -74,7 +74,6 @@
 <script>
 const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
 
-// ===== Render file list =====
 function renderFileList(containerId, files) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -94,7 +93,6 @@ function renderFileList(containerId, files) {
   container.appendChild(ul);
 }
 
-// ===== Render folders like UNIT-1, UNIT-2 =====
 function renderUnits(containerId, units) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -119,7 +117,6 @@ function renderUnits(containerId, units) {
   }
 }
 
-// ===== Fetch data.json and render all =====
 async function loadData(force=false) {
   if (force) localStorage.removeItem("pythonNotesData");
 
@@ -131,14 +128,12 @@ async function loadData(force=false) {
     localStorage.setItem("pythonNotesData", JSON.stringify(data));
   }
 
-  // Render all sections
   renderFileList("syllabus-list", data.syllabus);
   renderUnits("notes-list", data.notes);
   renderUnits("programs-list", data.programs);
   renderUnits("assignments-list", data.assignments);
   renderFileList("ebooks-list", data.ebooks);
 
-  // Expand/collapse
   document.querySelectorAll(".unit-title, .ebook-title").forEach(title => {
     title.addEventListener("click", () => {
       const content = title.nextElementSibling;
@@ -147,11 +142,9 @@ async function loadData(force=false) {
   });
 }
 
-// ===== Initialize =====
 loadData();
-
-// ===== Refresh Button =====
 document.getElementById("refreshBtn").addEventListener("click", () => loadData(true));
 </script>
+
 </body>
 </html>
