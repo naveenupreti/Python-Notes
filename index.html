@@ -14,6 +14,8 @@
   nav a { color:white; text-decoration:none; margin:0 10px; font-weight:bold; padding:5px 10px; border-radius:4px; transition:0.3s; display:inline-block; margin-bottom:5px; }
   nav a:hover { text-decoration:underline; color:#ffdd57; }
   nav a.active { background:#ffdd57; color:#2d6cdf; }
+  #refreshBtn { background:#ffdd57; color:#2d6cdf; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; font-weight:bold; margin-top:10px; }
+  #refreshBtn:hover { background:#ffd633; }
   h2 { background:#e8eefc; padding:10px; border-left:6px solid #2d6cdf; margin-top:30px; }
   li { margin:5px 0; padding:5px 10px; word-break:break-word; display:block; }
   .actions { float:right; }
@@ -40,24 +42,29 @@
   <p>:BMC301:  :Python Programming:  :MCA 3rd Semester:</p>
   <nav>
     <a href="#syllabus">Syllabus</a>
-    <a href="#ebooks">Ebooks</a>
     <a href="#notes">Notes</a>
     <a href="#programs">Programs</a>
+    <a href="#assignments">Assignments</a>
+    <a href="#ebooks">Ebooks</a>
   </nav>
+  <button id="refreshBtn">🔄 Refresh Data</button>
 </header>
 
 <div class="container">
   <h2 id="syllabus">Syllabus</h2>
   <div id="syllabus-list"></div>
 
-  <h2 id="ebooks">Ebooks</h2>
-  <div id="ebooks-list"></div>
-
   <h2 id="notes">Notes</h2>
   <div id="notes-list"></div>
 
   <h2 id="programs">Programs</h2>
   <div id="programs-list"></div>
+
+  <h2 id="assignments">Assignments</h2>
+  <div id="assignments-list"></div>
+
+  <h2 id="ebooks">Ebooks</h2>
+  <div id="ebooks-list"></div>
 </div>
 
 <footer>
@@ -65,115 +72,181 @@
 </footer>
 
 <script>
-// ====== File Data ======
-const data = {
-  syllabus: [
-    {name:"Python_Programming_Syllabus_MCA_3rd_Sem.pdf", path:"Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.pdf"}
-  ],
-  ebooks: [
-    {name:"HowToThinkLikeComputerScientistUsingPython3.pdf", path:"ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf"},
-    {name:"LUP_Chapter12_Comprehensions.pdf", path:"ebooks/LUP_Chapter12_Comprehensions.pdf"},
-    {name:"LUP_Chapter15_FunctionalProgramming.pdf", path:"ebooks/LUP_Chapter15_FunctionalProgramming.pdf"},
-    {name:"LUP_ChasingTheBugs.pdf", path:"ebooks/LUP_ChasingTheBugs.pdf"},
-    {name:"LUP_DebuggingInPython.pdf", path:"ebooks/LUP_DebuggingInPython.pdf"},
-    {name:"LUP_PrecedenceTable.pdf", path:"ebooks/LUP_PrecedenceTable.pdf"},
-    {name:"Let-Us-Python-by-yashavant-kanetkar.pdf", path:"ebooks/Let-Us-Python-by-yashavant-kanetkar.pdf"},
-    {name:"PythonTutorial_by_Guido_van_Rossum.pdf", path:"ebooks/PythonTutorial_by_Guido_van_Rossum.pdf"},
-    {name:"PythonTutorial_tutorialspoint.com.pdf", path:"ebooks/PythonTutorial_tutorialspoint.com.pdf"}
-  ],
-  notes: {
-    "UNIT-1": ["LUP_Chapter1_Introduction.pdf","LUP_Chapter2_Installation.pdf","LUP_Chapter3_DataTypesOperatos.pdf",
-               "LUP_Chapter5_ControlStatements.pdf","LUP_Chapter6_Loops.pdf","LUP_Chapter7_ConsoleIO.pdf",
-               "LUP_PrecedenceTable.pdf","Python_History_Features_Distros_CodingStandards-PEP8.pdf"],
-    "UNIT-2": ["LUP_Chapter10_Sets.pdf","LUP_Chapter4_Strings.pdf","LUP_Chapter8_Lists.pdf","LUP_Chapter9_Tuples.pdf"],
-    "UNIT-3": ["LUP_Chapter11_Dictionaries.pdf","LUP_Chapter13_Functions.pdf","LUP_Chapter14_Recursion.pdf"],
-    "UNIT-4": ["LUP_Chapter16_ModulesAndPackages.pdf","LUP_Chapter23_FileHandling.pdf"],
-    "UNIT-5": ["LUP_Chapter22_ExceptionHandling.pdf"]
-  },
-  programs: {
-    "UNIT-1":["BasicStructure.py","control_statements.py","datatypes_python.py","file1.py","file2.py",
-              "operators_demo_with_output.py","precedence_associativity.py","print_formatting.py",
-              "short_circuit_operators.py","use_of_main.py","variables.py"],
-    "UNIT-2":["String_python.py","string_alignment.py","string_palindrome.py","strings_immutable.py"]
-  }
-};
-
-// ====== Render Functions ======
-function renderFileList(containerId, files, basePath="") {
+// ===== Utility to Render Files =====
+function renderFileList(containerId, files) {
   const container = document.getElementById(containerId);
-  const ul = document.createElement('ul');
-  ul.className = "unit-content"; // for collapsible
+  const ul = document.createElement("ul");
+  ul.className = "unit-content";
+
   files.forEach(f => {
-    const li = document.createElement('li');
-    li.innerHTML = `${f.name || f} <span class="actions">
-      <a href="${basePath}${f.path || f}" target="_blank">View</a>
-      <a class="download" href="${basePath}${f.path || f}" download>Download</a>
-    </span>`;
+    const li = document.createElement("li");
+    const filePath = f.path.replace(/^.*?\/(Syllabus|ebooks|Notes|Programs|Assignments)/, "$1");
+    li.innerHTML = `
+      ${f.name}
+      <span class="actions">
+        <a href="${filePath}" target="_blank">View</a>
+        <a class="download" href="${filePath}" download>Download</a>
+      </span>
+    `;
     ul.appendChild(li);
   });
+
   container.appendChild(ul);
 }
 
-// ====== Render Syllabus ======
-const syllabusContainer = document.getElementById("syllabus-list");
-const syllabusHeader = document.createElement('b');
-syllabusHeader.className = "unit-title";
-syllabusHeader.textContent = "Syllabus";
-syllabusContainer.appendChild(syllabusHeader);
-renderFileList("syllabus-list", data.syllabus);
+// ===== GitHub API Fetcher with Caching =====
+async function fetchGitHubDir(path, forceRefresh = false) {
+  const cacheKey = `gh-cache-${path}`;
+  const expiry = 1000 * 60 * 60; // 1 hour
 
-// ====== Render Ebooks ======
-const ebooksContainer = document.getElementById("ebooks-list");
-const ebookHeader = document.createElement('b');
-ebookHeader.className = "ebook-title";
-ebookHeader.textContent = "Ebooks";
-ebooksContainer.appendChild(ebookHeader);
-renderFileList("ebooks-list", data.ebooks);
+  if (!forceRefresh) {
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+      const { timestamp, data } = JSON.parse(cached);
+      if (Date.now() - timestamp < expiry) {
+        return data; // ✅ return cached
+      }
+    }
+  }
 
-// ====== Render Notes ======
-const notesContainer = document.getElementById("notes-list");
-for(const [unit, files] of Object.entries(data.notes)){
-  const li = document.createElement('li');
-  li.innerHTML = `<b class="unit-title">${unit}</b>`;
-  const ul = document.createElement('ul');
-  ul.className = 'unit-content';
-  files.forEach(file=>{
-    const liFile = document.createElement('li');
-    liFile.innerHTML = `${file} <span class="actions">
-      <a href="Notes/${unit}/${file}" target="_blank">View</a>
-      <a class="download" href="Notes/${unit}/${file}" download>Download</a>
-    </span>`;
-    ul.appendChild(liFile);
-  });
-  li.appendChild(ul);
-  notesContainer.appendChild(li);
+  const url = `https://api.github.com/repos/naveenupreti/Python-Notes/contents/${path}`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  // Save to cache
+  localStorage.setItem(cacheKey, JSON.stringify({ timestamp: Date.now(), data }));
+
+  return data;
 }
 
-// ====== Render Programs ======
-const progContainer = document.getElementById("programs-list");
-for(const [unit, files] of Object.entries(data.programs)){
-  const li = document.createElement('li');
-  li.innerHTML = `<b class="unit-title">${unit}</b>`;
-  const ul = document.createElement('ul');
-  ul.className = 'unit-content';
-  files.forEach(file=>{
-    const liFile = document.createElement('li');
-    liFile.innerHTML = `${file} <span class="actions">
-      <a href="Programs/${unit}/${file}" target="_blank">View</a>
-      <a class="download" href="Programs/${unit}/${file}" download>Download</a>
-    </span>`;
-    ul.appendChild(liFile);
+// ===== Render All Sections =====
+async function renderAll(forceRefresh = false) {
+  // Clear previous content
+  ["syllabus","notes","programs","assignments","ebooks"].forEach(id => {
+    document.getElementById(`${id}-list`).innerHTML = "";
   });
-  li.appendChild(ul);
-  progContainer.appendChild(li);
+
+  // --- Syllabus ---
+  const syllabusContainer = document.getElementById("syllabus-list");
+  const syllabusHeader = document.createElement("b");
+  syllabusHeader.className = "unit-title";
+  syllabusHeader.textContent = "Syllabus";
+  syllabusContainer.appendChild(syllabusHeader);
+  renderFileList("syllabus-list", await fetchGitHubDir("Syllabus", forceRefresh));
+
+  // --- Notes ---
+  const notesContainer = document.getElementById("notes-list");
+  const noteUnits = await fetchGitHubDir("Notes", forceRefresh);
+  for (const unit of noteUnits) {
+    if (unit.type === "dir") {
+      const li = document.createElement("li");
+      li.innerHTML = `<b class="unit-title">${unit.name}</b>`;
+      const ul = document.createElement("ul");
+      ul.className = "unit-content";
+
+      const files = await fetchGitHubDir(unit.path, forceRefresh);
+      files.forEach(f => {
+        const liFile = document.createElement("li");
+        const filePath = f.path.replace(/^.*?\/Notes/, "Notes");
+        liFile.innerHTML = `
+          ${f.name}
+          <span class="actions">
+            <a href="${filePath}" target="_blank">View</a>
+            <a class="download" href="${filePath}" download>Download</a>
+          </span>
+        `;
+        ul.appendChild(liFile);
+      });
+
+      li.appendChild(ul);
+      notesContainer.appendChild(li);
+    }
+  }
+
+  // --- Programs ---
+  const progContainer = document.getElementById("programs-list");
+  const progUnits = await fetchGitHubDir("Programs", forceRefresh);
+  for (const unit of progUnits) {
+    if (unit.type === "dir") {
+      const li = document.createElement("li");
+      li.innerHTML = `<b class="unit-title">${unit.name}</b>`;
+      const ul = document.createElement("ul");
+      ul.className = "unit-content";
+
+      const files = await fetchGitHubDir(unit.path, forceRefresh);
+      files.forEach(f => {
+        const liFile = document.createElement("li");
+        const filePath = f.path.replace(/^.*?\/Programs/, "Programs");
+        liFile.innerHTML = `
+          ${f.name}
+          <span class="actions">
+            <a href="${filePath}" target="_blank">View</a>
+            <a class="download" href="${filePath}" download>Download</a>
+          </span>
+        `;
+        ul.appendChild(liFile);
+      });
+
+      li.appendChild(ul);
+      progContainer.appendChild(li);
+    }
+  }
+
+  // --- Assignments ---
+  const assignContainer = document.getElementById("assignments-list");
+  const assignUnits = await fetchGitHubDir("Assignments", forceRefresh);
+  for (const unit of assignUnits) {
+    if (unit.type === "dir") {
+      const li = document.createElement("li");
+      li.innerHTML = `<b class="unit-title">${unit.name}</b>`;
+      const ul = document.createElement("ul");
+      ul.className = "unit-content";
+
+      const files = await fetchGitHubDir(unit.path, forceRefresh);
+      files.forEach(f => {
+        const liFile = document.createElement("li");
+        const filePath = f.path.replace(/^.*?\/Assignments/, "Assignments");
+        liFile.innerHTML = `
+          ${f.name}
+          <span class="actions">
+            <a href="${filePath}" target="_blank">View</a>
+            <a class="download" href="${filePath}" download>Download</a>
+          </span>
+        `;
+        ul.appendChild(liFile);
+      });
+
+      li.appendChild(ul);
+      assignContainer.appendChild(li);
+    }
+  }
+
+  // --- Ebooks ---
+  const ebooksContainer = document.getElementById("ebooks-list");
+  const ebookHeader = document.createElement("b");
+  ebookHeader.className = "ebook-title";
+  ebookHeader.textContent = "Ebooks";
+  ebooksContainer.appendChild(ebookHeader);
+  renderFileList("ebooks-list", await fetchGitHubDir("ebooks", forceRefresh));
+
+  // --- Expand/Collapse Handler ---
+  document.querySelectorAll(".unit-title, .ebook-title").forEach(title => {
+    title.addEventListener("click", () => {
+      const content = title.nextElementSibling;
+      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
 }
 
-// ====== Expand/Collapse for all sections ======
-document.querySelectorAll('.unit-title, .ebook-title').forEach(title=>{
-  title.addEventListener('click',()=>{
-    const content = title.nextElementSibling;
-    if(content) content.style.display = content.style.display==='block'?'none':'block';
+// ===== Initialize Page =====
+renderAll();
+
+// ===== Refresh Button Handler =====
+document.getElementById("refreshBtn").addEventListener("click", () => {
+  Object.keys(localStorage).forEach(k => {
+    if (k.startsWith("gh-cache-")) localStorage.removeItem(k);
   });
+  renderAll(true);
 });
 </script>
 </body>
