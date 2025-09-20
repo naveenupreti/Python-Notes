@@ -39,7 +39,7 @@ footer { text-align:center; padding:15px; margin-top:30px; background:#2d6cdf; c
 
 <header>
   <h1>📘 Python Notes Repository</h1>
-  <p>:BMC301:  :Python Programming:  :MCA 3rd Semester:</p>
+  <p>:BMC301: :Python Programming: :MCA 3rd Semester:</p>
   <nav>
     <a href="#syllabus">Syllabus</a>
     <a href="#notes">Notes</a>
@@ -83,22 +83,30 @@ async function loadData(force=false){
     localStorage.setItem("pythonNotesData", JSON.stringify(data));
   }
 
-  // Render syllabus
-  const syllabusList = document.getElementById("syllabus-list");
-  syllabusList.innerHTML = "";
-  const syllabusUl = document.createElement("ul");
-  syllabusUl.className = "unit-content";
-  data.syllabus.forEach(f=>{
-    const li = document.createElement("li");
-    li.innerHTML = `${f} <span class="actions">
-      <a href="${f}" target="_blank">View</a>
-      <a class="download" href="${f}" download>Download</a>
-    </span>`;
-    syllabusUl.appendChild(li);
-  });
-  syllabusList.appendChild(syllabusUl);
+  // Helper to render collapsible file lists
+  function renderFileList(containerId, files, title){
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
 
-  // Render units
+    const li = document.createElement("li");
+    li.innerHTML = `<b class="unit-title">${title}</b>`;
+    const ul = document.createElement("ul");
+    ul.className = "unit-content";
+
+    files.forEach(f=>{
+      const liFile = document.createElement("li");
+      liFile.innerHTML = `${f} <span class="actions">
+        <a href="${f}" target="_blank">View</a>
+        <a class="download" href="${f}" download>Download</a>
+      </span>`;
+      ul.appendChild(liFile);
+    });
+
+    li.appendChild(ul);
+    container.appendChild(li);
+  }
+
+  // Helper to render notes/programs/assignments units
   function renderUnits(containerId, units){
     const container = document.getElementById(containerId);
     container.innerHTML = "";
@@ -120,26 +128,14 @@ async function loadData(force=false){
     }
   }
 
+  // Render all sections
+  renderFileList("syllabus-list", data.syllabus, "Syllabus");
   renderUnits("notes-list", data.notes);
   renderUnits("programs-list", data.programs);
   renderUnits("assignments-list", data.assignments);
+  renderFileList("ebooks-list", data.ebooks, "Ebooks");
 
-  // Render ebooks
-  const ebooksList = document.getElementById("ebooks-list");
-  ebooksList.innerHTML = "";
-  const ebooksUl = document.createElement("ul");
-  ebooksUl.className = "unit-content";
-  data.ebooks.forEach(f=>{
-    const li = document.createElement("li");
-    li.innerHTML = `${f} <span class="actions">
-      <a href="${f}" target="_blank">View</a>
-      <a class="download" href="${f}" download>Download</a>
-    </span>`;
-    ebooksUl.appendChild(li);
-  });
-  ebooksList.appendChild(ebooksUl);
-
-  // Collapsible sections
+  // Collapsible behavior
   document.querySelectorAll(".unit-title, .ebook-title").forEach(title=>{
     title.addEventListener("click",()=>{
       const next = title.nextElementSibling;
