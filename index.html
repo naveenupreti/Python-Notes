@@ -105,6 +105,7 @@ function renderCollapsibleList(containerId, files, cssClass) {
   li.innerHTML = `<b class="${cssClass}">${containerId.replace("-list","").toUpperCase()}</b>`;
   const ul = document.createElement("ul");
   ul.className = "unit-content";
+  ul.style.display = "none"; // collapsed by default
   const cacheBuster = getCacheBuster();
 
   files.forEach(f => {
@@ -151,6 +152,7 @@ function renderUnits(containerId, unitsObj) {
     li.innerHTML = `<b class="unit-title">${unitName}</b>`;
     const ul = document.createElement("ul");
     ul.className = "unit-content";
+    ul.style.display = "none"; // collapsed by default
 
     files.forEach(f => {
       const fileObj = normalizeFileEntry(f);
