@@ -72,6 +72,10 @@
 </footer>
 
 <script>
+const repo = "naveenupreti/Python-Notes";
+const branch = "main";
+const rawBase = `https://raw.githubusercontent.com/${repo}/${branch}/`;
+
 // ===== Utility to Render Files =====
 function renderFileList(containerId, files) {
   const container = document.getElementById(containerId);
@@ -80,7 +84,7 @@ function renderFileList(containerId, files) {
 
   files.forEach(f => {
     const li = document.createElement("li");
-    const filePath = f.path.replace(/^.*?\/(Syllabus|ebooks|Notes|Programs|Assignments)/, "$1");
+    const filePath = rawBase + f.path;
     li.innerHTML = `
       ${f.name}
       <span class="actions">
@@ -109,11 +113,10 @@ async function fetchGitHubDir(path, forceRefresh = false) {
     }
   }
 
-  const url = `https://api.github.com/repos/naveenupreti/Python-Notes/contents/${path}`;
+  const url = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
   const res = await fetch(url);
   const data = await res.json();
 
-  // Save to cache
   localStorage.setItem(cacheKey, JSON.stringify({ timestamp: Date.now(), data }));
 
   return data;
@@ -121,7 +124,6 @@ async function fetchGitHubDir(path, forceRefresh = false) {
 
 // ===== Render All Sections =====
 async function renderAll(forceRefresh = false) {
-  // Clear previous content
   ["syllabus","notes","programs","assignments","ebooks"].forEach(id => {
     document.getElementById(`${id}-list`).innerHTML = "";
   });
@@ -147,7 +149,7 @@ async function renderAll(forceRefresh = false) {
       const files = await fetchGitHubDir(unit.path, forceRefresh);
       files.forEach(f => {
         const liFile = document.createElement("li");
-        const filePath = f.path.replace(/^.*?\/Notes/, "Notes");
+        const filePath = rawBase + f.path;
         liFile.innerHTML = `
           ${f.name}
           <span class="actions">
@@ -176,7 +178,7 @@ async function renderAll(forceRefresh = false) {
       const files = await fetchGitHubDir(unit.path, forceRefresh);
       files.forEach(f => {
         const liFile = document.createElement("li");
-        const filePath = f.path.replace(/^.*?\/Programs/, "Programs");
+        const filePath = rawBase + f.path;
         liFile.innerHTML = `
           ${f.name}
           <span class="actions">
@@ -205,7 +207,7 @@ async function renderAll(forceRefresh = false) {
       const files = await fetchGitHubDir(unit.path, forceRefresh);
       files.forEach(f => {
         const liFile = document.createElement("li");
-        const filePath = f.path.replace(/^.*?\/Assignments/, "Assignments");
+        const filePath = rawBase + f.path;
         liFile.innerHTML = `
           ${f.name}
           <span class="actions">
