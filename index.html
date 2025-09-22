@@ -112,6 +112,22 @@
     flex-shrink: 0;
     font-size: 0.85em;
   }
+
+  .pdf-controls {
+    margin-bottom: 10px;
+  }
+  .pdf-controls button {
+    background: #2d6cdf;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .pdf-controls button:hover {
+    background: #1a4bb7;
+  }
 </style>
 </head>
 <body>
@@ -233,34 +249,40 @@ function renderUnits(containerId, unitsObj) {
 }
 
 // Load file content in right panel
-async function loadInContent(fileUrl, title) {
+function loadInContent(fileUrl, title) {
   const content = document.getElementById("content");
   content.innerHTML = `<h2>${title}</h2><p>Loading...</p>`;
 
-  try {
-    if (fileUrl.toLowerCase().endsWith(".pdf")) {
-      // ✅ Direct embed — no fetch
-      content.innerHTML = `
-        <h2>${title}</h2>
-        <iframe src="${fileUrl}" style="width:100%; height:calc(100vh - 150px);" frameborder="0"></iframe>
-      `;
-      return;
-    }
-
-    // ✅ Fetch only for text files
-    const res = await fetch(fileUrl);
-    if (!res.ok) throw new Error("Failed to load file");
-    const text = await res.text();
-
-    if (fileUrl.endsWith(".html") || fileUrl.endsWith(".htm")) {
-      content.innerHTML = `<h2>${title}</h2>` + text;
-    } else {
-      content.innerHTML = `<h2>${title}</h2><pre style="white-space:pre-wrap;">${text}</pre>`;
-    }
-  } catch (err) {
-    content.innerHTML = `<h2>${title}</h2>
-      <p style="color:red;">Error: ${err.message}</p>`;
+  if (fileUrl.toLowerCase().endsWith(".pdf")) {
+    // Use Google Docs Viewer to display PDFs correctly
+    const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fileUrl)}&embedded=true`;
+    content.innerHTML = `
+      <h2>${title}</h2>
+      <div class="pdf-controls">
+        <button onclick="window.open('${fileUrl}', '_blank')">Download PDF</button>
+      </div>
+      <iframe src="${viewerUrl}" style="width:100%; height:calc(100vh - 160px);" frameborder="0"></iframe>
+    `;
+    return;
   }
+
+  // For text/HTML files
+  fetch(fileUrl)
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to load file");
+      return res.text();
+    })
+    .then(text => {
+      if (fileUrl.endsWith(".html") || fileUrl.endsWith(".htm")) {
+        content.innerHTML = `<h2>${title}</h2>` + text;
+      } else {
+        content.innerHTML = `<h2>${title}</h2><pre style="white-space:pre-wrap;">${text}</pre>`;
+      }
+    })
+    .catch(err => {
+      content.innerHTML = `<h2>${title}</h2>
+        <p style="color:red;">Error: ${err.message}</p>`;
+    });
 }
 
 // Accordion behavior for main categories
@@ -268,8 +290,7 @@ document.querySelectorAll(".accordion").forEach(btn => {
   btn.addEventListener("click", function () {
     this.classList.toggle("active");
     const panel = this.nextElementSibling;
-    if (panel.style.display === "block") panel.style.display = "none";
-    else panel.style.display = "block";
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
   });
 });
 
