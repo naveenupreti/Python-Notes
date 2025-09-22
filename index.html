@@ -166,16 +166,20 @@
 </footer>
 
 <script>
-const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
+// --- Use jsDelivr CDN instead of raw.githubusercontent.com ---
+const rawBase = "https://cdn.jsdelivr.net/gh/naveenupreti/Python-Notes@main/";
 
+// --- Cache buster ---
 function getCacheBuster() { return "?v=" + new Date().getTime(); }
+
+// --- Normalize JSON entry ---
 function normalizeFileEntry(entry) {
   if (typeof entry === "string") return { path: entry };
   if (typeof entry === "object" && entry !== null) return entry;
   return null;
 }
 
-// Render simple list (Syllabus, Ebooks, Exam Papers)
+// --- Render simple lists ---
 function renderList(containerId, files) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -194,7 +198,7 @@ function renderList(containerId, files) {
   });
 }
 
-// Render Units (Notes, Programs, Assignments)
+// --- Render Units ---
 function renderUnits(containerId, unitsObj) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -228,12 +232,13 @@ function renderUnits(containerId, unitsObj) {
   }
 }
 
-// Load content in right panel
+// --- Load content in right panel ---
 function loadInContent(fileUrl, title) {
   const content = document.getElementById("content");
   content.innerHTML = `<h2>${title}</h2><p>Loading...</p>`;
 
   if (fileUrl.toLowerCase().endsWith(".pdf")) {
+    // PDFs rendered correctly using jsDelivr
     content.innerHTML = `
       <h2>${title}</h2>
       <div class="pdf-controls">
@@ -244,6 +249,7 @@ function loadInContent(fileUrl, title) {
     return;
   }
 
+  // Text / HTML files
   fetch(fileUrl)
     .then(res => { if(!res.ok) throw new Error("Failed to load file"); return res.text(); })
     .then(text => {
@@ -258,7 +264,7 @@ function loadInContent(fileUrl, title) {
     });
 }
 
-// Accordion behavior
+// --- Accordion behavior ---
 document.querySelectorAll(".accordion").forEach(btn => {
   btn.addEventListener("click", function () {
     this.classList.toggle("active");
@@ -267,7 +273,7 @@ document.querySelectorAll(".accordion").forEach(btn => {
   });
 });
 
-// Load JSON data
+// --- Load JSON data ---
 async function loadData() {
   try {
     const res = await fetch(rawBase + "data.json" + getCacheBuster(), { cache: "no-store" });
