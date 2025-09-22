@@ -128,6 +128,11 @@
   .pdf-controls button:hover {
     background: #1a4bb7;
   }
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 </style>
 </head>
 <body>
@@ -172,9 +177,11 @@
 
 <script>
 const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
+
 function getCacheBuster() {
   return "?v=" + new Date().getTime();
 }
+
 function normalizeFileEntry(entry) {
   if (typeof entry === "string") return { path: entry };
   if (typeof entry === "object" && entry !== null) return entry;
@@ -192,17 +199,14 @@ function renderList(containerId, files) {
   const cacheBuster = getCacheBuster();
   files.forEach(f => {
     const fileObj = normalizeFileEntry(f);
-    if (!fileObj) return;
-    if (fileObj.hidden) return;
+    if (!fileObj || fileObj.hidden) return;
     const filePath = rawBase + fileObj.path + cacheBuster;
     const fileName = fileObj.title || fileObj.path.split("/").pop();
 
     const link = document.createElement("a");
     link.href = "#";
     link.textContent = fileName;
-    link.addEventListener("click", () => {
-      loadInContent(filePath, fileName);
-    });
+    link.addEventListener("click", () => loadInContent(filePath, fileName));
     container.appendChild(link);
   });
 }
@@ -225,17 +229,14 @@ function renderUnits(containerId, unitsObj) {
 
     files.forEach(f => {
       const fileObj = normalizeFileEntry(f);
-      if (!fileObj) return;
-      if (fileObj.hidden) return;
+      if (!fileObj || fileObj.hidden) return;
       const filePath = rawBase + fileObj.path + cacheBuster;
       const fileName = fileObj.title || fileObj.path.split("/").pop();
 
       const link = document.createElement("a");
       link.href = "#";
       link.textContent = fileName;
-      link.addEventListener("click", () => {
-        loadInContent(filePath, fileName);
-      });
+      link.addEventListener("click", () => loadInContent(filePath, fileName));
       unitDiv.appendChild(link);
     });
 
@@ -254,14 +255,13 @@ function loadInContent(fileUrl, title) {
   content.innerHTML = `<h2>${title}</h2><p>Loading...</p>`;
 
   if (fileUrl.toLowerCase().endsWith(".pdf")) {
-    // Use Google Docs Viewer to display PDFs correctly
-    const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fileUrl)}&embedded=true`;
+    // Use <embed> for PDF
     content.innerHTML = `
       <h2>${title}</h2>
       <div class="pdf-controls">
         <button onclick="window.open('${fileUrl}', '_blank')">Download PDF</button>
       </div>
-      <iframe src="${viewerUrl}" style="width:100%; height:calc(100vh - 160px);" frameborder="0"></iframe>
+      <embed src="${fileUrl}" type="application/pdf" width="100%" height="calc(100vh - 160px)" />
     `;
     return;
   }
@@ -276,16 +276,15 @@ function loadInContent(fileUrl, title) {
       if (fileUrl.endsWith(".html") || fileUrl.endsWith(".htm")) {
         content.innerHTML = `<h2>${title}</h2>` + text;
       } else {
-        content.innerHTML = `<h2>${title}</h2><pre style="white-space:pre-wrap;">${text}</pre>`;
+        content.innerHTML = `<h2>${title}</h2><pre>${text}</pre>`;
       }
     })
     .catch(err => {
-      content.innerHTML = `<h2>${title}</h2>
-        <p style="color:red;">Error: ${err.message}</p>`;
+      content.innerHTML = `<h2>${title}</h2><p style="color:red;">Error: ${err.message}</p>`;
     });
 }
 
-// Accordion behavior for main categories
+// Accordion behavior
 document.querySelectorAll(".accordion").forEach(btn => {
   btn.addEventListener("click", function () {
     this.classList.toggle("active");
