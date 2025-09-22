@@ -2,7 +2,7 @@
   "syllabus": [
     { "path": "Syllabus/MCA 2nd Year Syllabus 2025-26.pdf" },
     { "path": "Syllabus/BMC301_351_Python_Programming_Syllabus_MCA_3rd_Sem.pdf" },
-    { "path": "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.docx"}
+    { "path": "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.docx", "hidden": true }
   ],
   "notes": {
     "UNIT-1": [
