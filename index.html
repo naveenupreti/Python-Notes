@@ -5,141 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python Notes Repository</title>
 <style>
-  body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background: #f5f7fa;
-    color: #333;
+  html { scroll-padding-top: 100px; }
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; }
+  header { background:#2d6cdf; color:white; padding:20px; text-align:center; position:sticky; top:0; z-index:1000; }
+  header h1 { margin:0; font-size:2em; }
+  header p { margin:5px 0 0 0; font-size:0.9em; }
+  nav { margin-top:10px; }
+  nav a { color:white; text-decoration:none; margin:0 10px; font-weight:bold; padding:5px 10px; border-radius:4px; transition:0.3s; display:inline-block; margin-bottom:5px; }
+  nav a:hover { text-decoration:underline; color:#ffdd57; }
+  nav a.active { background:#ffdd57; color:#2d6cdf; }
+  #controls { margin-top:10px; display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; }
+  #refreshBtn { background:#ffdd57; color:#2d6cdf; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; font-weight:bold; margin-top:10px; }
+  #refreshBtn:hover { background:#ffd633; }
+  h2 { background:#e8eefc; padding:10px; border-left:6px solid #2d6cdf; margin-top:30px; }
+  li { margin:5px 0; padding:5px 10px; word-break:break-word; display:block; }
+  .actions { float:right; }
+  .unit-content li .actions { display:inline-block; margin-top:3px; float:none; }
+  b.unit-title, b.ebook-title, b.syllabus-title { cursor:pointer; display:inline-block; color:#2d6cdf; margin:10px 0; padding:5px 10px; text-align:left; }
+  a { text-decoration:none; color:#1a4bb7; font-weight:500; }
+  a:hover { text-decoration:underline; color:#d35400; }
+  .download { background:#2d6cdf; color:white; padding:2px 8px; border-radius:5px; font-size:0.85em; margin-left:5px; white-space:nowrap; }
+  .download:hover { background:#ff5733; }
+  .unit-content { display:none; margin-left:20px; margin-top:5px; }
+  .container { max-width:960px; width:95%; margin:auto; padding:20px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:8px; }
+  footer { text-align:center; padding:15px; margin-top:30px; background:#2d6cdf; color:white; }
+  @media(max-width:600px){
+    nav a { margin:3px 2px; padding:5px 8px; font-size:0.85em; }
+    .container { padding:15px; }
+    b.unit-title, b.ebook-title, b.syllabus-title { font-size:1em; display:block; }
+    #controls { flex-direction:column; }
   }
-
-  header {
-    background: #2d6cdf;
-    color: white;
-    padding: 6px 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-  }
-  header h1 { margin: 0; font-size: 1.2em; }
-
-  .row { display: flex; flex: 1; overflow: hidden; }
-
-  .sidenav {
-    width: 220px;
-    min-width: 150px;
-    max-width: 400px;
-    background: #fff;
-    border-right: 1px solid #ccc;
-    overflow-y: auto;
-    resize: horizontal;
-    padding: 0;
-  }
-
-  .main {
-    flex: 1;
-    padding: 12px;
-    overflow-y: auto;
-    background: #fafafa;
-  }
-
-  .accordion {
-    display: block;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    padding: 10px 14px;
-    background: #f1f1f1;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .accordion:hover { background: #ddd; }
-  .accordion.active { background: #2d6cdf; color: white; }
-
-  .submenu {
-    display: none;
-    background: #fafafa;
-    padding-left: 8px;
-  }
-  .submenu a, .submenu button.unit-btn {
-    display: block;
-    padding: 6px 8px;
-    text-decoration: none;
-    color: #1a4bb7;
-    font-size: 14px;
-    background: none;
-    border: none;
-    text-align: left;
-    width: 100%;
-    cursor: pointer;
-  }
-  .submenu a:hover { text-decoration: underline; color: #d35400; }
-  .submenu .unit-content { display: none; padding-left: 12px; }
-
-  footer {
-    text-align: center;
-    padding: 6px;
-    background: #2d6cdf;
-    color: white;
-    flex-shrink: 0;
-    font-size: 0.8em;
-  }
-
-  .pdf-controls {
-    margin-bottom: 10px;
-  }
-  .pdf-controls button {
-    background: #2d6cdf;
-    color: white;
-    border: none;
-    padding: 5px 8px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 13px;
-  }
-  .pdf-controls button:hover { background: #1a4bb7; }
-
-  pre { white-space: pre-wrap; word-wrap: break-word; }
-
 </style>
 </head>
 <body>
 
 <header>
   <h1>📘 Python Notes Repository</h1>
-  <span>📑 Syllabus | 📝 Notes | 💻 Programs</span>
+  <p>:BMC301:  :Python Programming:  :MCA 3rd Semester:</p>
+
+  <nav>
+    <a href="#syllabus">Syllabus</a>
+    <a href="#notes">Notes</a>
+    <a href="#programs">Programs</a>
+    <a href="#assignments">Assignments</a>
+    <a href="#ebooks">Ebooks</a>
+  </nav>
+
+  <div id="controls">
+    <button id="refreshBtn">🔄 Refresh Data</button>
+  </div>
 </header>
 
-<div class="row">
-  <div class="sidenav" id="sidebar">
-    <button class="accordion">📑 Syllabus</button>
-    <div class="submenu" id="syllabus-list"></div>
+<div class="container">
+  <h2 id="syllabus">Syllabus</h2>
+  <div id="syllabus-list"></div>
 
-    <button class="accordion">📝 Notes</button>
-    <div class="submenu" id="notes-list"></div>
+  <h2 id="notes">Notes</h2>
+  <div id="notes-list"></div>
 
-    <button class="accordion">💻 Programs</button>
-    <div class="submenu" id="programs-list"></div>
+  <h2 id="programs">Programs</h2>
+  <div id="programs-list"></div>
 
-    <button class="accordion">📂 Assignments</button>
-    <div class="submenu" id="assignments-list"></div>
+  <h2 id="assignments">Assignments</h2>
+  <div id="assignments-list"></div>
 
-    <button class="accordion">📚 Ebooks</button>
-    <div class="submenu" id="ebooks-list"></div>
-
-    <button class="accordion">📄 Exam Papers</button>
-    <div class="submenu" id="exampapers-list"></div>
-  </div>
-
-  <div class="main" id="content">
-    <h2>Welcome 👋</h2>
-    <p>Select a category from the left menu to explore Notes, Programs, Assignments, Syllabus, Ebooks, and Exam Papers.</p>
-  </div>
+  <h2 id="ebooks">Ebooks</h2>
+  <div id="ebooks-list"></div>
 </div>
 
 <footer>
@@ -147,122 +78,138 @@
 </footer>
 
 <script>
-// --- Base URL via GitHub Pages ---
-const baseURL = "https://naveenupreti.github.io/Python-Notes/";
+const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
 
-function getCacheBuster() { return "?v=" + new Date().getTime(); }
+// Cache-buster (timestamp)
+function getCacheBuster() {
+  return "?v=" + new Date().getTime();
+}
+
+// Normalize file entry
 function normalizeFileEntry(entry) {
   if (typeof entry === "string") return { path: entry };
   if (typeof entry === "object" && entry !== null) return entry;
   return null;
 }
 
-function renderList(containerId, files) {
+// Render collapsible file list (for syllabus, ebooks)
+function renderCollapsibleList(containerId, files, cssClass) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
-  if (!files || files.length === 0) { container.innerHTML = "<p>No files available.</p>"; return; }
-  const cacheBuster = getCacheBuster();
-  files.forEach(f => {
-    const fileObj = normalizeFileEntry(f);
-    if (!fileObj || fileObj.hidden) return;
-    const filePath = baseURL + fileObj.path + cacheBuster;
-    const fileName = fileObj.title || fileObj.path.split("/").pop();
-    const link = document.createElement("a");
-    link.href = "#";
-    link.textContent = fileName;
-    link.addEventListener("click", () => loadInContent(filePath, fileName));
-    container.appendChild(link);
-  });
-}
-
-function renderUnits(containerId, unitsObj) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
-  if (!unitsObj || Object.keys(unitsObj).length === 0) { container.innerHTML = "<p>No data available.</p>"; return; }
-  const cacheBuster = getCacheBuster();
-  for (const [unitName, files] of Object.entries(unitsObj)) {
-    const unitBtn = document.createElement("button");
-    unitBtn.className = "unit-btn";
-    unitBtn.textContent = unitName;
-    const unitDiv = document.createElement("div");
-    unitDiv.className = "unit-content";
-
-    files.forEach(f => {
-      const fileObj = normalizeFileEntry(f);
-      if (!fileObj || fileObj.hidden) return;
-      const filePath = baseURL + fileObj.path + cacheBuster;
-      const fileName = fileObj.title || fileObj.path.split("/").pop();
-      const link = document.createElement("a");
-      link.href = "#";
-      link.textContent = fileName;
-      link.addEventListener("click", () => loadInContent(filePath, fileName));
-      unitDiv.appendChild(link);
-    });
-
-    unitBtn.addEventListener("click", () => {
-      unitDiv.style.display = unitDiv.style.display === "block" ? "none" : "block";
-    });
-
-    container.appendChild(unitBtn);
-    container.appendChild(unitDiv);
-  }
-}
-
-function loadInContent(fileUrl, title) {
-  const content = document.getElementById("content");
-  content.innerHTML = `<h2>${title}</h2><p>Loading...</p>`;
-
-  if (fileUrl.toLowerCase().endsWith(".pdf")) {
-    // PDFs load correctly using GitHub Pages
-    content.innerHTML = `
-      <h2>${title}</h2>
-      <div class="pdf-controls">
-        <button onclick="window.open('${fileUrl}', '_blank')">Download PDF</button>
-      </div>
-      <embed src="${fileUrl}" type="application/pdf" width="100%" height="calc(100vh - 140px)" />
-    `;
+  if (!files || files.length === 0) {
+    container.innerHTML = "<p>No files available.</p>";
     return;
   }
 
-  fetch(fileUrl)
-    .then(res => { if(!res.ok) throw new Error("Failed to load file"); return res.text(); })
-    .then(text => {
-      if(fileUrl.endsWith(".html") || fileUrl.endsWith(".htm")) {
-        content.innerHTML = `<h2>${title}</h2>` + text;
-      } else {
-        content.innerHTML = `<h2>${title}</h2><pre>${text}</pre>`;
-      }
-    })
-    .catch(err => {
-      content.innerHTML = `<h2>${title}</h2><p style="color:red;">Error: ${err.message}</p>`;
-    });
-}
+  const li = document.createElement("li");
+  li.innerHTML = `<b class="${cssClass}">${containerId.replace("-list","").toUpperCase()}</b>`;
+  const ul = document.createElement("ul");
+  ul.className = "unit-content";
+  ul.style.display = "none"; // collapsed by default
+  const cacheBuster = getCacheBuster();
 
-document.querySelectorAll(".accordion").forEach(btn => {
-  btn.addEventListener("click", function () {
-    this.classList.toggle("active");
-    const panel = this.nextElementSibling;
-    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  files.forEach(f => {
+    const fileObj = normalizeFileEntry(f);
+    if (!fileObj) return;
+    if (fileObj.hidden) return;
+
+    const filePath = rawBase + fileObj.path + cacheBuster;
+    const fileName = fileObj.title || fileObj.path.split("/").pop();
+
+    const liFile = document.createElement("li");
+    liFile.innerHTML = `<a href="${filePath}" target="_blank" rel="noopener">${fileName}</a>
+      <span class="actions">
+        <a class="download" href="${filePath}" download>Download</a>
+      </span>`;
+    ul.appendChild(liFile);
   });
-});
 
-async function loadData() {
-  try {
-    const res = await fetch(baseURL + "data.json" + getCacheBuster(), { cache: "no-store" });
-    if (!res.ok) throw new Error("Failed to fetch data.json");
-    const data = await res.json();
-    renderList("syllabus-list", data.syllabus);
-    renderUnits("notes-list", data.notes);
-    renderUnits("programs-list", data.programs);
-    renderUnits("assignments-list", data.assignments);
-    renderList("ebooks-list", data.ebooks);
-    renderList("exampapers-list", data.exampapers);
-  } catch (err) {
-    alert("Error loading data: " + err.message);
-  }
+  li.appendChild(ul);
+  container.appendChild(li);
+
+  // expand/collapse
+  container.querySelectorAll("b." + cssClass).forEach(title => {
+    title.addEventListener("click", () => {
+      const content = title.nextElementSibling;
+      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
 }
 
-loadData();
+// Render units (notes, programs, assignments)
+function renderUnits(containerId, unitsObj) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+  if (!unitsObj || Object.keys(unitsObj).length === 0) {
+    container.innerHTML = "<p>No data available.</p>";
+    return;
+  }
+
+  const cacheBuster = getCacheBuster();
+
+  for (const [unitName, files] of Object.entries(unitsObj)) {
+    const li = document.createElement("li");
+    li.innerHTML = `<b class="unit-title">${unitName}</b>`;
+    const ul = document.createElement("ul");
+    ul.className = "unit-content";
+    ul.style.display = "none"; // collapsed by default
+
+    files.forEach(f => {
+      const fileObj = normalizeFileEntry(f);
+      if (!fileObj) return;
+      if (fileObj.hidden) return;
+
+      const filePath = rawBase + fileObj.path + cacheBuster;
+      const fileName = fileObj.title || fileObj.path.split("/").pop();
+
+      const liFile = document.createElement("li");
+      liFile.innerHTML = `<a href="${filePath}" target="_blank" rel="noopener">${fileName}</a>
+        <span class="actions">
+          <a class="download" href="${filePath}" download>Download</a>
+        </span>`;
+      ul.appendChild(liFile);
+    });
+
+    li.appendChild(ul);
+    container.appendChild(li);
+  }
+
+  container.querySelectorAll(".unit-title").forEach(title => {
+    title.addEventListener("click", () => {
+      const content = title.nextElementSibling;
+      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
+}
+
+// Load data.json
+async function loadData(force = false) {
+  if (force) localStorage.removeItem("pythonNotesData");
+
+  let data = localStorage.getItem("pythonNotesData");
+  if (data) data = JSON.parse(data);
+  else {
+    try {
+      const res = await fetch(rawBase + "data.json" + getCacheBuster(), { cache: "no-store" });
+      if (!res.ok) throw new Error("Failed to fetch data.json");
+      data = await res.json();
+      try { localStorage.setItem("pythonNotesData", JSON.stringify(data)); } catch (e) {}
+    } catch (err) {
+      alert("Error loading data: " + err.message);
+      return;
+    }
+  }
+
+  renderCollapsibleList("syllabus-list", data.syllabus, "syllabus-title");
+  renderUnits("notes-list", data.notes);
+  renderUnits("programs-list", data.programs);
+  renderUnits("assignments-list", data.assignments);
+  renderCollapsibleList("ebooks-list", data.ebooks, "ebook-title");
+}
+
+// Initialize
+document.getElementById("refreshBtn").addEventListener("click", () => loadData(true));
+loadData(false);
 </script>
 
 </body>
