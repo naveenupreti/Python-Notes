@@ -85,5 +85,11 @@
     { "path": "ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" },
     { "path": "ebooks/PythonTutorial_by_Guido van Rossum.pdf" },
     { "path": "ebooks/PythonTutorial_tutorialspoint.com.pdf" }
+  ],
+  "exampapers": [
+    { "path": "ExamPapers/BCC302-PYTHON-PROGRAMMING-23-24.pdf" },
+    { "path": "ExamPapers/PYTHON-PROGRAMMING-KNC-302-1-2020.pdf" },
+    { "path": "ExamPapers/PYTHON-PROGRAMMING-KNC-302-2019.pdf" },
+    { "path": "ExamPapers/PYTHON-PROGRAMMING-KNC402-2021.pdf" }
   ]
 }
