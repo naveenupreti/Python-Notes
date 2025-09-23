@@ -53,7 +53,7 @@
       { "path": "Programs/UNIT-2/String_python.py" },
       { "path": "Programs/UNIT-2/string_alignment.py" },
       { "path": "Programs/UNIT-2/string_palindrome.py" },
-      { "path": "Programs/UNIT-2/strings_lup.py" }
+      { "path": "Programs/UNIT-2/strings_lup.py", "hidden": true }
     ],
     "UNIT-3": [
       { "path": "Programs/UNIT-3/lists_lup.py" },
