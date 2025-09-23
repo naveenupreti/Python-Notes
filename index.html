@@ -1,192 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python Notes Repository</title>
 <style>
-  body { margin:0; font-family:Arial, sans-serif; }
-  header {
-    background:#2d6cdf; color:white; padding:10px 15px;
-    font-size:1rem; font-weight:bold; text-align:center;
-    position:sticky; top:0; z-index:1000;
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  header button {
-    background:none; border:none; color:white; font-size:1.2em; cursor:pointer;
-    display:none; /* shown only on mobile */
-  }
-  .layout { display:flex; height:calc(100vh - 48px); }
-
-  /* Sidebar */
-  .sidebar {
-    width:280px; background:#f5f7fa; border-right:1px solid #ccc;
-    overflow-y:auto; padding:10px;
-    transition:transform 0.3s ease;
-  }
-  .sidebar h2 { font-size:1em; margin:10px 0; cursor:pointer; color:#2d6cdf; }
-  .sidebar ul { list-style:none; padding-left:15px; display:none; }
-  .sidebar li { margin:5px 0; }
-  .sidebar a { color:#1a4bb7; text-decoration:none; font-size:0.85em; }
-  .sidebar a:hover { text-decoration:underline; color:#d35400; }
-  .sidebar b { cursor:pointer; color:#2d6cdf; font-size:0.85em; display:block; margin:4px 0; }
-
-  /* Content */
-  .content { flex:1; padding:0; overflow:hidden; position:relative; }
-  .viewer { width:100%; height:100%; border:none; }
-  #downloadBtn {
-    display:none; position:absolute; top:10px; right:10px;
-    background:#2d6cdf; color:white; border:none; padding:6px 10px;
-    border-radius:5px; cursor:pointer;
-  }
-  #downloadBtn:hover { background:#ff5733; }
-
-  /* Responsive adjustments */
-  @media(max-width:900px) {
-    .sidebar {
-      position:fixed; top:48px; left:0; bottom:0;
-      transform:translateX(-100%); z-index:2000;
-      box-shadow:2px 0 8px rgba(0,0,0,0.2);
-    }
-    .sidebar.active { transform:translateX(0); }
-    header button { display:inline-block; }
-    .layout { flex-direction:column; }
-    .content { flex:1; margin-left:0; }
+  html { scroll-padding-top: 60px; }
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; }
+  header { background:#2d6cdf; color:white; padding:8px 10px; text-align:center; position:sticky; top:0; z-index:1000; }
+  header h1 { margin:0; font-size:1.4em; display:inline; }
+  header p { margin:3px 0 0 0; font-size:0.7em; }
+  nav { margin-top:5px; }
+  nav a { color:white; text-decoration:none; margin:0 6px; font-weight:bold; padding:3px 6px; border-radius:4px; transition:0.3s; display:inline-block; margin-bottom:3px; font-size:0.85em; }
+  nav a:hover { text-decoration:underline; color:#ffdd57; }
+  nav a.active { background:#ffdd57; color:#2d6cdf; }
+  #controls { margin-top:5px; display:flex; gap:5px; justify-content:center; align-items:center; flex-wrap:wrap; }
+  #refreshBtn { background:#ffdd57; color:#2d6cdf; border:none; padding:4px 8px; border-radius:5px; cursor:pointer; font-weight:bold; margin-top:5px; font-size:0.8em; }
+  #refreshBtn:hover { background:#ffd633; }
+  h2 { background:#e8eefc; padding:8px; border-left:4px solid #2d6cdf; margin-top:20px; font-size:1em; }
+  li { margin:4px 0; padding:4px 8px; word-break:break-word; display:block; font-size:0.85em; }
+  .actions { float:right; }
+  .unit-content li .actions { display:inline-block; margin-top:2px; float:none; }
+  b.unit-title, b.ebook-title, b.syllabus-title { cursor:pointer; display:inline-block; color:#2d6cdf; margin:6px 0; padding:3px 6px; text-align:left; font-size:0.9em; }
+  a { text-decoration:none; color:#1a4bb7; font-weight:500; }
+  a:hover { text-decoration:underline; color:#d35400; }
+  .download { background:#2d6cdf; color:white; padding:2px 6px; border-radius:5px; font-size:0.75em; margin-left:5px; white-space:nowrap; }
+  .download:hover { background:#ff5733; }
+  .unit-content { display:none; margin-left:15px; margin-top:3px; }
+  .container { max-width:960px; width:95%; margin:auto; padding:15px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:8px; }
+  footer { text-align:center; padding:10px; margin-top:20px; background:#2d6cdf; color:white; font-size:0.8em; }
+  @media(max-width:600px){
+    nav a { margin:2px 1px; padding:3px 4px; font-size:0.75em; }
+    .container { padding:10px; }
+    b.unit-title, b.ebook-title, b.syllabus-title { font-size:0.85em; display:block; }
+    #controls { flex-direction:column; }
   }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
-  <span>📘 Python Notes Repository</span>
-  <button id="menuToggle">☰</button>
+  <h1>📘 Python Notes Repository</h1>
+  <p>:BMC301:  :Python Programming:  :MCA 3rd Semester:</p>
+
+  <nav>
+    <a href="#syllabus">Syllabus</a>
+    <a href="#notes">Notes</a>
+    <a href="#programs">Programs</a>
+    <a href="#assignments">Assignments</a>
+    <a href="#ebooks">Ebooks</a>
+    <a href="#exampapers">ExamPapers</a>
+  </nav>
+
+  <div id="controls">
+    <button id="refreshBtn">🔄 Refresh Data</button>
+  </div>
 </header>
 
-<div class="layout">
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <h2 data-toggle="syllabus">Syllabus</h2>
-    <ul id="syllabus"></ul>
-    <h2 data-toggle="notes">Notes</h2>
-    <ul id="notes"></ul>
-    <h2 data-toggle="programs">Programs</h2>
-    <ul id="programs"></ul>
-    <h2 data-toggle="assignments">Assignments</h2>
-    <ul id="assignments"></ul>
-    <h2 data-toggle="ebooks">Ebooks</h2>
-    <ul id="ebooks"></ul>
-    <h2 data-toggle="exampapers">ExamPapers</h2>
-    <ul id="exampapers"></ul>
-  </div>
+<div class="container">
+  <h2 id="syllabus">Syllabus</h2>
+  <div id="syllabus-list"></div>
 
-  <!-- Content Viewer -->
-  <div class="content">
-    <button id="downloadBtn">⬇ Download</button>
-    <iframe id="viewer" class="viewer"></iframe>
-  </div>
+  <h2 id="notes">Notes</h2>
+  <div id="notes-list"></div>
+
+  <h2 id="programs">Programs</h2>
+  <div id="programs-list"></div>
+
+  <h2 id="assignments">Assignments</h2>
+  <div id="assignments-list"></div>
+
+  <h2 id="ebooks">Ebooks</h2>
+  <div id="ebooks-list"></div>
+
+  <h2 id="exampapers">ExamPapers</h2>
+  <div id="exampapers-list"></div>
 </div>
 
+<footer>
+  Developed & Maintained by Naveen Upreti | 2025
+</footer>
+
 <script>
-const rawBase ="";
-//const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
-const sidebar = document.getElementById("sidebar");
-const menuToggle = document.getElementById("menuToggle");
-const downloadBtn = document.getElementById("downloadBtn");
-const viewer = document.getElementById("viewer");
+const rawBase = "https://raw.githubusercontent.com/naveenupreti/Python-Notes/main/";
 
-// Sidebar toggle on mobile
-menuToggle.addEventListener("click", () => {
-  sidebar.classList.toggle("active");
-});
-
-// Load JSON data
-async function loadData() {
-  const res = await fetch(rawBase + "data.json?ts=" + Date.now());
-  const data = await res.json();
-  buildSidebar("syllabus", data.syllabus);
-  buildSidebarGrouped("notes", data.notes);
-  buildSidebarGrouped("programs", data.programs);
-  buildSidebar("assignments", data.assignments);
-  buildSidebar("ebooks", data.ebooks);
-  buildSidebar("exampapers", data.exampapers);
+// Cache-buster (timestamp)
+function getCacheBuster() {
+  return "?v=" + new Date().getTime();
 }
 
-// Build sidebar for simple lists
-function buildSidebar(containerId, items) {
-  const ul = document.getElementById(containerId);
-  ul.innerHTML = "";
-  if (!items) return;
-  items.forEach(f => {
-    const fileObj = typeof f === "string" ? { path:f } : f;
+// Normalize file entry
+function normalizeFileEntry(entry) {
+  if (typeof entry === "string") return { path: entry };
+  if (typeof entry === "object" && entry !== null) return entry;
+  return null;
+}
+
+// Render collapsible file list (syllabus, ebooks, exampapers)
+function renderCollapsibleList(containerId, files, cssClass) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+  if (!files || files.length === 0) {
+    container.innerHTML = "<p>No files available.</p>";
+    return;
+  }
+
+  const li = document.createElement("li");
+  li.innerHTML = `<b class="${cssClass}">${containerId.replace("-list","").toUpperCase()}</b>`;
+  const ul = document.createElement("ul");
+  ul.className = "unit-content";
+  ul.style.display = "none"; // collapsed by default
+  const cacheBuster = getCacheBuster();
+
+  files.forEach(f => {
+    const fileObj = normalizeFileEntry(f);
     if (!fileObj) return;
-    const li = document.createElement("li");
-    const link = document.createElement("a");
-    link.textContent = fileObj.title || fileObj.path.split("/").pop();
-    link.href = "#";
-    link.onclick = () => openFile(fileObj.path);
-    li.appendChild(link);
-    ul.appendChild(li);
-  });
-}
+    if (fileObj.hidden) return;
 
-// Build sidebar for grouped units (Notes, Programs)
-function buildSidebarGrouped(containerId, units) {
-  const ul = document.getElementById(containerId);
-  ul.innerHTML = "";
-  if (!units) return;
-  Object.entries(units).forEach(([unit, files]) => {
-    const li = document.createElement("li");
-    const b = document.createElement("b");
-    b.textContent = unit;
-    const sub = document.createElement("ul");
-    sub.style.display = "none";
-    files.forEach(f => {
-      const fileObj = typeof f === "string" ? { path:f } : f;
-      if (!fileObj) return;
-      const link = document.createElement("a");
-      link.textContent = fileObj.title || fileObj.path.split("/").pop();
-      link.href = "#";
-      link.onclick = () => openFile(fileObj.path);
-      const subLi = document.createElement("li");
-      subLi.appendChild(link);
-      sub.appendChild(subLi);
+    const filePath = rawBase + fileObj.path + cacheBuster;
+    const fileName = fileObj.title || fileObj.path.split("/").pop();
+
+    const liFile = document.createElement("li");
+    liFile.innerHTML = `<a href="${filePath}" target="_blank" rel="noopener">${fileName}</a>
+      <span class="actions">
+        <a class="download" href="${filePath}" download>Download</a>
+      </span>`;
+    ul.appendChild(liFile);
+  });
+
+  li.appendChild(ul);
+  container.appendChild(li);
+
+  // expand/collapse
+  container.querySelectorAll("b." + cssClass).forEach(title => {
+    title.addEventListener("click", () => {
+      const content = title.nextElementSibling;
+      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
     });
-    b.onclick = () => sub.style.display = sub.style.display === "none" ? "block" : "none";
-    li.appendChild(b);
-    li.appendChild(sub);
-    ul.appendChild(li);
   });
 }
 
-// Open file in right viewer
-function openFile(path) {
-  const url = rawBase + path;
-  if (path.endsWith(".pdf")) {
-    viewer.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(url) + "&embedded=true";
-  } else if (path.endsWith(".py") || path.endsWith(".txt")) {
-    viewer.src = url;
-  } else {
-    viewer.src = url;
+// Render units (notes, programs, assignments)
+function renderUnits(containerId, unitsObj) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+  if (!unitsObj || Object.keys(unitsObj).length === 0) {
+    container.innerHTML = "<p>No data available.</p>";
+    return;
   }
-  downloadBtn.style.display = "inline-block";
-  downloadBtn.onclick = () => window.open(url, "_blank");
 
-  // Close sidebar on mobile after selecting file
-  if (window.innerWidth <= 900) {
-    sidebar.classList.remove("active");
+  const cacheBuster = getCacheBuster();
+
+  for (const [unitName, files] of Object.entries(unitsObj)) {
+    const li = document.createElement("li");
+    li.innerHTML = `<b class="unit-title">${unitName}</b>`;
+    const ul = document.createElement("ul");
+    ul.className = "unit-content";
+    ul.style.display = "none"; // collapsed by default
+
+    files.forEach(f => {
+      const fileObj = normalizeFileEntry(f);
+      if (!fileObj) return;
+      if (fileObj.hidden) return;
+
+      const filePath = rawBase + fileObj.path + cacheBuster;
+      const fileName = fileObj.title || fileObj.path.split("/").pop();
+
+      const liFile = document.createElement("li");
+      liFile.innerHTML = `<a href="${filePath}" target="_blank" rel="noopener">${fileName}</a>
+        <span class="actions">
+          <a class="download" href="${filePath}" download>Download</a>
+        </span>`;
+      ul.appendChild(liFile);
+    });
+
+    li.appendChild(ul);
+    container.appendChild(li);
   }
+
+  container.querySelectorAll(".unit-title").forEach(title => {
+    title.addEventListener("click", () => {
+      const content = title.nextElementSibling;
+      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
 }
 
-// Collapse/expand toggle for main sections
-document.querySelectorAll(".sidebar h2").forEach(h => {
-  h.addEventListener("click", () => {
-    const ul = document.getElementById(h.dataset.toggle);
-    ul.style.display = ul.style.display === "block" ? "none" : "block";
-  });
-});
+// Load data.json
+async function loadData(force = false) {
+  if (force) localStorage.removeItem("pythonNotesData");
 
-loadData();
+  let data = localStorage.getItem("pythonNotesData");
+  if (data) data = JSON.parse(data);
+  else {
+    try {
+      const res = await fetch(rawBase + "data.json" + getCacheBuster(), { cache: "no-store" });
+      if (!res.ok) throw new Error("Failed to fetch data.json");
+      data = await res.json();
+      try { localStorage.setItem("pythonNotesData", JSON.stringify(data)); } catch (e) {}
+    } catch (err) {
+      alert("Error loading data: " + err.message);
+      return;
+    }
+  }
+
+  renderCollapsibleList("syllabus-list", data.syllabus, "syllabus-title");
+  renderUnits("notes-list", data.notes);
+  renderUnits("programs-list", data.programs);
+  renderUnits("assignments-list", data.assignments);
+  renderCollapsibleList("ebooks-list", data.ebooks, "ebook-title");
+  renderCollapsibleList("exampapers-list", data.exampapers, "ebook-title"); // ExamPapers
+}
+
+// Initialize
+document.getElementById("refreshBtn").addEventListener("click", () => loadData(true));
+loadData(false);
 </script>
+
 </body>
 </html>
