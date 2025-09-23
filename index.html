@@ -32,7 +32,22 @@
   .unit-content li .actions { display:inline-block; margin-top:2px; float:none; }
   
   /* Collapsible titles */
-  b.unit-title, b.ebook-title, b.syllabus-title, b.exampaper-title { cursor:pointer; display:inline-block; color:#2d6cdf; margin:6px 0; padding:3px 6px; text-align:left; font-size:1em; }
+  b.unit-title, b.ebook-title, b.syllabus-title, b.exampaper-title {
+    cursor:pointer;
+    display:inline-block;
+    color:#2d6cdf;
+    margin:6px 0;
+    padding:3px 6px;
+    text-align:left;
+    font-size:1em;
+  }
+  .collapsible-icon {
+    display:inline-block;
+    width:16px;
+    text-align:center;
+    margin-right:4px;
+    font-weight:bold;
+  }
   
   a { text-decoration:none; color:#1a4bb7; font-weight:500; }
   a:hover { text-decoration:underline; color:#d35400; }
@@ -41,7 +56,7 @@
   .download:hover { background:#ff5733; }
 
   /* Collapsible content */
-  .unit-content { margin-left:15px; margin-top:3px; }
+  .unit-content { margin-left:15px; margin-top:3px; display:none; }
 
   /* Container */
   .container { max-width:960px; width:95%; margin:auto; padding:15px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:8px; }
@@ -115,6 +130,14 @@ function normalizeFileEntry(entry) {
   return null;
 }
 
+// Create collapsible icon element
+function createIcon() {
+  const icon = document.createElement("span");
+  icon.className = "collapsible-icon";
+  icon.textContent = "+";
+  return icon;
+}
+
 // Render collapsible file list (syllabus, ebooks, exampapers)
 function renderCollapsibleList(containerId, files, cssClass) {
   const container = document.getElementById(containerId);
@@ -125,10 +148,14 @@ function renderCollapsibleList(containerId, files, cssClass) {
   }
 
   const li = document.createElement("li");
-  li.innerHTML = `<b class="${cssClass}">${containerId.replace("-list","").toUpperCase()}</b>`;
+  const icon = createIcon();
+  li.innerHTML = `<b class="${cssClass}"></b>`;
+  li.querySelector("b").appendChild(icon);
+  li.querySelector("b").appendChild(document.createTextNode(containerId.replace("-list","").toUpperCase()));
+
   const ul = document.createElement("ul");
   ul.className = "unit-content";
-  ul.style.display = "block"; // ✅ expanded by default
+  ul.style.display = "none"; // collapsed by default
 
   const cacheBuster = getCacheBuster();
   files.forEach(f => {
@@ -147,11 +174,9 @@ function renderCollapsibleList(containerId, files, cssClass) {
   li.appendChild(ul);
   container.appendChild(li);
 
-  container.querySelectorAll("b." + cssClass).forEach(title => {
-    title.addEventListener("click", () => {
-      const content = title.nextElementSibling;
-      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
-    });
+  li.querySelector("b").addEventListener("click", () => {
+    ul.style.display = ul.style.display === "block" ? "none" : "block";
+    icon.textContent = ul.style.display === "block" ? "−" : "+";
   });
 }
 
@@ -168,10 +193,14 @@ function renderUnits(containerId, unitsObj) {
 
   for (const [unitName, files] of Object.entries(unitsObj)) {
     const li = document.createElement("li");
-    li.innerHTML = `<b class="unit-title">${unitName}</b>`;
+    const icon = createIcon();
+    li.innerHTML = `<b class="unit-title"></b>`;
+    li.querySelector("b").appendChild(icon);
+    li.querySelector("b").appendChild(document.createTextNode(unitName));
+
     const ul = document.createElement("ul");
     ul.className = "unit-content";
-    ul.style.display = "block"; // ✅ expanded by default
+    ul.style.display = "none"; // collapsed by default
 
     files.forEach(f => {
       const fileObj = normalizeFileEntry(f);
@@ -188,14 +217,12 @@ function renderUnits(containerId, unitsObj) {
 
     li.appendChild(ul);
     container.appendChild(li);
-  }
 
-  container.querySelectorAll(".unit-title").forEach(title => {
-    title.addEventListener("click", () => {
-      const content = title.nextElementSibling;
-      if (content) content.style.display = content.style.display === "block" ? "none" : "block";
+    li.querySelector("b").addEventListener("click", () => {
+      ul.style.display = ul.style.display === "block" ? "none" : "block";
+      icon.textContent = ul.style.display === "block" ? "−" : "+";
     });
-  });
+  }
 }
 
 // Load data.json
