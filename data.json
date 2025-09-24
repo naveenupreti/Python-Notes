@@ -87,6 +87,9 @@
     { "path": "ebooks/PythonTutorial_tutorialspoint.com.pdf" }
   ],
   "exampapers": [
+    { "path": "ExamPapers/Sessional_1_PaperFormat_BMC301.pdf" },
+    { "path": "ExamPapers/Sessional_2_PaperFormat_BMC301.pdf" },
+    { "path": "ExamPapers/Sessional_3_PaperFormat_BMC301.pdf" },
     { "path": "ExamPapers/BCC302-PYTHON-PROGRAMMING-23-24.pdf" },
     { "path": "ExamPapers/PYTHON-PROGRAMMING-KNC-302-1-2020.pdf" },
     { "path": "ExamPapers/PYTHON-PROGRAMMING-KNC-302-2019.pdf" },
