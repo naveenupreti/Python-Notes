@@ -1,14 +1,14 @@
 # 📘 Python Notes for MCA Students
-**Course Code:** BMC301 - Python Programming
+**Course Code:** BMC301 - Python Programming (AKTU Syllabus 2025-26)
 
-Welcome! 👋  
+Welcome!  
 This repository contains **syllabus, lecture notes, example programs, and assignments** for MCA students.  
-All resources are also available online via the following **GitHub Page**  
+All resources are also available online via the following **GitHub site Page**  
 
 **https://naveenupreti.github.io/Python-Notes/**
 
-## Syllabus (short)
-1. **Unit 1:** Python Basics — Syntax, Variables, Operators, Coding Standards, Control Structures  
+##  Syllabus (short)
+1. **Unit 1:** Python Basics- Syntax, Variables, Operators, Coding Standards, Control Structures  
 2. **Unit 2:** Strings, Lists, Tuples  
 3. **Unit 3:** Dictionaries, Sets, Functions  
 4. **Unit 4:** Modules & Packages, File Handling   
