@@ -1,10 +1,3 @@
-"""
-Chapter 4: Strings - Let Us Python
-----------------------------------
-This script consolidates all example programs and exercises from the chapter.
-Each code block is rewritten with PEP8 style and inline comments for clarity.
-"""
-
 # -------------------------------------------------------------
 # Basic String Creation and Escape Sequences
 # -------------------------------------------------------------
