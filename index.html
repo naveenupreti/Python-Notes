@@ -149,6 +149,10 @@ function renderCollapsibleList(containerId, files, cssClass) {
   files.forEach(f => {
     const fileObj = normalizeFileEntry(f);
     if (!fileObj) return;
+
+    // Skip hidden files
+    if (fileObj.hidden) return;
+
     const filePath = rawBase + fileObj.path + cacheBuster;
     const fileName = fileObj.title || fileObj.path.split("/").pop();
     const liFile = document.createElement("li");
@@ -189,6 +193,10 @@ function renderUnits(containerId, unitsObj) {
     files.forEach(f => {
       const fileObj = normalizeFileEntry(f);
       if (!fileObj) return;
+
+      // Skip hidden files
+      if (fileObj.hidden) return;
+
       const filePath = rawBase + fileObj.path + cacheBuster;
       const fileName = fileObj.title || fileObj.path.split("/").pop();
       const liFile = document.createElement("li");
