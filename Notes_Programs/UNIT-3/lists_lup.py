@@ -1,11 +1,3 @@
-"""
-Chapter 8: Lists - Consolidated Python Examples
------------------------------------------------
-This script contains all list-related examples and problem solutions
-from 'Let Us Python' (Chapter 8). Each example is annotated with
-inline comments following PEP8 guidelines.
-"""
-
 # -------------------------------
 # 1. Creating and Printing Lists
 # -------------------------------
