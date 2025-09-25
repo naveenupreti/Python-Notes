@@ -1,13 +1,3 @@
-#!/usr/bin/env python3
-"""
-Chapter 9: Tuples - Let Us Python
---------------------------------
-This single script consolidates the example programs and end-of-chapter
-exercises (A & B) from the Tuples chapter.
-every important line has an inline PEP8-style comment
-explaining what it does. Run under Python 3.
-"""
-
 # Standard library imports used in examples
 import operator  # used later for sorting by a specific field in tuple records
 from typing import Tuple, List  # only for readable type hints in comments (not required)
