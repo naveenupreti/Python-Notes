@@ -217,12 +217,9 @@ for x in range(5):
     squares.append(x**2)
 print(squares)
 
-
 #We can use list comprehension:
-
 squares = [x**2 for x in range(5)]
 print(squares)  # Output: [0, 1, 4, 9, 16]
-
 
 '''
 One line does the same thing as three lines with a loop.
@@ -238,38 +235,9 @@ for x in range(10):
         evens.append(x)
 print(evens)  # Output: [0, 2, 4, 6, 8]
 
-
 #With list comprehension:
-
 evens = [x for x in range(10) if x % 2 == 0]
 print(evens)  # Output: [0, 2, 4, 6, 8]
-
-
-#Key idea: List comprehension is just a shortcut to create lists in a clean, readable way.
-# Generate a list of squares
-squares = [x ** 2 for x in range(6)]
-print(squares)  # [0, 1, 4, 9, 16, 25]
-
-# Filtering list comprehension
-evens = [x for x in range(10) if x % 2 == 0]
-print(evens)  # [0, 2, 4, 6, 8]
-
-# -------------------------------
-# List Comprehensions (Simpler Version)
-# -------------------------------
-
-# Generate a list of squares using a loop
-squares = []
-for x in range(6):
-    squares.append(x ** 2)
-print("Squares:", squares)  # [0, 1, 4, 9, 16, 25]
-
-# Filtering even numbers using a loop
-evens = []
-for x in range(10):
-    if x % 2 == 0:
-        evens.append(x)
-print("Even numbers:", evens)  # [0, 2, 4, 6, 8]
 
 # -------------------------------
 # Exercise A – Prime Numbers in a List
@@ -428,6 +396,7 @@ Resultant Matrix (A + B) with indices:
 result[0][0] = 6	result[0][1] = 8	
 result[1][0] = 10	result[1][1] = 12
 '''
+
 
 
 
