@@ -1,5 +1,5 @@
-"""
-Lists - Python Examples
+
+#Lists - Python Examples
 
 # -------------------------------
 # 1. Creating and Printing Lists
@@ -81,41 +81,8 @@ fruits.reverse()
 print(fruits)  # ['melon', 'kiwi', 'grapes', 'cherry', 'apple']
 
 
-
 # -------------------------------
-# Problem 8.1 – Basic List Operations
-# -------------------------------
-
-students = ["Ajay", "Amit", "Anita", "Amol", "Arun"]
-print(students)
-
-# Insert new student
-students.insert(2, "Anil")
-print(students)
-
-# Append at the end
-students.append("Avinash")
-print(students)
-
-# Delete element
-students.remove("Amol")
-print(students)
-
-# Replace element
-students[0] = "Ajinkya"
-print(students)
-
-
-# -------------------------------
-# Problem 8.2 – List with Mixed Data Types
-# -------------------------------
-
-mixed_data = [100, "Python", 3.14, [10, 20], True]
-print(mixed_data)
-
-
-# -------------------------------
-# Problem 8.3 – Traversing a List
+# Traversing a List
 # -------------------------------
 
 animals = ["dog", "cat", "lion", "tiger"]
@@ -132,21 +99,7 @@ while i < len(animals):
 
 
 # -------------------------------
-# Problem 8.4 – Copying and Cloning Lists
-# -------------------------------
-
-original = [1, 2, 3]
-shallow_copy = original  # Both refer to same list
-clone = original[:]      # Creates new list (clone)
-
-original.append(4)
-
-print(shallow_copy)  # [1, 2, 3, 4]
-print(clone)        # [1, 2, 3]
-
-
-# -------------------------------
-# Problem 8.6 – Sorting a List
+# Sorting a List
 # -------------------------------
 
 numbers = [15, 3, 9, 1, 12]
@@ -158,6 +111,81 @@ print(numbers)  # [1, 3, 9, 12, 15]
 # Descending order
 numbers.sort(reverse=True)
 print(numbers)  # [15, 12, 9, 3, 1]
+
+'''
+1️sort() vs sorted()
+
+| Feature           | `sort()`                      | `sorted()`                                                  |
+| ----------------- | ----------------------------- | ----------------------------------------------------------- |
+| **Type**          | Method of a list              | Built-in function                                           |
+| **Original list** | Changes the list **in-place** | Returns a **new sorted list**, original list stays the same |
+| **Return value**  | `None`                        | New list                                                    |
+| **Works on**      | Only lists                    | Any iterable (list, tuple, string, etc.)                    |
+
+'''
+#Example with sort() (in-place):
+
+numbers = [4, 1, 7, 3]
+numbers.sort()        # Sorts the list itself
+print(numbers)        # Output: [1, 3, 4, 7]
+
+
+#Example with sorted() (returns new list):
+
+numbers = [4, 1, 7, 3]
+new_numbers = sorted(numbers)   # Returns a new sorted list
+print(new_numbers)              # [1, 3, 4, 7]
+print(numbers)                  # Original list unchanged: [4, 1, 7, 3]
+
+
+'''
+2️reverse() vs reversed()
+| Feature           | `reverse()`                    | `reversed()`                                                            |
+| ----------------- | ------------------------------ | ----------------------------------------------------------------------- |
+| **Type**          | Method of a list               | Built-in function                                                       |
+| **Original list** | Reverses the list **in-place** | Returns an **iterator** that goes through the elements in reverse order |
+| **Return value**  | `None`                         | Iterator (can convert to list using `list()`)                           |
+| **Works on**      | Only lists                     | Any iterable                                                            |
+
+'''
+#Example with reverse() (in-place):
+
+numbers = [1, 2, 3, 4]
+numbers.reverse()     # Reverse the list itself
+print(numbers)        # Output: [4, 3, 2, 1]
+
+
+#Example with reversed() (returns iterator):
+
+numbers = [1, 2, 3, 4]
+rev_numbers = reversed(numbers)   # Returns an iterator
+print(list(rev_numbers))          # Convert to list: [4, 3, 2, 1]
+print(numbers)                    # Original list unchanged: [1, 2, 3, 4]
+
+'''
+Quick summary:
+
+sort() → sorts in-place, only lists.
+
+sorted() → returns a new sorted list, works on any iterable.
+
+reverse() → reverses in-place, only lists.
+
+reversed() → returns an iterator in reverse order, works on any iterable.
+'''
+
+# -------------------------------
+# Copying and Cloning Lists
+# -------------------------------
+
+original = [1, 2, 3]
+shallow_copy = original  # Both refer to same list
+clone = original[:]      # Creates new list (clone)
+
+original.append(4)
+
+print(shallow_copy)  # [1, 2, 3, 4]
+print(clone)        # [1, 2, 3]
 
 
 # -------------------------------
@@ -400,7 +428,3 @@ Resultant Matrix (A + B) with indices:
 result[0][0] = 6	result[0][1] = 8	
 result[1][0] = 10	result[1][1] = 12
 '''
-
-
-
-
