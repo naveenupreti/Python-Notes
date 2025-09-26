@@ -1,3 +1,6 @@
+"""
+Lists - Python Examples
+
 # -------------------------------
 # 1. Creating and Printing Lists
 # -------------------------------
@@ -78,37 +81,6 @@ fruits.reverse()
 print(fruits)  # ['melon', 'kiwi', 'grapes', 'cherry', 'apple']
 
 
-# -------------------------------
-# 5. List Comprehensions
-# -------------------------------
-
-# Generate a list of squares
-squares = [x ** 2 for x in range(6)]
-print(squares)  # [0, 1, 4, 9, 16, 25]
-
-# Filtering list comprehension
-evens = [x for x in range(10) if x % 2 == 0]
-print(evens)  # [0, 2, 4, 6, 8]
-
-
-# -------------------------------
-# 6. Nested Lists and Matrix
-# -------------------------------
-
-# Representing a matrix as a list of lists
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-# Access element at row 2, column 3
-print(matrix[1][2])  # 6
-
-# Transpose matrix using list comprehension
-transpose = [[row[i] for row in matrix] for i in range(3)]
-print(transpose)  # [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-
 
 # -------------------------------
 # Problem 8.1 – Basic List Operations
@@ -174,18 +146,6 @@ print(clone)        # [1, 2, 3]
 
 
 # -------------------------------
-# Problem 8.5 – 2D Lists (Matrix Addition)
-# -------------------------------
-
-A = [[1, 2], [3, 4]]
-B = [[5, 6], [7, 8]]
-
-# Adding two matrices
-result = [[A[i][j] + B[i][j] for j in range(2)] for i in range(2)]
-print(result)  # [[6, 8], [10, 12]]
-
-
-# -------------------------------
 # Problem 8.6 – Sorting a List
 # -------------------------------
 
@@ -200,9 +160,88 @@ numbers.sort(reverse=True)
 print(numbers)  # [15, 12, 9, 3, 1]
 
 
-# =========================================================
-# EXTRA EXERCISES (A, B, C)
-# =========================================================
+# -------------------------------
+# List Comprehensions
+# -------------------------------
+'''
+What is a list comprehension?
+
+A list comprehension is a compact way to create a list in Python using a single line of code, instead of writing multiple lines with loops.
+
+General form:
+
+[ expression for item in iterable if condition ]
+
+
+expression → what each item in the new list should be
+
+item in iterable → loops over each element in the original collection
+
+if condition → optional, filters elements
+
+Simple Example 1: Squares of numbers
+
+Instead of writing:
+'''
+# Generate a list of squares
+squares = []
+for x in range(5):
+    squares.append(x**2)
+print(squares)
+
+
+#We can use list comprehension:
+
+squares = [x**2 for x in range(5)]
+print(squares)  # Output: [0, 1, 4, 9, 16]
+
+
+'''
+One line does the same thing as three lines with a loop.
+
+Simple Example 2: Even numbers
+
+Using a normal loop:
+'''
+# Generate a list of Even numbers
+evens = []
+for x in range(10):
+    if x % 2 == 0:
+        evens.append(x)
+print(evens)  # Output: [0, 2, 4, 6, 8]
+
+
+#With list comprehension:
+
+evens = [x for x in range(10) if x % 2 == 0]
+print(evens)  # Output: [0, 2, 4, 6, 8]
+
+
+#Key idea: List comprehension is just a shortcut to create lists in a clean, readable way.
+# Generate a list of squares
+squares = [x ** 2 for x in range(6)]
+print(squares)  # [0, 1, 4, 9, 16, 25]
+
+# Filtering list comprehension
+evens = [x for x in range(10) if x % 2 == 0]
+print(evens)  # [0, 2, 4, 6, 8]
+
+# -------------------------------
+# List Comprehensions (Simpler Version)
+# -------------------------------
+
+# Generate a list of squares using a loop
+squares = []
+for x in range(6):
+    squares.append(x ** 2)
+print("Squares:", squares)  # [0, 1, 4, 9, 16, 25]
+
+# Filtering even numbers using a loop
+evens = []
+for x in range(10):
+    if x % 2 == 0:
+        evens.append(x)
+print("Even numbers:", evens)  # [0, 2, 4, 6, 8]
 
 # -------------------------------
 # Exercise A – Prime Numbers in a List
@@ -221,6 +260,25 @@ def is_prime(n):
 
 # Generate a list of prime numbers between 1 and 50
 prime_list = [x for x in range(1, 51) if is_prime(x)]
+print(prime_list)
+
+'''
+This line is a list comprehension, which is a compact way to create lists. Let’s break it down:
+
+prime_list = [x for x in range(1, 51) if is_prime(x)]
+range(1, 51) → generates numbers from 1 to 50.
+
+if is_prime(x) → keeps only numbers x that are prime.
+
+[x ...] → creates a list of those numbers.
+'''
+
+# Generate a list of prime numbers between 1 and 50
+prime_list = []
+for x in range(1, 51):
+    if is_prime(x):
+        prime_list.append(x)
+
 print(prime_list)
 
 
@@ -245,3 +303,104 @@ sentence = "Python makes programming fun"
 # Split into words, reverse list, join back
 reversed_sentence = " ".join(sentence.split()[::-1])
 print(reversed_sentence)  # fun programming makes Python
+
+
+# Representing a matrix as a list of lists (nested lists)
+matrix = [
+    [1, 2], 
+    [3, 4],
+    [5, 6], 
+    [7, 8]
+]
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+# Print the original matrix with indices
+print("Original Matrix with indices:")
+for i in range(rows):
+    for j in range(cols):
+        print(f"matrix[{i}][{j}] = {matrix[i][j]}", end="\t")
+    print()  # new line after each row
+
+# Transpose the matrix dynamically
+transpose = []
+for i in range(cols):          # iterate over columns
+    new_row = []
+    for j in range(rows):      # iterate over rows
+        new_row.append(matrix[j][i])
+    transpose.append(new_row)
+
+# Print the transposed matrix with indices
+print("\nTransposed Matrix with indices:")
+for i in range(len(transpose)):
+    for j in range(len(transpose[0])):
+        print(f"transpose[{i}][{j}] = {transpose[i][j]}", end="\t")
+    print()
+
+# Note about Python's memory layout
+print("\nNote: Python lists are stored as objects, not as fixed-size arrays.")
+print("So Python does not enforce row-major or column-major storage like C/Fortran.")
+print("However, when using NumPy, arrays are row-major by default (C-order).")
+
+'''
+Output:
+Original Matrix with indices:
+matrix[0][0] = 1	matrix[0][1] = 2	
+matrix[1][0] = 3	matrix[1][1] = 4	
+matrix[2][0] = 5	matrix[2][1] = 6	
+matrix[3][0] = 7	matrix[3][1] = 8	
+
+Transposed Matrix with indices:
+transpose[0][0] = 1	transpose[0][1] = 3	transpose[0][2] = 5	transpose[0][3] = 7	
+transpose[1][0] = 2	transpose[1][1] = 4	transpose[1][2] = 6	transpose[1][3] = 8	
+
+Note: Python lists are stored as objects, not as fixed-size arrays.
+So Python does not enforce row-major or column-major storage like C/Fortran.
+However, when using NumPy, arrays are row-major by default (C-order).
+'''
+
+# -------------------------------
+# 2D Lists (Matrix Addition)
+# -------------------------------
+
+A = [
+     [1, 2],
+     [3, 4]
+    ]
+
+B = [
+     [5, 6],
+     [7, 8]
+    ]
+
+# Get dimensions
+rows = len(A)
+cols = len(A[0])
+
+# Initialize result matrix
+result = []
+for i in range(rows):
+    new_row = []
+    for j in range(cols):
+        sum_value = A[i][j] + B[i][j]
+        new_row.append(sum_value)
+    result.append(new_row)
+
+# Print the result with indices
+print("Resultant Matrix (A + B) with indices:")
+for i in range(rows):
+    for j in range(cols):
+        print(f"result[{i}][{j}] = {result[i][j]}", end="\t")
+    print()
+    
+'''
+Output
+Resultant Matrix (A + B) with indices:
+result[0][0] = 6	result[0][1] = 8	
+result[1][0] = 10	result[1][1] = 12
+'''
+
+
+
+
