@@ -1,3 +1,8 @@
+'''
+Tuples 
+--------------------------------
+'''
+
 # Standard library imports used in examples
 import operator  # used later for sorting by a specific field in tuple records
 from typing import Tuple, List  # only for readable type hints in comments (not required)
@@ -79,8 +84,27 @@ while i < len(fruits):  # loop until index equals tuple length
 for fruit in fruits:  # for-loop: iterate directly over tuple elements
     print("for loop element ->", fruit)  # print current element
 
+for i in range(len(fruits)):
+    print(f"Index {i} -> {fruits[i]}") # print element at index i
+    
 for index, element in enumerate(fruits):  # enumerate yields (index, element)
     print(f"enumerate: index {index} ->", element)  # show both index and value
+    
+'''
+range(start, stop, step)
+start → starting value
+stop → stopping value (not included)
+step → increment (can be negative for reverse)
+
+len(fruits) - 1 = 4-1=3
+So, range(3, -1, -1) is interpreted as
+start = 3 → begin at index 3 ("mango")
+stop = -1 → stop before -1, i.e., the loop will end when it reaches index 0
+step = -1 → move backwards (decrease by 1 each time)
+'''
+#printing tuple in reverse
+for i in range(len(fruits) - 1, -1, -1):
+    print(f"Index {i} -> {fruits[i]}")
 
 # ---------------------------------------------------------------------------
 # Example 4: Mutability, immutability and tuples containing mutable objects
@@ -376,3 +400,4 @@ print(
 
 print("\nEnd of Chapter 9 Tuples demo script.")  # final footer
 print("=" * 72)  # closing underline
+
