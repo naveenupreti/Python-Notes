@@ -1,6 +1,34 @@
 '''
-Tuples 
---------------------------------
+Tuples in Python
+
+A tuple is an immutable (unchangeable) sequence in Python.
+Once created, the elements of a tuple cannot be modified, added, or removed.
+Tuples are similar to lists, but they are faster and are often used to represent fixed collections of items.
+
+| Feature                | **Tuple**                                                             | **List**                                                                  |
+| ---------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Syntax**             | `(1, 2, 3)`                                                           | `[1, 2, 3]`                                                                    |
+| **Mutability**         | Immutable (cannot change after creation)                              | Mutable (can add, remove, or modify elements)                                  |
+| **Methods Available**  | Very few (`count()`, `index()`)                                       | Many (`append()`, `extend()`, `insert()`, `remove()`, `pop()`, `sort()`, etc.) |
+| **Performance**        | Faster (because immutable, less overhead)                             | Slower than tuple (extra flexibility)                                          |
+| **Memory Usage**       | Uses less memory                                                      | Uses more memory                                                               |
+| **Hashable**           | Yes (if all elements are immutable) → can be used as dictionary keys  | No (lists cannot be dictionary keys)                                           |
+| **Use Cases**          | Fixed collections (e.g., coordinates, days of week, database records) | Dynamic collections (e.g., shopping cart, student marks, todo list)            |
+| **Iteration Speed**    | Faster                                                                | Slightly Slower                                                                |
+| **Slicing / Indexing** | Supported                                                             | Supported                                                                      |
+| **Concatenation**      | Supported (`+`, `*`)                                                  | Supported (`+`, `*`)                                                           |
+
+
+Returning Multiple Values from a Function
+Functions can return multiple values using tuples.
+def divide(a, b):
+    quotient = a // b
+    remainder = a % b
+    return quotient, remainder   # returns a tuple
+
+q, r = divide(10, 3)
+print(q, r)   # 3 1
+
 '''
 
 # Standard library imports used in examples
