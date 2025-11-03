@@ -32,51 +32,80 @@ all_chars = upper + lower + digits + symbols
 print("=== STRONG PASSWORD GENERATOR ===")
 
 while True:
-    # Ask user for choice
     print("\nChoose Password Generator Type:")
     print("1. Simple Method (without list comprehension)")
     print("2. Compact Method (with list comprehension)")
-    choice = int(input("Enter your choice (1 or 2): "))
 
-    # ✅ Only ask for length if choice is valid
+    # ✅ Safely get user choice
+    choice_input = input("Enter your choice (1 or 2): ").strip()
+    if not choice_input.isdigit():
+        print("❌ Invalid input! Please enter a number (1 or 2).")
+        again = input("\nDo you want to try again? (y/n): ").strip().lower()
+        if again not in ('y', 'yes'):
+            print("\nThank you for using the Password Generator. Goodbye!")
+            break
+        else:
+            continue
+
+    choice = int(choice_input)
+
+    # ✅ Validate choice number
     if choice not in (1, 2):
-        print("Invalid choice! Please enter 1 or 2.")
-    else:
-        length = int(input("Enter password length (min 4): "))
+        print("❌ Invalid choice! Please enter 1 or 2.")
+        again = input("\nDo you want to try again? (y/n): ").strip().lower()
+        if again not in ('y', 'yes'):
+            print("\nThank you for using the Password Generator. Goodbye!")
+            break
+        else:
+            continue
 
-        # --- Version 1: Without list comprehension ---
-        if choice == 1:
-            password = random.choice(upper)
-            password += random.choice(lower)
-            password += random.choice(digits)
-            password += random.choice(symbols)
+    # ✅ Get password length (only if choice is valid)
+    while True:
+        length_input = input("Enter password length (min 4): ").strip()
+        if not length_input.isdigit():
+            print("❌ Please enter a valid number.")
+            continue
+        length = int(length_input)
+        if length < 4:
+            print("❌ Password length must be at least 4.")
+        else:
+            break
 
-            for i in range(length - 4):
-                password += random.choice(all_chars)
+    # --- Version 1: Without list comprehension ---
+    if choice == 1:
+        password = random.choice(upper)
+        password += random.choice(lower)
+        password += random.choice(digits)
+        password += random.choice(symbols)
 
-            # Shuffle to mix characters
-            password_list = list(password)
-            random.shuffle(password_list)
-            password = ''.join(password_list)
+        for i in range(length - 4):
+            password += random.choice(all_chars)
 
-            print("\nGenerated Strong Password (Simple):", password)
+        # Shuffle to mix characters
+        password_list = list(password)
+        random.shuffle(password_list)
+        password = ''.join(password_list)
 
-        # --- Version 2: With list comprehension ---
-        elif choice == 2:
-            password_chars = [
-                random.choice(upper),
-                random.choice(lower),
-                random.choice(digits),
-                random.choice(symbols)
-            ]
-            password_chars += [random.choice(all_chars) for _ in range(length - 4)]
-            random.shuffle(password_chars)
-            password = ''.join(password_chars)
+        print("\nGenerated Strong Password (Simple):", password)
 
-            print("\nGenerated Strong Password (Compact):", password)
+    # --- Version 2: With list comprehension ---
+    elif choice == 2:
+        password_chars = [
+            random.choice(upper),
+            random.choice(lower),
+            random.choice(digits),
+            random.choice(symbols)
+        ]
+        password_chars += [random.choice(all_chars) for _ in range(length - 4)]
+        random.shuffle(password_chars)
+        password = ''.join(password_chars)
 
-    # Ask if user wants to continue
+        print("\nGenerated Strong Password (Compact):", password)
+
+    # ✅ Ask user if they want to continue
     again = input("\nDo you want to generate another password? (y/n): ").strip().lower()
     if again not in ('y', 'yes'):
         print("\nThank you for using the Password Generator. Goodbye!")
         break
+
+
