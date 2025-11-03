@@ -1,3 +1,5 @@
+# Python program to print numbers less than 20 and greater than 50 from a list of 20 random numbers between 10 to 100 
+
 import random
 
 # Step 1: Create a list of 20 random numbers between 10 and 100
@@ -17,7 +19,7 @@ for num in random_numbers:
 print("Filtered list (excluding 20 < num < 50):", filtered_numbers)
 
 
-
+# using list comprehensions
 import random
 
 # Step 1: Create a list of 20 random numbers between 10 and 100
@@ -26,4 +28,5 @@ print("Original list:", random_numbers)
 
 # Step 2: Filter out numbers strictly between 20 and 50
 filtered_numbers = [num for num in random_numbers if num <= 20 or num >= 50]
+
 print("Filtered list (excluding 20 < num < 50):", filtered_numbers)
