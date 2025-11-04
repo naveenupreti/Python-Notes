@@ -48,9 +48,9 @@
       { "path": "Notes_Programs/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" },
       { "path": "Notes_Programs/UNIT-4/LUP_Chapter23_FileHandling.pdf" },
       { "path": "Notes_Programs/UNIT-4/test.py" },
-      { "path": "Notes_Programs/UNIT-4/random_module_demo.py"},
-      { "path": "Notes_Programs/UNIT-4/random_excluding_a_range.py"},
-      { "path": "Notes_Programs/UNIT-4/random_password_generator_user_choice.py"}
+      { "path": "Notes_Programs/UNIT-4/random_module_demo.py" },
+      { "path": "Notes_Programs/UNIT-4/random_excluding_a_range.py" },
+      { "path": "Notes_Programs/UNIT-4/random_password_generator_user_choice.py" }
       
     ],
     "UNIT-5": [
