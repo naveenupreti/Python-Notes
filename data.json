@@ -50,6 +50,7 @@
       { "path": "Notes_Programs/UNIT-4/test.py" },
       { "path": "Notes_Programs/UNIT-4/random_module_demo.py" },
       { "path": "Notes_Programs/UNIT-4/random_excluding_a_range.py" },
+      { "path": "Notes_Programs/UNIT-4/random_deck_of_cards_generator.py"},
       { "path": "Notes_Programs/UNIT-4/random_password_generator_user_choice.py" }
       
     ],
