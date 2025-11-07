@@ -25,7 +25,7 @@ print("=== DICTIONARY KEYS CANNOT BE CHANGED IN PLACE ===")
 
 # Create a dictionary
 person = {"name": "Naveen", "age": 50}
-print("Original dictionary:", person)    # {'name': 'Naveen', 'age': 30}
+print("Original dictionary:", person)    # {'name': 'Naveen', 'age': 50}
 
 # Trying to modify a key directly (Not allowed)
 print("\nTrying to change key 'name' to 'fullname' directly...")
