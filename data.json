@@ -43,7 +43,9 @@
       { "path": "Notes_Programs/UNIT-3/LUP_Chapter14_Recursion.pdf" },
       { "path": "Notes_Programs/UNIT-3/lists_lup.py" },
       { "path": "Notes_Programs/UNIT-3/tuples_lup.py", "hidden": true },
-      { "path": "Notes_Programs/UNIT-3/dictionary_lup.py" }
+      { "path": "Notes_Programs/UNIT-3/dictionary_lup.py" },
+      { "path": "Notes_Programs/UNIT-3/scope_variable.py" },
+      { "path": "Notes_Programs/UNIT-3/scope_LEGB.py" }
     ],
     "UNIT-4": [
       { "path": "Notes_Programs/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" },
