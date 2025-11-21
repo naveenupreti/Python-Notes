@@ -46,7 +46,9 @@
       { "path": "Notes_Programs/UNIT-3/dictionary_lup.py" },
       { "path": "Notes_Programs/UNIT-3/scope_variable.py" },
       { "path": "Notes_Programs/UNIT-3/scope_LEGB.py" },
-      { "path": "Notes_Programs/UNIT-3/scope_LEGB1.py" }
+      { "path": "Notes_Programs/UNIT-3/scope_LEGB1.py" },
+      { "path": "Notes_Programs/UNIT-3/recursion_types.py" },
+      { "path": "Notes_Programs/UNIT-3/recursion_even_odd.py" }
     ],
     "UNIT-4": [
       { "path": "Notes_Programs/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" },
