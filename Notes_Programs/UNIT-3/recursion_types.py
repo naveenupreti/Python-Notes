@@ -219,7 +219,7 @@ print("mcCarthy91(95) =", mcCarthy91(95))
 print("mcCarthy91(200) =", mcCarthy91(200))
 
 # Output: mcCarthy91(95) = 91
-
+# Output: mcCarthy91(200) = 190
 # 🔁 TRACE DIAGRAM
 # mcCarthy91(95)
 # → mcCarthy91(mcCarthy91(106))
@@ -290,3 +290,4 @@ print("-" * 60)
 
 
 # END OF PROGRAM
+
