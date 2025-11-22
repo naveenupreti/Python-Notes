@@ -1,5 +1,5 @@
 # ------------------------------------------------------------
-# FILE HANDLING IN PYTHON - CONCEPTS + PROGRAMS (EXECUTABLE)
+# FILE HANDLING IN PYTHON 
 # ------------------------------------------------------------
 # ============================================================
 #                   CONCEPTS OF FILE HANDLING
