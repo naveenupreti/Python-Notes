@@ -59,6 +59,7 @@
       { "path": "Notes_Programs/UNIT-4/random_deck_of_cards_generator.py"},
       { "path": "Notes_Programs/UNIT-4/random_password_generator_user_choice.py" },
       { "path": "Notes_Programs/UNIT-4/file_handling.py" },
+      { "path": "Notes_Programs/UNIT-4/file_modes_all.py" },
       { "path": "Notes_Programs/UNIT-4/file_copy_binary.py" },
       { "path": "Notes_Programs/UNIT-4/file_copy_binary_cla.py" },
       { "path": "Notes_Programs/UNIT-4/file_type_copy.py", "hidden": true},
