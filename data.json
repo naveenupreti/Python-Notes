@@ -60,6 +60,7 @@
       { "path": "Notes_Programs/UNIT-4/random_password_generator_user_choice.py" },
       { "path": "Notes_Programs/UNIT-4/file_handling.py" },
       { "path": "Notes_Programs/UNIT-4/file_modes_all.py" },
+      { "path": "Notes_Programs/UNIT-4/file_read_write_rename_delete.py" },
       { "path": "Notes_Programs/UNIT-4/file_non_string_data_binary.py", "hidden": true},
       { "path": "Notes_Programs/UNIT-4/file_non_string_read_write.py"},
       { "path": "Notes_Programs/UNIT-4/pickle_all_datatypes.py"},
