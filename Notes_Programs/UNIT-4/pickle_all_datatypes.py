@@ -53,4 +53,10 @@ print("\nRestored data and their types:\n")
 for key, value in restored.items():
     # {key:15} → left-aligned, 15-character width (clean table output)
     # {value!r} → prints raw Python representation (repr)
+    # x = "Hello\nWorld"
+    # print(f"{x}")      # Uses str() output: Hello and World are in 2 different lines
+    # print(f"{x!r}")    # Uses repr() output: 'Hello\nWorld'
+    #type(value) → gives the full type object (e.g., <class 'int'>)
+    #type(value).__name__ → extracts only the type's name (e.g., "int")
     print(f"{key:15} → {value!r}   (type: {type(value).__name__})")
+
