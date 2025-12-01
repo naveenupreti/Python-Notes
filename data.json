@@ -67,7 +67,8 @@
       { "path": "Notes_Programs/UNIT-4/file_copy_binary.py" },
       { "path": "Notes_Programs/UNIT-4/file_copy_binary_cla.py" },
       { "path": "Notes_Programs/UNIT-4/file_type_copy.py", "hidden": true},
-      { "path": "Notes_Programs/UNIT-4/file_type_copy1.py", "hidden": true}
+      { "path": "Notes_Programs/UNIT-4/file_type_copy1.py", "hidden": true},
+      { "path": "Notes_Programs/UNIT-4/file_handling_text_json_csv.py" }
       
   
     ],
