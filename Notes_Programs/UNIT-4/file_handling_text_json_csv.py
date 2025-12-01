@@ -61,8 +61,8 @@ def json_mode():
 
     # Writing JSON file with proper formatting
     with open(filename, "w") as f:
-        json.dump(students, f, indent=4)
-
+        json.dump(students, f, indent=4) 
+    #dump() converts Python objects (like dict, list) into JSON format and write them directly to a file
     print("\n--- Reading from JSON file ---")
     with open(filename, "r") as f:
         data = json.load(f)  # Converts JSON → Python list
@@ -80,7 +80,8 @@ def csv_mode():
 
     # Writing data to CSV file (best for Excel)
     with open(filename, "w", newline="") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f) 
+        #csv.writer(f) creates a writer object that allows you to write tabular data (rows and columns) to a CSV file.
         writer.writerow(["Name", "Marks"])  # Header row
 
         while True:
@@ -120,3 +121,4 @@ def main():
 
 # Run the program
 main()
+
