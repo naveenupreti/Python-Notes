@@ -75,7 +75,8 @@
     ],
     "UNIT-5": [
       { "path": "Notes_Programs/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf" },
-      { "path": "Notes_Programs/UNIT-5/exception_handling.py" }
+      { "path": "Notes_Programs/UNIT-5/exception_handling.py" },
+      { "path": "Notes_Programs/UNIT-5/numpy_demo.py" }
       
     ]
   },
