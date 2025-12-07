@@ -1,5 +1,5 @@
 '''
-Regex (re module)
+Regular Expression - Regex (re module)
 
 Purpose:
 Used for pattern matching, searching, and text manipulation.
