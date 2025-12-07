@@ -1,3 +1,23 @@
+'''
+string
+
+Purpose:
+Used for string constants, formatting, and templates.
+
+Important Attributes/Functions:
+
+| Function/Attribute       | Description                | Example                                     |
+| ------------------------ | -------------------------- | ------------------------------------------- |
+| `string.ascii_letters`   | a-zA-Z                     | `print(string.ascii_letters)`               |
+| `string.ascii_lowercase` | a-z                        | `print(string.ascii_lowercase)`             |
+| `string.ascii_uppercase` | A-Z                        | `print(string.ascii_uppercase)`             |
+| `string.digits`          | 0-9                        | `print(string.digits)`                      |
+| `string.punctuation`     | !"#$%...                   | `print(string.punctuation)`                 |
+| `string.whitespace`      | \t\n\r etc                 | `print(repr(string.whitespace))`            |
+| `string.capwords()`      | Capitalize each word       | `string.capwords("hello world")`            |
+| `string.Template`        | String template formatting | `Template("Hi $name").substitute(name="A")` |
+
+'''
 # -------------------------------------------------------------
 # Program: Important string module functions + OUTPUT
 # -------------------------------------------------------------
