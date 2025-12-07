@@ -1,3 +1,21 @@
+'''
+sys
+
+Purpose:
+Used to interact with Python interpreter and system.
+
+Important Attributes/Functions:
+| Function/Attribute | Description               | Example                  |
+| ------------------ | ------------------------- | ------------------------ |
+| `sys.argv`         | List of command-line args | `sys.argv[0]`            |
+| `sys.version`      | Python version            | `print(sys.version)`     |
+| `sys.path`         | Module search paths       | `print(sys.path)`        |
+| `sys.exit()`       | Exit program              | `sys.exit()`             |
+| `sys.maxsize`      | Maximum integer           | `print(sys.maxsize)`     |
+| `sys.getsizeof()`  | Memory size of object     | `sys.getsizeof([1,2,3])` |
+| `sys.platform`     | OS platform               | `sys.platform`           |
+
+'''
 # -------------------------------------------------------------
 # Program: Important sys module functions + OUTPUT
 # -------------------------------------------------------------
