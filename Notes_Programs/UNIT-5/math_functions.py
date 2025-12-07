@@ -1,3 +1,27 @@
+'''
+math
+
+Purpose:
+Used for mathematical functions and constants.
+
+Important Functions:
+
+| Function            | Description             | Example                      |
+| ------------------- | ----------------------- | ---------------------------- |
+| `math.sqrt(x)`      | Square root             | `math.sqrt(25)`              |
+| `math.pow(x,y)`     | x^y                     | `math.pow(2,5)`              |
+| `math.floor(x)`     | Largest int ≤ x         | `math.floor(3.8)`            |
+| `math.ceil(x)`      | Smallest int ≥ x        | `math.ceil(3.2)`             |
+| `math.factorial(n)` | Factorial of n          | `math.factorial(5)`          |
+| `math.gcd(a,b)`     | Greatest common divisor | `math.gcd(48,18)`            |
+| `math.sin(x)`       | Sine (x in radians)     | `math.sin(math.radians(90))` |
+| `math.cos(x)`       | Cosine (x in radians)   | `math.cos(0)`                |
+| `math.log(x)`       | Natural log             | `math.log(10)`               |
+| `math.log10(x)`     | Base-10 log             | `math.log10(100)`            |
+| Constants           | `math.pi`, `math.e`     | `math.pi`, `math.e`          |
+
+
+'''
 # -------------------------------------------------------------
 # Program: Important math module functions + OUTPUT
 # -------------------------------------------------------------
