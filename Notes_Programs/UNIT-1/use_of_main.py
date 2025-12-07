@@ -10,81 +10,73 @@ There are two main cases:
 How the script runs	Value of __name__
 Running the script directly	"__main__"
 Importing the script as a module	The module’s filename (without .py)
+'''
+"""
+Program: Demonstrate __name__, "__main__" and main() function behavior.
 
-2️== "__main__"
+This file includes:
+1. Printing __name__ at the top level.
+2. Using if __name__ == "__main__": guard.
+3. Defining a main() function.
+4. Demonstrating behavior when running directly vs importing.
+5. Inline comments explaining each step.
+6. Sample outputs of both cases at the end.
+"""
 
-This checks if the script is being run directly.
+# -------------------------------
+# TOP LEVEL PRINT
+# Executes always, whether run directly or imported.
+print("Top-level print: __name__ =", __name__)
 
-If __name__ == "__main__" is True, it means you are running this file, not importing it somewhere else.
-
-If the file is imported in another script, this condition is False, so the code inside this block won’t run automatically.
-
-3️main()
-
-main() is just a function we defined to hold the main logic of the program.
-
-Writing the main logic in a function (instead of directly at the top level) is a good practice because:
-
-Keeps code organized.
-
-Makes it reusable.
-
-Helps avoid accidental execution if the file is imported elsewhere.
-
-4️ Why this is useful
-
-Without this guard:
-
-# If we just wrote
-main()
-
-
-The program would always run even if someone imported your script as a module in another program.
-
-Using if __name__ == "__main__": ensures your program runs only when intended.
-
-Example
-
-file1.py:
-
+# -------------------------------
+# MAIN FUNCTION
 def main():
-    print("Hello from file1")
+    """
+    Main logic of the program.
+    Executes only if __name__ == "__main__"
+    """
+    print("Inside main(): This executes ONLY when running this file directly.")
+    print("Inside main(): __name__ =", __name__)
 
-print("This always runs")
-
+# -------------------------------
+# MAIN GUARD
+# Only executes this block if the file is run directly.
 if __name__ == "__main__":
+    print('Condition check: __name__ == "__main__" is TRUE.')
     main()
+else:
+    print('Condition check: __name__ == "__main__" is FALSE (file imported).')
 
 
-Case 1 – Run directly:
+# ============================================================
+#                 SAMPLE OUTPUT OF THE PROGRAM
+# ============================================================
 
-python file1.py
-
+"""
+===============================
+CASE 1: Run the file directly
+Command:
+    python name_main_demo.py
 
 Output:
-
-This always runs
-Hello from file1
-
-
-Case 2 – Import in another file:
-
-# file2.py
-import file1
+Top-level print: __name__ = __main__
+Condition check: __name__ == "__main__" is TRUE.
+Inside main(): This executes ONLY when running this file directly.
+Inside main(): __name__ = __main__
+===============================
 
 
-Output when running file2.py:
+===============================
+CASE 2: Import the file as a module
+Create file2.py:
 
-This always runs
+import name_main_demo
 
+Run:
+    python file2.py
 
-Notice main() from file1 did not run because of the if __name__ == "__main__": guard.
-
-✅ Summary
-
-__name__ == "__main__" → “Am I running directly?”
-
-main() → “Run the main function only if I’m running directly.”
-
-Keeps your code modular, safe, and reusable.
-'''
+Output:
+Top-level print: __name__ = name_main_demo
+Condition check: __name__ == "__main__" is FALSE (file imported).
+===============================
+"""
