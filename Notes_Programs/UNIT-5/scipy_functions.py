@@ -1,3 +1,20 @@
+'''
+SciPy
+
+Purpose:
+Used for scientific computing, numerical operations, optimization, linear algebra, integration, and statistics.
+
+Important Submodules and Functions:
+
+| Submodule         | Function                                                   | Example                   |
+| ----------------- | ---------------------------------------------------------- | ------------------------- |
+| `scipy.linalg`    | `inv()` (inverse), `det()` (determinant), `solve()` (AX=B) | `solve(A,B)`              |
+| `scipy.stats`     | `mean()`, `median()`, `mode()`, `linregress()`, `zscore()` | `stats.mean([1,2,3])`     |
+| `scipy.integrate` | `quad()` (integrate function)                              | `quad(lambda x:x**2,0,5)` |
+| `scipy.optimize`  | `root()` (solve eqn), `minimize()` (minimize fn)           | `root(lambda x:x**2-4,1)` |
+
+'''
+
 # -------------------------------------------------------------
 # Important SciPy functions with inline explanation + OUTPUT
 # -------------------------------------------------------------
