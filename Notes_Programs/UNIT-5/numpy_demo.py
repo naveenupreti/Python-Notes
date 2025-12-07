@@ -170,167 +170,182 @@ allowing compact storage and efficient operations.
 NumPy is used because it makes numerical computing faster, easier,
 and more efficient than using normal Python lists.
 '''
+"""
+================ INSTALLATION COMMANDS =================
+# Install NumPy on Q4OS Linux:
+# sudo apt install python3-numpy
+
+# Install NumPy, Pandas, Matplotlib, SciPy, Seaborn on Q4OS Linux:
+# sudo apt update && sudo apt install python3-numpy python3-pandas python3-matplotlib python3-scipy python3-seaborn
+
+# Install NumPy on Windows:
+# pip install numpy
+"""
+
+"""
+================ DATA SCIENCE OVERVIEW =================
+- Data Science: Collecting, storing, analyzing, interpreting data to extract insights.
+- Combines:
+    * Statistics & Mathematics
+    * Programming (Python, R)
+    * Data Analysis & Visualization
+    * Machine Learning & AI
+- Difference from Data Analytics:
+    * Analytics: Understanding past/current trends
+    * Data Science: Predicting future trends, building models
+- Importance: Better decisions, accurate predictions, automation, reducing costs/risks
+- Real-life examples: Netflix recommendations, Amazon suggestions, Fraud detection, Traffic prediction, Disease prediction
+- Key Steps: Data Collection → Cleaning → Analysis → Visualization → Model Building → Deployment
+- Technologies: Python, R, SQL, NumPy, Pandas, Matplotlib, Scikit-learn, TensorFlow, PyTorch
+"""
+
 import numpy as np
 
-# Size of specific NumPy integer types
-print(f"Size of np.int32: {np.int32().itemsize} bytes")
-print(f"Size of np.int64: {np.int64().itemsize} bytes")
-print(f"Size of np.float32: {np.float32().itemsize} bytes")
-print(f"Size of np.float64: {np.float64().itemsize} bytes")
-# ---- 1D Array ----
+print("\n================ SIZE OF NUMPY DATA TYPES =================")
+print(f"Size of np.int32: {np.int32().itemsize} bytes")  # Output: 4 bytes
+print(f"Size of np.int64: {np.int64().itemsize} bytes")  # Output: 8 bytes
+print(f"Size of np.float32: {np.float32().itemsize} bytes")  # Output: 4 bytes
+print(f"Size of np.float64: {np.float64().itemsize} bytes")  # Output: 8 bytes
+
+# ---------------- 1D ARRAY ----------------
 arr1 = np.array([10, 20, 30, 40, 50])
+print("\n=== 1D ARRAY DETAILS ===")
+print("Array:", arr1)  # Output: [10 20 30 40 50]
+print("Type of elements (dtype):", arr1.dtype)  # Output: int64
+print("Number of elements (size):", arr1.size)  # Output: 5
+print("Memory address of first element (ctypes.data):", arr1.ctypes.data)  # Output: <address>
+print("Total bytes occupied (nbytes):", arr1.nbytes)  # Output: 40
 
-print("=== 1D ARRAY DETAILS ===")
-print("Array:", arr1)
-print("Type of elements (dtype):", arr1.dtype)
-print("Number of elements:", arr1.size)
-print("Base address:", arr1.ctypes.data)
-print("Bytes occupied:", arr1.nbytes)
-
-
-# ---- 2D Array ----
-arr2 = np.array([[1, 2, 3],
-                 [4, 5, 6]])
-
+# ---------------- 2D ARRAY ----------------
+arr2 = np.array([[1, 2, 3], [4, 5, 6]])
 print("\n=== 2D ARRAY DETAILS ===")
 print("Array:\n", arr2)
-print("Type of elements (dtype):", arr2.dtype)
-print("Number of elements:", arr2.size)
-print("Base address:", arr2.ctypes.data)
-print("Bytes occupied:", arr2.nbytes)
+# Output:
+# [[1 2 3]
+#  [4 5 6]]
+print("Type of elements:", arr2.dtype)  # Output: int64
+print("Number of elements:", arr2.size)  # Output: 6
+print("Base address:", arr2.ctypes.data)  # Output: <address>
+print("Bytes occupied:", arr2.nbytes)  # Output: 48
 
+# ---------------- 1D ARRAY OPERATIONS ----------------
+arr1_ops = np.array([25, 5, 40, 15, 10])
+print("\n=== 1D ARRAY OPERATIONS ===")
+print("Array:", arr1_ops)  # Output: [25  5 40 15 10]
+print("Sorted array (np.sort):", np.sort(arr1_ops))  # Output: [ 5 10 15 25 40]
+print("Maximum (np.max):", np.max(arr1_ops))  # Output: 40
+print("Minimum (np.min):", np.min(arr1_ops))  # Output: 5
+print("Sum of elements (np.sum):", np.sum(arr1_ops))  # Output: 95
+print("Mean of elements (np.mean):", np.mean(arr1_ops))  # Output: 19.0
 
-import numpy as np
-# ------------------ 1D ARRAY ------------------
-arr1 = np.array([25, 5, 40, 15, 10])
-
-print("=== 1D ARRAY OPERATIONS ===")
-print("Array:", arr1)
-
-print("Sorted:", np.sort(arr1))
-print("Maximum:", np.max(arr1))
-print("Minimum:", np.min(arr1))
-print("Sum:", np.sum(arr1))
-print("Mean:", np.mean(arr1))
-
-
-# ------------------ 2D ARRAY ------------------
-arr2 = np.array([[30, 20, 10],
-                 [40, 60, 50],
-                 [90, 80, 70]])
-
+# ---------------- 2D ARRAY OPERATIONS ----------------
+arr2_ops = np.array([[30, 20, 10],
+                     [40, 60, 50],
+                     [90, 80, 70]])
 print("\n=== 2D ARRAY OPERATIONS ===")
-print("Array:\n", arr2)
+print("Array:\n", arr2_ops)
+# Output:
+# [[30 20 10]
+#  [40 60 50]
+#  [90 80 70]]
+print("Row-wise sorted (np.sort with axis=1):\n", np.sort(arr2_ops, axis=1))
+# Output:
+# [[10 20 30]
+#  [40 50 60]
+#  [70 80 90]]
+print("Maximum:", np.max(arr2_ops))  # Output: 90
+print("Minimum:", np.min(arr2_ops))  # Output: 10
+print("Sum:", np.sum(arr2_ops))  # Output: 450
+print("Mean:", np.mean(arr2_ops))  # Output: 50.0
+print("Row-wise Max (axis=1):", np.max(arr2_ops, axis=1))  # Output: [30 60 90]
+print("Row-wise Min:", np.min(arr2_ops, axis=1))  # Output: [10 40 70]
+print("Row-wise Sum:", np.sum(arr2_ops, axis=1))  # Output: [60 150 240]
+print("Row-wise Mean:", np.mean(arr2_ops, axis=1))  # Output: [20. 50. 80.]
+print("Column-wise Max (axis=0):", np.max(arr2_ops, axis=0))  # Output: [90 80 70]
+print("Column-wise Min:", np.min(arr2_ops, axis=0))  # Output: [30 20 10]
+print("Column-wise Sum:", np.sum(arr2_ops, axis=0))  # Output: [160 160 130]
+print("Column-wise Mean:", np.mean(arr2_ops, axis=0))  # Output: [53.33333333 53.33333333 43.33333333]
 
-# Sorting (note: sorted row-wise)
-print("Sorted (row-wise):\n", np.sort(arr2))
-print("Maximum:", np.max(arr2))
-print("Minimum:", np.min(arr2))
-print("Sum:", np.sum(arr2))
-print("Mean:", np.mean(arr2))
+# ---------------- ARRAY DIMENSIONS, SHAPE, TRANSPOSE ----------------
+arr_dim = np.array([[10, 20, 30],
+                    [40, 50, 60]])
+print("\n=== ARRAY DIMENSIONS & TRANSPOSE ===")
+print("Original Array:\n", arr_dim)
+# Output:
+# [[10 20 30]
+#  [40 50 60]]
+print("Dimensions (ndim):", arr_dim.ndim)  # Output: 2
+print("Shape (rows x cols):", arr_dim.shape)  # Output: (2, 3)
+print("Total elements (size):", arr_dim.size)  # Output: 6
+transpose_arr = arr_dim.T
+print("Transpose of array:\n", transpose_arr)
+# Output:
+# [[10 40]
+#  [20 50]
+#  [30 60]]
 
-# Row-wise operations.axis=1 is for row-wise
-print("\nRow-wise Max:", np.max(arr2, axis=1))
-print("Row-wise Min:", np.min(arr2, axis=1))
-print("Row-wise Sum:", np.sum(arr2, axis=1))
-print("Row-wise Mean:", np.mean(arr2, axis=1))
-
-# Column-wise operations.axis=0 is for column-wise
-print("\nColumn-wise Max:", np.max(arr2, axis=0))
-print("Column-wise Min:", np.min(arr2, axis=0))
-print("Column-wise Sum:", np.sum(arr2, axis=0))
-print("Column-wise Mean:", np.mean(arr2, axis=0))
-
-
-import numpy as np
-print("=== NUMPY ARRAY OPERATIONS ===\n")
-# -------- 1. Dimensions of a NumPy Array --------
-arr = np.array([[10, 20, 30],
-                [40, 50, 60]])
-
-print("Original Array:\n", arr)
-print("Dimensions of array:", arr.ndim)
-print("Shape of array:", arr.shape)   # rows, columns
-print("Size (total elements):", arr.size)
-
-# -------- 2. Transpose of a Matrix --------
-
-transpose_arr = arr.T
-print("\nTranspose of Matrix:\n", transpose_arr)
-
-# -------- 3. Matrix Multiplication with Compatibility Check --------
-
-A = np.array([[1, 2, 3],
-              [4, 5, 6]])
-
-B = np.array([[7, 8],
-              [9, 10],
-              [11, 12]])
-
+# ---------------- MATRIX MULTIPLICATION ----------------
+A = np.array([[1,2,3],[4,5,6]])
+B = np.array([[7,8],[9,10],[11,12]])
 print("\nMatrix A:\n", A)
-print("Shape of A:", A.shape)
-
-print("\nMatrix B:\n", B)
-print("Shape of B:", B.shape)
-
-# Compatibility check: columns(A) == rows(B)
+# Output:
+# [[1 2 3]
+#  [4 5 6]]
+print("Shape of A:", A.shape)  # Output: (2, 3)
+print("Matrix B:\n", B)
+# Output:
+# [[ 7  8]
+#  [ 9 10]
+#  [11 12]]
+print("Shape of B:", B.shape)  # Output: (3, 2)
 if A.shape[1] == B.shape[0]:
-    C = np.matmul(A, B)   # or A @ B
-    print("\nMatrices are compatible!")
+    C = np.matmul(A,B)  # this may also be used C = A @ B for Matrix multiplication
     print("Result of A x B:\n", C)
+    # Output:
+    # [[ 58  64]
+    #  [139 154]]
 else:
-    print("\nMatrices are NOT compatible for multiplication.")
-    print("Condition failed: Columns of A != Rows of B")
+    print("Matrices not compatible for multiplication")
 
+# ---------------- ARRAY CREATION AND INDEXING ----------------
+natural = np.arange(1,11)
+even = np.arange(2,21,2)
+arr_idx = np.array([5,10,15,20,25,30])
+print("\nFirst 10 natural numbers:", natural)  # Output: [ 1  2  3  4  5  6  7  8  9 10]
+print("First 10 even numbers:", even)  # Output: [ 2  4  6  8 10 12 14 16 18 20]
+print("First element arr_idx[0]:", arr_idx[0])  # Output: 5
+print("Slice arr_idx[1:4]:", arr_idx[1:4])  # Output: [10 15 20]
+print("Last element arr_idx[-1]:", arr_idx[-1])  # Output: 30
 
-
-import numpy as np
-
-natural = np.arange(1, 11)
-print("First 10 natural numbers:", natural)
-
-even = np.arange(2, 21, 2)
-print("First 10 even numbers:", even)
-
-arr = np.array([5, 10, 15, 20, 25, 30])
-print(arr[0])        # first element
-print(arr[1:4])      # slice from index 1 to 3
-print(arr[-1])       # last element
-
-
-
-import numpy as np
-arr = np.arange(1, 13)   # 1 to 12
-print(arr)
-reshaped = arr.reshape(3, 4)
+# ---------------- RESHAPE & FLATTEN ----------------
+arr3 = np.arange(1,13)
+reshaped = arr3.reshape(3,4)
 flat = reshaped.flatten()
+print("\nOriginal 1D array:", arr3)  # Output: [ 1  2  3  4  5  6  7  8  9 10 11 12]
+print("Reshaped (3x4):\n", reshaped)
+# Output:
+# [[ 1  2  3  4]
+#  [ 5  6  7  8]
+#  [ 9 10 11 12]]
+print("Flattened:", flat)  # Output: [ 1  2  3  4  5  6  7  8  9 10 11 12]
+print("arr3[2:5] =", arr3[2:5])  # Output: [3 4 5]
+print("arr3[:-4] =", arr3[:-4])  # Output: [ 1  2  3  4  5  6  7  8]
 
-print("Reshaped:\n", reshaped)
-print("Flattened:", flat)
-print("arr[2:5]=",arr[2:5])
-print("arr[:-4]=",arr[:-4])
-
-
-
-import numpy as np
-
+# ---------------- FIRST 10 PRIME NUMBERS ----------------
 def is_prime(n):
+    """Check if n is prime"""
     if n < 2:
         return False
-    for i in range(2, int(np.sqrt(n)) + 1):
+    for i in range(2,int(np.sqrt(n))+1):
         if n % i == 0:
             return False
     return True
 
-# Collect first 10 primes
 primes = []
 num = 2
-while len(primes) < 10:
+while len(primes)<10:
     if is_prime(num):
         primes.append(num)
-    num += 1
-
+    num +=1
 primes = np.array(primes)
-print("First 10 prime numbers:", primes)
-
-
+print("\nFirst 10 prime numbers:", primes)  # Output: [ 2  3  5  7 11 13 17 19 23 29]
