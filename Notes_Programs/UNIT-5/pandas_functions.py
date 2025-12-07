@@ -1,3 +1,28 @@
+'''
+Pandas:
+Purpose: Used for data analysis, manipulation, and handling of tabular data (Series and DataFrames).
+
+Key Data Structures: 
+Series: 1D labeled array
+DataFrame: 2D labeled data table
+
+Important Functions:
+
+| Function                  | Description              | Example                        |
+| ------------------------- | ------------------------ | ------------------------------ |
+| `pd.Series()`             | Create a Series          | `pd.Series([1,2,3])`           |
+| `pd.DataFrame()`          | Create a DataFrame       | `pd.DataFrame({"A":[1,2]})`    |
+| `.head(n)`                | First n rows             | `df.head(2)`                   |
+| `.tail(n)`                | Last n rows              | `df.tail(2)`                   |
+| `.describe()`             | Summary statistics       | `df.describe()`                |
+| `.info()`                 | Structure, datatypes     | `df.info()`                    |
+| `.loc[]`                  | Label-based selection    | `df.loc[0]`                    |
+| `.iloc[]`                 | Position-based selection | `df.iloc[1]`                   |
+| `.drop()`                 | Remove columns/rows      | `df.drop("A", axis=1)`         |
+| `.rename()`               | Rename columns           | `df.rename(columns={"A":"X"})` |
+| `.sort_values()`          | Sort by column           | `df.sort_values("Marks")`      |
+| `.read_csv() / .to_csv()` | Read/write CSV files     | `pd.read_csv("file.csv")`      |
+'''
 # -------------------------------------------------------------
 # Program: Important pandas functions with explanations + OUTPUT
 # -------------------------------------------------------------
