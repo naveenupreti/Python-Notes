@@ -1,3 +1,21 @@
+'''
+Regex (re module)
+
+Purpose:
+Used for pattern matching, searching, and text manipulation.
+
+Important Functions:
+| Function        | Description                 | Example                                 |
+| --------------- | --------------------------- | --------------------------------------- |
+| `re.search()`   | Search first match anywhere | `re.search(r'\d+', 'abc123')`           |
+| `re.match()`    | Match from beginning        | `re.match(r'\d+', '123abc')`            |
+| `re.findall()`  | Return all matches          | `re.findall(r'\d+', '12 34')`           |
+| `re.finditer()` | Iterator over match objects | `for m in re.finditer(r'\d+', '12 34')` |
+| `re.sub()`      | Replace matched text        | `re.sub(r'\d', '#', 'a1b2')`            |
+| `re.split()`    | Split string using regex    | `re.split(r'\s+', 'Hello World')`       |
+| `re.compile()`  | Compile pattern for reuse   | `p = re.compile(r'\d+')`                |
+
+'''
 # -------------------------------------------------------------
 # Important regex functions with inline comments + OUTPUT
 # -------------------------------------------------------------
