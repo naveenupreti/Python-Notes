@@ -79,7 +79,8 @@
       { "path": "Notes_Programs/UNIT-5/numpy_demo.py" },
       { "path": "Notes_Programs/UNIT-5/pandas_demo.py"},
       { "path": "Notes_Programs/UNIT-5/pandas_loc_iloc.py"},
-      { "path": "Notes_Programs/UNIT-5/pandas_data_cleaning_merging.py"}
+      { "path": "Notes_Programs/UNIT-5/pandas_data_cleaning_merging.py"},
+      { "path": "Notes_Programs/UNIT-5/datetime_demo.py"}
     ]
   },
   "assignments": [
