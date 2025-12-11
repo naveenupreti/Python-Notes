@@ -85,7 +85,8 @@
   },
   "assignments": [
     { "path": "Assignments/MCA_3rd_Sem_BMC301_351_Python_Assignments.pdf" },
-    { "path": "Assignments/PythonLabAssignments_BMC351.pdf"}
+    { "path": "Assignments/PythonLabAssignments_BMC351.pdf"},
+    { "path": "Assignments/FrontPageBMC351PracticalFile.pdf"}
   ],
   "ebooks": [
     { "path": "ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" },
