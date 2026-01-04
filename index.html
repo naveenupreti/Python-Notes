@@ -335,15 +335,15 @@
   });
   
   async function loadData(force = false) {
-    if (force) localStorage.removeItem("cNotesData");
-    let data = localStorage.getItem("cNotesData");
+    if (force) localStorage.removeItem("pythonNotesData");
+    let data = localStorage.getItem("pythonNotesData");
     if (data) data = JSON.parse(data);
     else {
       try {
         const res = await fetch(rawBase + "data.json" + getCacheBuster(), { cache: "no-store" });
         if (!res.ok) throw new Error("Failed to fetch data.json");
         data = await res.json();
-        try { localStorage.setItem("cNotesData", JSON.stringify(data)); } catch (e) {}
+        try { localStorage.setItem("pythonNotesData", JSON.stringify(data)); } catch (e) {}
       } catch (err) {
         alert("Error loading data: " + err.message);
         return;
