@@ -1,113 +1,587 @@
 {
   "syllabus": [
-    { "path": "Syllabus/MCA 2nd Year Syllabus 2025-26.pdf" },
-    { "path": "Syllabus/BMC301_351_Python_Programming_Syllabus_MCA_3rd_Sem.pdf" },
-    { "path": "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.docx", "hidden": true }
+    {
+      "path": "Syllabus/MCA 2nd Year Syllabus 2025-26.pdf"
+    },
+    {
+      "path": "Syllabus/BMC301_351_Python_Programming_Syllabus_MCA_3rd_Sem.pdf"
+    },
+    {
+      "path": "Syllabus/Python_Programming_Syllabus_MCA_3rd_Sem.docx",
+      "hidden": true
+    }
   ],
   "notes_programs": {
     "UNIT-1": [
-      { "path": "Notes_Programs/UNIT-1/LUP_Chapter1_Introduction.pdf" },
-      { "path": "Notes_Programs/UNIT-1/LUP_Chapter2_Installation.pdf" },
-      { "path": "Notes_Programs/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf" },
-      { "path": "Notes_Programs/UNIT-1/LUP_Chapter5_ControlStatements.pdf" },
-      { "path": "Notes_Programs/UNIT-1/LUP_Chapter6_Loops.pdf" },
-      { "path": "Notes_Programs/UNIT-1/LUP_Chapter7_ConsoleIO.pdf" },
-      { "path": "Notes_Programs/UNIT-1/LUP_PrecedenceTable.pdf" },
-      { "path": "Notes_Programs/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf" },
-      { "path": "Notes_Programs/UNIT-1/BasicStructure.py" },
-      { "path": "Notes_Programs/UNIT-1/control_statements.py" },
-      { "path": "Notes_Programs/UNIT-1/datatypes_python.py" },
-      { "path": "Notes_Programs/UNIT-1/file1.py" },
-      { "path": "Notes_Programs/UNIT-1/file2.py" },
-      { "path": "Notes_Programs/UNIT-1/operators_demo_with_output.py" },
-      { "path": "Notes_Programs/UNIT-1/precedence_associativity.py" },
-      { "path": "Notes_Programs/UNIT-1/print_formatting.py" },
-      { "path": "Notes_Programs/UNIT-1/short_circuit_operators.py" },
-      { "path": "Notes_Programs/UNIT-1/use_of_main.py" },
-      { "path": "Notes_Programs/UNIT-1/variables.py" },
-      { "path": "Notes_Programs/UNIT-1/test.py", "hidden": true }
+      {
+        "path": "Notes_Programs/UNIT-1/LUP_Chapter1_Introduction.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/LUP_Chapter2_Installation.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/LUP_Chapter3_DataTypesOperatos.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/LUP_Chapter5_ControlStatements.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/LUP_Chapter6_Loops.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/LUP_Chapter7_ConsoleIO.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/LUP_PrecedenceTable.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/Python_History_Features_Distros_CodingStandards-PEP8.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/BasicStructure.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/control_statements.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/datatypes_python.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/file1.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/file2.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/operators_demo_with_output.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/precedence_associativity.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/print_formatting.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/short_circuit_operators.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/use_of_main.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/variables.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/test.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/console_io_examples.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/console_io_exercises.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/print.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/int_bin_oct_hex.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-1/multiplication_table.py",
+        "hidden": true
+      }
     ],
     "UNIT-2": [
-      { "path": "Notes_Programs/UNIT-2/LUP_Chapter10_Sets.pdf" },
-      { "path": "Notes_Programs/UNIT-2/LUP_Chapter4_Strings.pdf" },
-      { "path": "Notes_Programs/UNIT-2/LUP_Chapter8_Lists.pdf" },
-      { "path": "Notes_Programs/UNIT-2/LUP_Chapter9_Tuples.pdf" },
-      { "path": "Notes_Programs/UNIT-2/String_python.py" },
-      { "path": "Notes_Programs/UNIT-2/string_alignment.py" },
-      { "path": "Notes_Programs/UNIT-2/string_palindrome.py" },
-      { "path": "Notes_Programs/UNIT-2/strings_lup.py", "hidden": true }
+      {
+        "path": "Notes_Programs/UNIT-2/LUP_Chapter10_Sets.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/LUP_Chapter4_Strings.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/LUP_Chapter8_Lists.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/LUP_Chapter9_Tuples.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/String_python.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/string_alignment.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/string_palindrome.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/strings_lup.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/strings_immutable.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/print_name_initials.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/packing_unpacking.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/strings_chapter_lup.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/paragraph_input.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/print_alphabets_digits.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-2/tuple_duplicates.py",
+        "hidden": true
+      }
     ],
     "UNIT-3": [
-      { "path": "Notes_Programs/UNIT-3/LUP_Chapter11_Dictionaries.pdf" },
-      { "path": "Notes_Programs/UNIT-3/LUP_Chapter13_Functions.pdf" },
-      { "path": "Notes_Programs/UNIT-3/LUP_Chapter14_Recursion.pdf" },
-      { "path": "Notes_Programs/UNIT-3/lists_lup.py" },
-      { "path": "Notes_Programs/UNIT-3/tuples_lup.py", "hidden": true },
-      { "path": "Notes_Programs/UNIT-3/dictionary_lup.py" },
-      { "path": "Notes_Programs/UNIT-3/scope_variable.py" },
-      { "path": "Notes_Programs/UNIT-3/scope_LEGB.py" },
-      { "path": "Notes_Programs/UNIT-3/scope_LEGB1.py" },
-      { "path": "Notes_Programs/UNIT-3/recursion_types.py" },
-      { "path": "Notes_Programs/UNIT-3/recursion_even_odd.py" }
+      {
+        "path": "Notes_Programs/UNIT-3/LUP_Chapter11_Dictionaries.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/LUP_Chapter13_Functions.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/LUP_Chapter14_Recursion.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/lists_lup.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/tuples_lup.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/dictionary_lup.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/scope_variable.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/scope_LEGB.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/scope_LEGB1.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/recursion_types.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/recursion_even_odd.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/tuple_operations.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/globals_locals.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/chapter11_sectionB_exercises.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/Recursion.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/chapter11_dictionaries_full.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/matrix_addition.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/dictionary_sorting.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/fibonacci_iteration.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/Scope_LEGB1.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/dictionary_operations.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/chapter11_sectionC_objective.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/matrix_transpose.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/list_operations.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/list_comprehension.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/lup_chapter_13_functions_converted.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-3/sort_sorted_reverse_reversed.py",
+        "hidden": true
+      }
     ],
     "UNIT-4": [
-      { "path": "Notes_Programs/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf" },
-      { "path": "Notes_Programs/UNIT-4/LUP_Chapter23_FileHandling.pdf" },
-      { "path": "Notes_Programs/UNIT-4/test.py" },
-      { "path": "Notes_Programs/UNIT-4/random_module_demo.py" },
-      { "path": "Notes_Programs/UNIT-4/random_excluding_a_range.py" },
-      { "path": "Notes_Programs/UNIT-4/random_deck_of_cards_generator.py"},
-      { "path": "Notes_Programs/UNIT-4/random_password_generator_user_choice.py" },
-      { "path": "Notes_Programs/UNIT-4/file_handling.py" },
-      { "path": "Notes_Programs/UNIT-4/file_modes_all.py" },
-      { "path": "Notes_Programs/UNIT-4/file_read_write_rename_delete.py" },
-      { "path": "Notes_Programs/UNIT-4/file_non_string_data_binary.py", "hidden": true},
-      { "path": "Notes_Programs/UNIT-4/file_non_string_read_write.py"},
-      { "path": "Notes_Programs/UNIT-4/file_pickle_all_datatypes.py"},
-      { "path": "Notes_Programs/UNIT-4/file_copy_binary.py" },
-      { "path": "Notes_Programs/UNIT-4/file_copy_binary_cla.py" },
-      { "path": "Notes_Programs/UNIT-4/file_type_copy.py", "hidden": true},
-      { "path": "Notes_Programs/UNIT-4/file_type_copy1.py", "hidden": true},
-      { "path": "Notes_Programs/UNIT-4/file_handling_text_json_csv.py" },
-      { "path": "Notes_Programs/UNIT-4/imports.py" },
-      { "path": "Notes_Programs/UNIT-4/modules.py" }
-  
+      {
+        "path": "Notes_Programs/UNIT-4/LUP_Chapter16_ModulesAndPackages.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/LUP_Chapter23_FileHandling.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/test.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/random_module_demo.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/random_excluding_a_range.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/random_deck_of_cards_generator.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/random_password_generator_user_choice.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_handling.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_modes_all.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_read_write_rename_delete.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_non_string_data_binary.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_non_string_read_write.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_pickle_all_datatypes.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_copy_binary.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_copy_binary_cla.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_type_copy.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_type_copy1.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/file_handling_text_json_csv.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/imports.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/modules.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/random_password_generator.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/module_packages.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/LUP_Chapter23_FileHandling.pdf.pdf",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-4/floats_python.py",
+        "hidden": true
+      }
     ],
     "UNIT-5": [
-      { "path": "Notes_Programs/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf" },
-      { "path": "Notes_Programs/UNIT-5/exception_handling.py" },
-      { "path": "Notes_Programs/UNIT-5/numpy_demo.py" },
-      { "path": "Notes_Programs/UNIT-5/pandas_demo.py"},
-      { "path": "Notes_Programs/UNIT-5/pandas_loc_iloc.py"},
-      { "path": "Notes_Programs/UNIT-5/pandas_data_cleaning_merging.py"},
-      { "path": "Notes_Programs/UNIT-5/datetime_demo.py"}
+      {
+        "path": "Notes_Programs/UNIT-5/LUP_Chapter22_ExceptionHandling.pdf"
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/exception_handling.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/numpy_demo.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/pandas_demo.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/pandas_loc_iloc.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/pandas_data_cleaning_merging.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/datetime_demo.py"
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/test.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/pandas_functions.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/sys_functions.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/math_functions.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/scipy_functions.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/string_functions.py",
+        "hidden": true
+      },
+      {
+        "path": "Notes_Programs/UNIT-5/regex_functions.py",
+        "hidden": true
+      }
     ]
   },
   "assignments": [
-    { "path": "Assignments/MCA_3rd_Sem_BMC301_351_Python_Assignments.pdf" },
-    { "path": "Assignments/PythonLabAssignments_BMC351.pdf"},
-    { "path": "Assignments/FrontPageBMC351PracticalFile.pdf"}
+    {
+      "path": "Assignments/MCA_3rd_Sem_BMC301_351_Python_Assignments.pdf"
+    },
+    {
+      "path": "Assignments/PythonLabAssignments_BMC351.pdf"
+    },
+    {
+      "path": "Assignments/FrontPageBMC351PracticalFile.pdf"
+    },
+    {
+      "path": "Assignments/FrontPageBMC351PracticalFile.docx",
+      "hidden": true
+    },
+    {
+      "path": "Assignments/MCA_3rd_Sem_BMC301_351_Python_Assignments.docx",
+      "hidden": true
+    }
   ],
   "ebooks": [
-    { "path": "ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf" },
-    { "path": "ebooks/LUP_Chapter12_Comprehensions.pdf" },
-    { "path": "ebooks/LUP_Chapter15_FunctionalProgramming.pdf" },
-    { "path": "ebooks/LUP_ChasingTheBugs.pdf" },
-    { "path": "ebooks/LUP_DebuggingInPython.pdf" },
-    { "path": "ebooks/LUP_PrecedenceTable.pdf" },
-    { "path": "ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf" },
-    { "path": "ebooks/Let Us Python by Yashavant Kanetkar Aditya Kanetkar_compressed.pdf" },
-    { "path": "ebooks/PythonTutorial_by_Guido van Rossum.pdf" },
-    { "path": "ebooks/PythonTutorial_tutorialspoint.com.pdf" }
+    {
+      "path": "ebooks/HowToThinkLikeComputerScientistUsingPython3.pdf"
+    },
+    {
+      "path": "ebooks/LUP_Chapter12_Comprehensions.pdf"
+    },
+    {
+      "path": "ebooks/LUP_Chapter15_FunctionalProgramming.pdf"
+    },
+    {
+      "path": "ebooks/LUP_ChasingTheBugs.pdf"
+    },
+    {
+      "path": "ebooks/LUP_DebuggingInPython.pdf"
+    },
+    {
+      "path": "ebooks/LUP_PrecedenceTable.pdf"
+    },
+    {
+      "path": "ebooks/Let-Us-Python-by-yashavant-kanetkar-pdfcoffee.com.pdf"
+    },
+    {
+      "path": "ebooks/Let Us Python by Yashavant Kanetkar Aditya Kanetkar_compressed.pdf"
+    },
+    {
+      "path": "ebooks/PythonTutorial_by_Guido van Rossum.pdf"
+    },
+    {
+      "path": "ebooks/PythonTutorial_tutorialspoint.com.pdf"
+    },
+    {
+      "path": "ebooks/LUP_Intricacies_of_Classes_and_Objects.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/LUP_Containership_and_Inheritance.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/LUP_Iterators_and_Generators.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/Data_Structures_and_Algorithms_in_Python.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/LUP_Concurrency_and_Parallelism.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/LUP_Synchronization.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/Scope_LEGB.py",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/LUP_Miscellany.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/LUP_Namespaces.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ebooks/LUP_Classes_and_Objects.pdf",
+      "hidden": true
+    }
   ],
   "exampapers": [
-    { "path": "ExamPapers/Sessional_1_PaperFormat_BMC301.pdf" },
-    { "path": "ExamPapers/Sessional_2_PaperFormat_BMC301.pdf" },
-    { "path": "ExamPapers/Sessional_3_PaperFormat_BMC301.pdf" },
-    { "path": "ExamPapers/BCC302-PYTHON-PROGRAMMING-23-24.pdf" },
-    { "path": "ExamPapers/PYTHON-PROGRAMMING-KNC-302-1-2020.pdf" },
-    { "path": "ExamPapers/PYTHON-PROGRAMMING-KNC-302-2019.pdf" },
-    { "path": "ExamPapers/PYTHON-PROGRAMMING-KNC402-2021.pdf" },
-    { "path": "ExamPapers/python-programming-knc-402-2022.pdf" }
+    {
+      "path": "ExamPapers/Sessional_1_PaperFormat_BMC301.pdf"
+    },
+    {
+      "path": "ExamPapers/Sessional_2_PaperFormat_BMC301.pdf"
+    },
+    {
+      "path": "ExamPapers/Sessional_3_PaperFormat_BMC301.pdf"
+    },
+    {
+      "path": "ExamPapers/BCC302-PYTHON-PROGRAMMING-23-24.pdf"
+    },
+    {
+      "path": "ExamPapers/PYTHON-PROGRAMMING-KNC-302-1-2020.pdf"
+    },
+    {
+      "path": "ExamPapers/PYTHON-PROGRAMMING-KNC-302-2019.pdf"
+    },
+    {
+      "path": "ExamPapers/PYTHON-PROGRAMMING-KNC402-2021.pdf"
+    },
+    {
+      "path": "ExamPapers/python-programming-knc-402-2022.pdf"
+    },
+    {
+      "path": "ExamPapers/PythonProgrammingNBCA304.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054112018.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054052018.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054102019.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054092021.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/137GD122019.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/PythonProgramming_BMC351_2025.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/Session_2_PaperFormat_BMC301.docx",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/Sessional_1_BMC301.docx",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054112017.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054032022.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/Sessional_3_PaperFormat_BMC301.docx",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/Sessional_2_Paper_BMC301.docx",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054062022.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/Sessional_1_PaperFormat_BMC301.docx",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054112020.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054112019.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054032021.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054042019.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054092017.pdf",
+      "hidden": true
+    },
+    {
+      "path": "ExamPapers/R1621054012023.pdf",
+      "hidden": true
+    }
   ]
 }
