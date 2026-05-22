@@ -5,7 +5,7 @@ Welcome!
 This repository contains **syllabus, lecture notes, example programs, and assignments** for MCA students.  
 All resources are also available online via the following **GitHub site Page**  
 
-**https://naveenupreti.github.io/Python-Notes/**
+**https://naveenupreti.github.io/Python/**
 
 ##  Syllabus (short)
 1. **Unit 1:** Python Basics- Syntax, Variables, Operators, Coding Standards, Control Structures  
